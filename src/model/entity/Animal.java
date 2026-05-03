@@ -28,4 +28,16 @@ public class Animal {
     this.animalAtivo = true;
   }
 
+  public void  desativarAnimal(){
+    this.animalAtivo = false;
+  }
+  public void  ativarAnimal(){
+    this.animalAtivo = true;
+  }
+
+  public void atribuirTutor(Tutor tutor){
+    this.tutor = tutor;
+  }
+
+
 }

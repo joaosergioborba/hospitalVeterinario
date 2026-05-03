@@ -2,17 +2,24 @@ package model.entity;
 
 import java.sql.Date;
 
-public class Vacina {
-  private int id;
-  private Produto produto;
-  private Funcionario funcionario;
-  private Animal animal;
+import model.enums.TipoProduto;
+
+public class Vacina extends RegistroClinico {
+  private String dose;
   private Date data;
 
-  public Vacina(Produto produto, Funcionario funcionario, Animal animal, Date data){
-    this.produto = produto;
-    this.funcionario = funcionario;
-    this.animal = animal;
+  public Vacina( Funcionario veterinario, Animal animal, Date data, Produto produto, String dose){
+    
+    super(veterinario, animal, produto);
     this.data = data;
+    this.dose = dose;
   }
+
+  public void alterarDose (String novaDose) {
+    this.dose = novaDose;
+  }
+
 }
+
+
+ 
