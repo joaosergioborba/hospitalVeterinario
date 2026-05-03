@@ -6,12 +6,10 @@ import model.enums.TipoProduto;
 
 public class Vacina extends RegistroClinico {
   private String dose;
-  private Date data;
 
   public Vacina( Funcionario veterinario, Animal animal, Date data, Produto produto, String dose){
     
-    super(veterinario, animal, produto);
-    this.data = data;
+    super(veterinario, animal, produto, data);
     this.dose = dose;
   }
 
