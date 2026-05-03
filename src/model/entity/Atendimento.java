@@ -64,4 +64,7 @@ public class Atendimento {
     this.procedimentos.add(registro);
   }
 
+  public void exportarProntuario(){
+    //nao sei como retornar o list do array /
+  }
 }
