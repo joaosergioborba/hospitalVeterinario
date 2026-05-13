@@ -1,6 +1,6 @@
-## Getting Started
+## Projeto POO - Hospital veterinário 
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Estamos desenvolvendo um sistema de gestão para um hospital veterinario
 
 ## Folder Structure
 
