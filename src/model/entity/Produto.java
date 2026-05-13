@@ -13,4 +13,6 @@ public class Produto {
     this.valor = valor;
     this.tipoProduto = tipoProduto;
   }
+
+  //vamo ter que ver como salvar um dado em um arquivo persistente, um json talvez ou csv
 }
