@@ -1,55 +1,63 @@
 package model.entity;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.Period;
+
 public class Pessoa {
+  private int id;
+  private String cpf;
+  private String nome;
+  private Date dataNascimento;
+  protected String endereco;
+  protected boolean pessoaAtiva;
 
-    private int id;
-    private String cpf;
-    private String nome;
-    private int idade;
-    private String endereco;
+  public Pessoa(String cpf, String nome, Date dataNascimento, String endereco){
+    this.cpf = cpf;
+    this.nome = nome;
+    this.dataNascimento = dataNascimento;
+    this.endereco = endereco;
+    this.pessoaAtiva = true;
+  }
 
-  
-    public Pessoa(String cpf, String nome, int idade, String endereco){
-        this.cpf = cpf;
-        this.nome = nome;
-        this.setIdade(idade); 
-        this.endereco = endereco;
-    }
-    public int getId() {
-        return id;
-    }
+  public void desativarPessoa(){
+    this.pessoaAtiva = false;
+  }
+  public void ativarPessoa(){
+    this.pessoaAtiva = true;
+  }
 
-    public String getCpf() {
-        return cpf;
-    }
+  public int getId(){
+    return id;
+  }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+  public String getCpf(){
+    return cpf;
+  }
 
-    public String getNome() {
-        return nome;
-    }
+  public void setCpf(String cpf){
+    this.cpf = cpf;
+  }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+  public String getNome(){
+    return nome;
+  }
+  public void setNome(String nome){
+    this.nome = nome;
+  }
+  public int getIdade(){
 
-    public int getIdade() {
-        return idade;
-    }
+    LocalDate hoje = LocalDate.now();
+    LocalDate nascimento = dataNascimento.toLocalDate();
+    return Period.between(nascimento, hoje).getYears();
 
-    public void setIdade(int idade) {
-        if (idade >= 0) { 
-            this.idade = idade;
-        }
-    }
+  }
 
-    public String getEndereco() {
-        return endereco;
-    }
+  public String getEndereco(){
+    return endereco;
+  }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
+  public void setEndereco(String endereco){
+    this.endereco = endereco;
+  }
 }

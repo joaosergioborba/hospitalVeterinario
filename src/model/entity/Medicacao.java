@@ -2,54 +2,22 @@ package model.entity;
 
 import java.sql.Date;
 
-public class Medicacao {
- 
-    private int id;
-    private Produto produto;
-    private Funcionario funcionario;
-    private Animal animal;
-    private Date data;
+public class Medicacao extends RegistroClinico{
 
-    public Medicacao(Produto produto, Funcionario funcionario, Animal animal, Date data){
-        this.produto = produto;
-        this.funcionario = funcionario;
-        this.animal = animal;
-        this.data = data;
-    }
+    private String dose;
 
-    public int getId() {
-        return id;
-    }
+  public Medicacao(Produto produto, Funcionario veterinario, Animal animal, Date data, String dose){
+    super(veterinario, animal, produto, data);
 
-    public Produto getProduto() {
-        return produto;
-    }
+    this.dose = dose;
+  }
 
-    public void setProduto(Produto produto) {
-        this.produto = produto;
-    }
+  public String getDose(){
+    return dose;
+  }
 
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
-
-    public Animal getAnimal() {
-        return animal;
-    }
-
-    public void setAnimal(Animal animal) {
-        this.animal = animal;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
+  public void setDose(String dose){
+    this.dose = dose;
+  }
+    
 }

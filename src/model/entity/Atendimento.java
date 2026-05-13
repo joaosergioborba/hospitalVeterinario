@@ -1,34 +1,74 @@
 package model.entity;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
 import model.enums.StatusAtendimento;
 
 public class Atendimento {
-   
-    private int id;
-    private Animal animal;
-    private Funcionario veterinario;
-    private Date data;
-    private String observacoes;
-    private Exame exame;
-    private Medicacao medicacao;
-    private Vacina vacina;
-    private Produto produto;
-    private StatusAtendimento status;
+  private int id;
+  private Animal animal;
+  private Funcionario veterinario;
+  private Date data;
+  private String observacoes;
+  private Exame exame;
+  private Medicacao medicacao;
+  private Vacina vacina;
+  private Produto produto;
+  private StatusAtendimento status;
+  protected List<RegistroClinico> procedimentos; //precisamos atualizar o uml
 
-   
-    public Atendimento(Animal animal, Funcionario veterinario, Date data, String observacoes, Exame exame, Medicacao medicacao, Vacina vacina, Produto produto) {
-        this.animal = animal;
-        this.veterinario = veterinario;
-        this.data = data;
-        this.observacoes = observacoes;
-        this.exame = exame;
-        this.medicacao = medicacao;
-        this.vacina = vacina;
-        this.produto = produto;
-        this.status = StatusAtendimento.AGENDADO;
-    }
+  //to usando protected em alguns pq isso permite que os filhos tbm acesse diretamente essa tag
 
+  public Atendimento(Animal animal, Date data, String observacoes, Funcionario veterinario ) {
+    this.animal = animal;
+    this.data = data;
+    this.veterinario = veterinario;
+    this.observacoes = observacoes;
+    this.status = StatusAtendimento.AGENDADO;
+    this.procedimentos = new ArrayList<>();
+  }
+
+   public void atribuirVeterinario(Funcionario veterinario){
+    this.veterinario = veterinario;
+  }
+
+  public void atrubuirAnimal(Animal animal){
+    this.animal = animal;
+  }
+
+  public void atribuirMedicacao(Medicacao medicacao){
+    this.medicacao = medicacao;
+  }
+  public void atribuirExame(Exame exame){
+    this.exame = exame;
+  }
+  public void atribuirVacina(Vacina vacina){
+    this.vacina = vacina;
+  }
+  
+  public void cancelarAtendimento(){
+    this.status = StatusAtendimento.CANCELADO;
+  }
+  public void recepcaoParaAtendimento(){
+    this.status = StatusAtendimento.ESPERA;
+  }
+  public void iniciarAtendimento(){
+    this.status = StatusAtendimento.EM_ATENDIMENTO;
+  }
+  public void finalizarAtendimento(){
+    this.status = StatusAtendimento.FINALIZADO;
+  }
+
+  public void adicionarProcedimento(RegistroClinico registro){
+    this.procedimentos.add(registro);
+  }
+
+  public void exportarProntuario(){
+    //nao sei como retornar o list do array /
+  }
+   
     public int getId() {
         return id;
     }
@@ -63,38 +103,6 @@ public class Atendimento {
 
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
-    }
-
-    public Exame getExame() {
-        return exame;
-    }
-
-    public void setExame(Exame exame) {
-        this.exame = exame;
-    }
-
-    public Medicacao getMedicacao() {
-        return medicacao;
-    }
-
-    public void setMedicacao(Medicacao medicacao) {
-        this.medicacao = medicacao;
-    }
-
-    public Vacina getVacina() {
-        return vacina;
-    }
-
-    public void setVacina(Vacina vacina) {
-        this.vacina = vacina;
-    }
-
-    public Produto getProduto() {
-        return produto;
-    }
-
-    public void setProduto(Produto produto) {
-        this.produto = produto;
     }
 
     public StatusAtendimento getStatus() {

@@ -2,37 +2,33 @@ package model.entity;
 
 import java.sql.Date;
 import model.enums.StatusExame;
+//coloquei a explicacao desse extends e do super em outras classes :)
+public class Exame extends RegistroClinico{
+  private String resultado;
+  private StatusExame status;
 
-public class Exame {
-    
-    private int id;
-    private Produto produto;
-    private String resultado;
-    private Funcionario veterinario;
-    private Animal animal;
-    private Date data;
-    private StatusExame status;
+  public Exame(Funcionario veterinario, Animal animal, Produto produto, Date data, String resultado) {
 
-    public Exame(Produto produto, String resultado, Funcionario veterinario, Animal animal, Date data) {
-        this.produto = produto;
-        this.resultado = resultado;
-        this.veterinario = veterinario;
-        this.animal = animal;
-        this.data = data;
-        this.status = StatusExame.AGENDADO;
-    }
+    super(veterinario, animal, produto, data);
+    this.resultado = "Aguardando resultado...";
+    this.status = StatusExame.AGENDADO;
+  }
 
-    public int getId() {
-        return id;
-    }
+  public void checkInAnimal () {
+    this.status = StatusExame.EM_ESPERA;
+  }
+  public void iniciarColeta(){
+    this.status = StatusExame.EM_COLETA;
+  }
+  public void enviarColetaParaAnalise(){
+    this.status = StatusExame.EM_ANALISE;
+  }
+  public void enviarResultado(){
+    this.status = StatusExame.FINALIZADO;
+    this.resultado = "O Exame indica infecção ...";
+    //acho uma boa colocar uma aplicacao para enviar email para o tutor
+  }
 
-    public Produto getProduto() {
-        return produto;
-    }
-
-    public void setProduto(Produto produto) {
-        this.produto = produto;
-    }
 
     public String getResultado() {
         return resultado;
@@ -40,30 +36,6 @@ public class Exame {
 
     public void setResultado(String resultado) {
         this.resultado = resultado;
-    }
-
-    public Funcionario getVeterinario() {
-        return veterinario;
-    }
-
-    public void setVeterinario(Funcionario veterinario) {
-        this.veterinario = veterinario;
-    }
-
-    public Animal getAnimal() {
-        return animal;
-    }
-
-    public void setAnimal(Animal animal) {
-        this.animal = animal;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
     }
 
     public StatusExame getStatus() {
