@@ -1,6 +1,8 @@
 package model.entity;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.Period;
 
 public class Pessoa {
   private int id;
@@ -21,12 +23,41 @@ public class Pessoa {
   public void desativarPessoa(){
     this.pessoaAtiva = false;
   }
-
-  public void alterarEndereco(String enderecoNovo){
-    this.endereco = enderecoNovo;
+  public void ativarPessoa(){
+    this.pessoaAtiva = true;
   }
 
-  public void buscarDados(){
-    // nao sei como fazer o return  ainda :(
+  public int getId(){
+    return id;
+  }
+
+  public String getCpf(){
+    return cpf;
+  }
+
+  public void setCpf(String cpf){
+    this.cpf = cpf;
+  }
+
+  public String getNome(){
+    return nome;
+  }
+  public void setNome(String nome){
+    this.nome = nome;
+  }
+  public int getIdade(){
+
+    LocalDate hoje = LocalDate.now();
+    LocalDate nascimento = dataNascimento.toLocalDate();
+    return Period.between(nascimento, hoje).getYears();
+
+  }
+
+  public String getEndereco(){
+    return endereco;
+  }
+
+  public void setEndereco(String endereco){
+    this.endereco = endereco;
   }
 }

@@ -21,15 +21,16 @@ public class Atendimento {
 
   //to usando protected em alguns pq isso permite que os filhos tbm acesse diretamente essa tag
 
-  public Atendimento(Animal animal, Date data, String observacoes) {
+  public Atendimento(Animal animal, Date data, String observacoes, Funcionario veterinario ) {
     this.animal = animal;
     this.data = data;
+    this.veterinario = veterinario;
     this.observacoes = observacoes;
     this.status = StatusAtendimento.AGENDADO;
     this.procedimentos = new ArrayList<>();
   }
 
-  public void atribuirVeterinario(Funcionario veterinario){
+   public void atribuirVeterinario(Funcionario veterinario){
     this.veterinario = veterinario;
   }
 
@@ -67,4 +68,48 @@ public class Atendimento {
   public void exportarProntuario(){
     //nao sei como retornar o list do array /
   }
+   
+    public int getId() {
+        return id;
+    }
+    
+    public Animal getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(Animal animal) {
+        this.animal = animal;
+    }
+
+    public Funcionario getVeterinario() {
+        return veterinario;
+    }
+
+    public void setVeterinario(Funcionario veterinario) {
+        this.veterinario = veterinario;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public String getObservacoes() {
+        return observacoes;
+    }
+
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
+    }
+
+    public StatusAtendimento getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusAtendimento status) {
+        this.status = status;
+    }
 }

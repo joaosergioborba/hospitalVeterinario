@@ -13,9 +13,13 @@ public class Vacina extends RegistroClinico {
     this.dose = dose;
   }
 
-  public void alterarDose (String novaDose) {
-    this.dose = novaDose;
+  public String getDose(){
+    return this.dose;
   }
+  public void setDose(String novaDose) {
+     this.dose = novaDose;
+  }
+  
 
 }
 

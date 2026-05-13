@@ -28,16 +28,82 @@ public class Animal {
     this.animalAtivo = true;
   }
 
-  public void  desativarAnimal(){
-    this.animalAtivo = false;
-  }
-  public void  ativarAnimal(){
-    this.animalAtivo = true;
-  }
 
-  public void atribuirTutor(Tutor tutor){
-    this.tutor = tutor;
-  }
+    public int getId() {
+        return id;
+    }
 
+    public String getNome() {
+        return nome;
+    }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        if (idade >= 0) { 
+            this.idade = idade;
+        }
+    }
+
+    public String getRaca() {
+        return raca;
+    }
+
+    public void setRaca(String raca) {
+        this.raca = raca;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public TamanhoPelo getPelagemTamanho() {
+        return pelagemTamanho;
+    }
+
+    public void setPelagemTamanho(TamanhoPelo pelagemTamanho) {
+        this.pelagemTamanho = pelagemTamanho;
+    }
+
+    public String getPelagemCor() {
+        return pelagemCor;
+    }
+
+    public void setPelagemCor(String pelagemCor) {
+        this.pelagemCor = pelagemCor;
+    }
+
+    public PorteAnimal getPorteAnimal() {
+        return porteAnimal;
+    }
+
+    public void setPorteAnimal(PorteAnimal porteAnimal) {
+        this.porteAnimal = porteAnimal;
+    }
+
+    public Tutor getTutor() {
+        return tutor;
+    }
+
+    public void setTutor(Tutor tutor) {
+        this.tutor = tutor;
+    }
+
+    public boolean isAnimalAtivo() {
+        return animalAtivo;
+    }
+
+    public void setAnimalAtivo(boolean animalAtivo) {
+        this.animalAtivo = animalAtivo;
+    }
 }

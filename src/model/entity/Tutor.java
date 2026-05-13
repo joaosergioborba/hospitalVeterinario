@@ -20,10 +20,18 @@ public class Tutor extends Pessoa {
   public void desativarTutor(){
     tutorAtivo = false;
   }
+  public void ativarTutor(){
+    tutorAtivo = true;
+  }
 
   public void adicionarAtendimento (Atendimento atendimento){
     this.atendimentos.add(atendimento);
   }
+
+  public Pessoa getPessoa() {
+    return this;
+  }
+
 
 
 }

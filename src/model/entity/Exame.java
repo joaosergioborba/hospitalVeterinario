@@ -1,7 +1,6 @@
 package model.entity;
 
 import java.sql.Date;
-
 import model.enums.StatusExame;
 //coloquei a explicacao desse extends e do super em outras classes :)
 public class Exame extends RegistroClinico{
@@ -29,4 +28,21 @@ public class Exame extends RegistroClinico{
     this.resultado = "O Exame indica infecção ...";
     //acho uma boa colocar uma aplicacao para enviar email para o tutor
   }
+
+
+    public String getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(String resultado) {
+        this.resultado = resultado;
+    }
+
+    public StatusExame getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusExame status) {
+        this.status = status;
+    }
 }

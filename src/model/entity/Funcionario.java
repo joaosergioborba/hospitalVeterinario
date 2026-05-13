@@ -19,10 +19,36 @@ public class Funcionario extends Pessoa {
     this.funcionarioAtivo = true;
   }
 
-  public void desativarFuncionario(){
+  public void setDesativado(){
     funcionarioAtivo = false;
   }
 
+  public void setAtivado(){
+    funcionarioAtivo = true;
+  }
+
+
+    public Funcao getFuncao() {
+        return funcao;
+    }
+
+    public void setFuncao(Funcao funcao) {
+        this.funcao = funcao;
+    }
+
+    public String getEspecialidade() {
+        return especialidade;
+    }
+
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
+    }
+
+    public boolean isFuncionarioAtivo() {
+        return funcionarioAtivo;
+    }
+
+    
   
 }
 

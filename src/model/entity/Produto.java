@@ -15,4 +15,30 @@ public class Produto {
   }
 
   //vamo ter que ver como salvar um dado em um arquivo persistente, um json talvez ou csv
+
+  public int getId() {
+    return this.id;
+  }
+
+  public String getDescricao(){
+    return descricao;
+  }
+
+  public void setDescricao(String descricao){
+    this.descricao = descricao;
+  }
+  public float getValor() {
+    return valor;
+  }
+
+  public void setValor(float valor){
+    if(valor >= 0) {
+        this.valor = valor;
+    }
+
+    System.out.println("O valor deve ser maior ou igual a zero\n");
+
+  }
+
+  
 }
