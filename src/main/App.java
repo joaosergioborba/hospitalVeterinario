@@ -9,6 +9,8 @@ public class App {
         Pessoa p1 = new Pessoa("123.456.789-00", "Ana Oliveira", 20, "Cuiabá - MT");
         Tutor tutor1 = new Tutor(p1);
 
+        teste;
+
       
         Animal animal1 = new Animal(
             "Thor", 5, "Golden Retriever", "Macho", 
