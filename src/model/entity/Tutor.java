@@ -27,11 +27,14 @@ public class Tutor extends Pessoa {
   public void adicionarAtendimento (Atendimento atendimento){
     this.atendimentos.add(atendimento);
   }
+  // Adicionei um Get para VS entender que a variável 'tutorAtivo' tem uma utilidade no sistema
+  public boolean isTutorAtivo() {
+    return tutorAtivo;
+  }
 
   public Pessoa getPessoa() {
     return this;
   }
-
 
 
 }

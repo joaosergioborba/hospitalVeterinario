@@ -12,11 +12,9 @@ public class Atendimento {
   private Funcionario veterinario;
   private Date data;
   private String observacoes;
-  private Exame exame;
-  private Medicacao medicacao;
-  private Vacina vacina;
-  private Produto produto;
   private StatusAtendimento status;
+  //Removi os atributos individuais exame, medicacao, etc. conforme os avisos no seu VS , como todos eles herdam de RegistroClinico
+  // usamos somente a lista abaixo
   protected List<RegistroClinico> procedimentos; //precisamos atualizar o uml
 
   //to usando protected em alguns pq isso permite que os filhos tbm acesse diretamente essa tag
@@ -34,18 +32,8 @@ public class Atendimento {
     this.veterinario = veterinario;
   }
 
-  public void atrubuirAnimal(Animal animal){
+  public void atribuirAnimal(Animal animal){
     this.animal = animal;
-  }
-
-  public void atribuirMedicacao(Medicacao medicacao){
-    this.medicacao = medicacao;
-  }
-  public void atribuirExame(Exame exame){
-    this.exame = exame;
-  }
-  public void atribuirVacina(Vacina vacina){
-    this.vacina = vacina;
   }
   
   public void cancelarAtendimento(){
@@ -64,10 +52,10 @@ public class Atendimento {
   public void adicionarProcedimento(RegistroClinico registro){
     this.procedimentos.add(registro);
   }
-
-  public void exportarProntuario(){
-    //nao sei como retornar o list do array /
-  }
+//Mudei o retorno de 'void' para 'List<RegistroClinico>', permitindo que outras classes acessem o histórico do atendimento ( dica da professora)
+public List<RegistroClinico> exportarProntuario(){
+        return this.procedimentos; 
+    }
    
     public int getId() {
         return id;

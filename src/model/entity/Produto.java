@@ -39,6 +39,13 @@ public class Produto {
     System.out.println("O valor deve ser maior ou igual a zero\n");
 
   }
+   // Adicionei um get e um set para o tipoProduto,sem isso, o VS vai continuar dando o aviso de que  o campo 'tipoProduto' não é utilizado
+  public TipoProduto getTipoProduto() {
+    return tipoProduto;
+  }
 
+  public void setTipoProduto(TipoProduto tipoProduto) {
+    this.tipoProduto = tipoProduto;
+  }
   
 }
