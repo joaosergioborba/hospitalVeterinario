@@ -1,4 +1,9 @@
+//Eloisa Franco de Souza RGA:202421901024
+//João Sergio Borba      RGA:202421901037SS
+
 package main;
+
+import java.sql.Date;
 
 import model.entity.*;
 import model.enums.*;
@@ -6,8 +11,7 @@ import model.enums.*;
 public class App {
     public static void main(String[] args) throws Exception {
        
-        Pessoa p1 = new Pessoa("123.456.789-00", "Ana Oliveira", 20, "Cuiabá - MT");
-        Tutor tutor1 = new Tutor(p1);
+        Tutor tutor1 = new Tutor("123.456.789-00", "Ana Oliveira",Date.valueOf("2005-11-01"), "Cuiabá - MT");
 
       
         Animal animal1 = new Animal(

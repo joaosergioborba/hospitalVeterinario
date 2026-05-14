@@ -2,7 +2,8 @@ package model.entity;
 
 import java.sql.Date;
 
-import model.enums.TipoProduto;
+//  Removi o "import model.enums.TipoProduto;" que aparecia em aviso amarelo
+//  Comonãi usamos o enum TipoProduto dentro desta classe  o import é desnecessário
 
 public class Vacina extends RegistroClinico {
   private String dose;
