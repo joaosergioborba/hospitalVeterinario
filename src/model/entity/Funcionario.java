@@ -1,6 +1,6 @@
 package model.entity;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import model.enums.Funcao;
 
@@ -10,7 +10,7 @@ public class Funcionario extends Pessoa {
   private String especialidade;
   private boolean funcionarioAtivo;
 
-  public Funcionario(String cpf, String nome, Date dataNascimento, String endereco, Funcao funcao, String especialidade) {
+  public Funcionario(String cpf, String nome, LocalDate dataNascimento, String endereco, Funcao funcao, String especialidade) {
 
     super(cpf, nome, dataNascimento, endereco);// aqui esta chamando o construtor (acho q é esse o nome )da classe pai (Pessoa) - tipo a funcao principal la da classe principal.
 
