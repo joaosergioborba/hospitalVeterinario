@@ -1,6 +1,5 @@
 package model.entity;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -8,11 +7,11 @@ public class Pessoa {
   private int id;
   private String cpf;
   private String nome;
-  private Date dataNascimento;
+  private LocalDate dataNascimento;
   protected String endereco;
   protected boolean pessoaAtiva;
 
-  public Pessoa(String cpf, String nome, Date dataNascimento, String endereco){
+  public Pessoa(String cpf, String nome, LocalDate dataNascimento, String endereco){
     this.cpf = cpf;
     this.nome = nome;
     this.dataNascimento = dataNascimento;
@@ -48,7 +47,7 @@ public class Pessoa {
   public int getIdade(){
 
     LocalDate hoje = LocalDate.now();
-    LocalDate nascimento = dataNascimento.toLocalDate();
+    LocalDate nascimento = dataNascimento;
     return Period.between(nascimento, hoje).getYears();
 
   }

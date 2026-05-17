@@ -1,15 +1,19 @@
 package main;
 
+import java.time.LocalDate;
+
 import model.entity.*;
 import model.enums.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
        
-        Pessoa p1 = new Pessoa("123.456.789-00", "Ana Oliveira", 20, "Cuiabá - MT");
-        Tutor tutor1 = new Tutor(p1);
+       // private Date dataNascimento = 20/04/2016
 
-      
+        Tutor tutor1 = new Tutor("123.456.789-00", "Ana Oliveira", LocalDate.of(2020,4,20), "Cuiabá - MT");
+        //Tutor tutor1 = new Tutor(p1);
+
+     
         Animal animal1 = new Animal(
             "Thor", 5, "Golden Retriever", "Macho", 
             TamanhoPelo.LONGO, "Dourado", PorteAnimal.GRANDE, tutor1

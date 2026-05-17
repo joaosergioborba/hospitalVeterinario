@@ -12,10 +12,6 @@ public class Atendimento {
   private Funcionario veterinario;
   private Date data;
   private String observacoes;
-  private Exame exame;
-  private Medicacao medicacao;
-  private Vacina vacina;
-  private Produto produto;
   private StatusAtendimento status;
   protected List<RegistroClinico> procedimentos; //precisamos atualizar o uml
 
@@ -36,16 +32,6 @@ public class Atendimento {
 
   public void atrubuirAnimal(Animal animal){
     this.animal = animal;
-  }
-
-  public void atribuirMedicacao(Medicacao medicacao){
-    this.medicacao = medicacao;
-  }
-  public void atribuirExame(Exame exame){
-    this.exame = exame;
-  }
-  public void atribuirVacina(Vacina vacina){
-    this.vacina = vacina;
   }
   
   public void cancelarAtendimento(){
