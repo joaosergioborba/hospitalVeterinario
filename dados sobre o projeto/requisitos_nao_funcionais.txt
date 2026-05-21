@@ -1,0 +1,8 @@
+RNF01 - Manter registros -> Armazenar os dados cadastrados em um arquivo JSON
+
+
+RNF02 - Validação de dados -> Validar dados de entrada, como CPF, para evitar dados incorretos, duplicados ou inválidos
+
+
+RNF03 - Permitir que o usuário cancele a etapa atual -> Permitir que o usuário volta para a tela anterior ou cancele a operação
+atual, evitando que fique preso a uma determinada função;
