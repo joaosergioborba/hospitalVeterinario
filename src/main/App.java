@@ -4,27 +4,30 @@ package main;
 //imports
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import model.entity.*;
 import model.enums.*;
-
-//dados
-
+import model.service.ClinicaVeterinaria;
 
 
-
-//variaveis globais
 
 public class App {
 
-    public void marcarConsulta(){
+    private Scanner leitor;
+    private ClinicaVeterinaria clinica;
 
+    public App() {
+        this.leitor = new Scanner(System.in);
+        this.clinica = new ClinicaVeterinaria(); 
     }
-    
-    public static void main(String[] args) throws Exception {
-        String[] opcoesMenu = {"Marcar consulta", "Consultar exame", "Acessar portal do funcionario"};
+
+
+    public void iniciarMenu(){
+
+         String[] opcoesMenu = {"Marcar consulta", "Consultar exame", "Acessar portal do funcionario", "Sair"};
 
         System.out.println("\n=======================================");
         System.out.println("      SISTEMA HOSPITAL VETERINÁRIO     ");
@@ -41,7 +44,7 @@ public class App {
         System.out.println("Escolha uma opção [digite apenas o numero]: ");
         Scanner leitor = new Scanner(System.in);
         int opcaoSelecionada = leitor.nextInt();
-        leitor.close();
+        
 
         switch(opcaoSelecionada){
             case 1: 
@@ -55,7 +58,59 @@ public class App {
             case 3:
                 System.out.println("Função em desenvolvimento\n");
             break;
+            case 4:
+                leitor.close();
+            break;
         }
+
+    }
+
+
+
+    public void cadastrarTutor(){
+
+    }
+
+    public void cadastrarAnimal(){
+
+    }
+
+    public void marcarConsulta(){
+
+         
+
+        System.out.println("Você já possui cadastro em nosso hospital?\n");
+        System.out.println("1 - sim\n");
+        System.out.println("2 - Não");
+
+        int opcaoSelecionada = leitor.nextInt();
+        
+
+        if(opcaoSelecionada == 2){
+            cadastrarTutor();
+            System.out.println("Vamos cadastrar o usuario");
+        } 
+
+        System.out.println("Você seu bichinho já possui cadastro com a gente?\n");
+        System.out.println("1 - sim\n");
+        System.out.println("2 - Não");
+
+         opcaoSelecionada = leitor.nextInt();
+
+         if(opcaoSelecionada == 2){
+            cadastrarAnimal();
+            System.out.println("Vamos cadastrar o usuario");
+        } 
+
+        System.out.println("Otimo ... para qual dia você deseja marcar sua consulta?");
+        System.out.println("Consulta agendada");
+
+
+
+    }
+    
+    public static void main(String[] args) throws Exception {
+       
 
 
        
