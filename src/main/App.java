@@ -1,5 +1,8 @@
 package main;
 
+
+//imports
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
@@ -7,7 +10,18 @@ import java.util.Scanner;
 import model.entity.*;
 import model.enums.*;
 
+//dados
+
+
+
+
+//variaveis globais
+
 public class App {
+
+    public void marcarConsulta(){
+
+    }
     
     public static void main(String[] args) throws Exception {
         String[] opcoesMenu = {"Marcar consulta", "Consultar exame", "Acessar portal do funcionario"};
