@@ -31,12 +31,15 @@ public class App {
 
         switch(opcaoSelecionada){
             case 1: 
+                System.out.println("Função em desenvolvimento\n");
             break;
 
             case 2: 
+                System.out.println("Função em desenvolvimento\n");
             break;
 
             case 3:
+                System.out.println("Função em desenvolvimento\n");
             break;
         }
 
