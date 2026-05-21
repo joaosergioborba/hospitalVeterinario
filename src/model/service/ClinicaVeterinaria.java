@@ -30,47 +30,47 @@ public class ClinicaVeterinaria {
 
     }
 
-    public void adicionarAnimal(Animal data){
+    public void adicionarAnimalService(Animal data){
 
       this.animais.add(data);
 
     }
-    public void adicionarFuncionario(Funcionario data){
+    public void adicionarFuncionarioService(Funcionario data){
 
       this.funcionarios.add(data);
 
     }
-    public void adicionarTutor(Tutor data){
+    public void adicionarTutorService(Tutor data){
 
       this.tutores.add(data);
 
     }
-    public void adicionarAtendimento(Atendimento data){
+    public void adicionarAtendimentoService(Atendimento data){
 
       this.atendimentos.add(data);
 
     }
-    public void adicionarRegistroClinico(RegistroClinico data){
+    public void adicionarRegistroClinicoService(RegistroClinico data){
 
       this.registrosClinicos.add(data);
 
     }
-    public void adicionarExame(Exame data){
+    public void adicionarExameService(Exame data){
 
       this.exames.add(data);
 
     }
-    public void adicionarVacina(Vacina data){
+    public void adicionarVacinaService(Vacina data){
 
       this.vacinas.add(data);
 
     }
-    public void adicionarMedicacao(Medicacao data){
+    public void adicionarMedicacaoService(Medicacao data){
 
       this.medicacoes.add(data);
 
     }
-    public void adicionarProduto(Produto data){
+    public void adicionarProdutoService(Produto data){
 
       this.produtos.add(data);
 

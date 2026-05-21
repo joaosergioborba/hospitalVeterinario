@@ -14,6 +14,7 @@ import model.service.ClinicaVeterinaria;
 
 
 
+
 public class App {
 
     private Scanner leitor;
@@ -68,6 +69,32 @@ public class App {
 
 
     public void cadastrarTutor(){
+
+        String cpf;
+        String nome;
+        LocalDate dataNascimento;
+        String endereco;
+  
+        
+
+        System.out.println("Nome do tutor: ");
+        nome = leitor.nextLine();
+
+        System.out.println("Informe a dataNascimento: ");
+        String data = leitor.nextLine();
+        String[] partes = data.split("/");
+
+        dataNascimento = LocalDate.of(Integer.parseInt(partes[2]),Integer.parseInt(partes[1]),Integer.parseInt(partes[0]));
+        
+        System.out.println("Informe o CPF: ");
+        cpf = leitor.nextLine();
+
+        System.out.println("Informe o endereço: ");
+        endereco = leitor.nextLine();
+
+        Tutor tutor = new Tutor(cpf, nome, dataNascimento, endereco);
+
+        clinica.adicionarTutorService(tutor);
 
     }
 
