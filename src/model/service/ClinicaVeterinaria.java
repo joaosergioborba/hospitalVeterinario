@@ -30,6 +30,19 @@ public class ClinicaVeterinaria {
 
     }
 
+    public boolean isCpfCadastrado(String cpf){
+      for (Tutor tutor : tutores) {
+
+        String cpfRegistro = tutor.getCpf();
+
+        if (cpfRegistro == cpf){
+          return true;
+        }
+        
+      }
+      return false;
+    }
+
     public void adicionarAnimalService(Animal data){
 
       this.animais.add(data);
