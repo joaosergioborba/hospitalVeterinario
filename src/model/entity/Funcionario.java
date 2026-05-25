@@ -8,15 +8,31 @@ import model.enums.Funcao;
 public class Funcionario extends Pessoa {
   private Funcao funcao;
   private String especialidade;
+  private double salarioBase;
   private boolean funcionarioAtivo;
 
-  public Funcionario(String cpf, String nome, LocalDate dataNascimento, String endereco, Funcao funcao, String especialidade) {
+  public Funcionario(String cpf, String nome, LocalDate dataNascimento, String endereco, Funcao funcao, String especialidade, double salarioBase) {
 
     super(cpf, nome, dataNascimento, endereco);// aqui esta chamando o construtor (acho q é esse o nome )da classe pai (Pessoa) - tipo a funcao principal la da classe principal.
 
     this.funcao = funcao;
     this.especialidade = especialidade;
+    this.salarioBase = salarioBase;
     this.funcionarioAtivo = true;
+  }
+
+  public double calcularSalario() {
+            return this.getSalarioBase();
+        }
+
+  public void setSalarioBase(double salario){
+
+    this.salarioBase = salario;
+
+  };
+
+  public double getSalarioBase(){
+    return this.salarioBase;
   }
 
   public void setDesativado(){
