@@ -1,0 +1,8 @@
+DATA - USUARIO - ALTERACAO 
+
+12/05/2026 - João Sergio - Adicionei herança nas classes EXAME, FUNCIONARIO, MEDICACAO, TUTOR, VACINA;
+12/05/2026 - Eloisa Franco - Adicionou os metodos get e set nas classes ANIMAL, ATENDIMENTO, EXAME, FUNCIONARIO, MEDICACAO, PESSOA, PRODUTO, REGISTROCLINICO, TUTOR, VACINA;
+12/05/2026 - Eloisa Franco - Fez um prototipo da main, printando alguns dados pre definidos das classes TUTOR e ANIMAL;
+21/05/2025 - João Sergio - Criei as classes RECEPCIONISTA e VETERINARIO com herança de FUNCIONARIO;
+21/05/2026 - João Sergio - Foi adicionado polimorfismo nas classes RECEPCIONISTA e VETERINARIO, onde  na classe padrão (FUNCIONARIO) foi definido uma função padrão para o calculo do salário base, e nas classes RECEPCIONISTA e VETERINARIO existe um calculo diferente para cada uma das classes;
+21/05/2026 - João Sergio - Foi feito uma atualização da main. Foi adicionado as funções iniciarMenu, CadastrarTutor, CadastrarAnimal e marcarConsulta;

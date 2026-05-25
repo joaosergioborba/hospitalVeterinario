@@ -44,7 +44,8 @@ public class App {
 
         System.out.println("Escolha uma opção [digite apenas o numero]: ");
         Scanner leitor = new Scanner(System.in);
-        int opcaoSelecionada = leitor.nextInt();
+        int opcaoSelecionada = this.leitor.nextInt();
+        this.leitor.nextLine();
         
 
         switch(opcaoSelecionada){
@@ -137,6 +138,10 @@ public class App {
     }
     
     public static void main(String[] args) throws Exception {
+
+        App app = new App();
+
+        app.iniciarMenu();
        
 
 
