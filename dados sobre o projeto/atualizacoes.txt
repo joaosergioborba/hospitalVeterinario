@@ -1,8 +1,15 @@
 DATA - USUARIO - ALTERACAO 
-
+SEM DATA - Eloisa e Joao Sergio - Foi definido o escopo do projeto e dado inicio a construção do uml;
+SEM DATA - Eloisa e Joao Sergio - Foi definido os atributos e metodos de cada classe dentro do uml;
+SEM DATA - Eloisa e Joao Sergio - Foi definido se os tipos das variaveis dos atributos e se são publico ou privados;
+SEM DATA - Eloisa e Joao Sergio - Foi definido a relação entre classes e multiplicidade;
+SEM DATA - Eloisa e Joao Sergio - Foi definido os enuns;
+SEM DATA - Eloisa e Joao Sergio - Foi definido os requisitos funcionais e não funcionais do programa;
 12/05/2026 - João Sergio - Adicionei herança nas classes EXAME, FUNCIONARIO, MEDICACAO, TUTOR, VACINA;
 12/05/2026 - Eloisa Franco - Adicionou os metodos get e set nas classes ANIMAL, ATENDIMENTO, EXAME, FUNCIONARIO, MEDICACAO, PESSOA, PRODUTO, REGISTROCLINICO, TUTOR, VACINA;
 12/05/2026 - Eloisa Franco - Fez um prototipo da main, printando alguns dados pre definidos das classes TUTOR e ANIMAL;
-21/05/2025 - João Sergio - Criei as classes RECEPCIONISTA e VETERINARIO com herança de FUNCIONARIO;
+21/05/2026 - João Sergio - Criei as classes RECEPCIONISTA e VETERINARIO com herança de FUNCIONARIO;
 21/05/2026 - João Sergio - Foi adicionado polimorfismo nas classes RECEPCIONISTA e VETERINARIO, onde  na classe padrão (FUNCIONARIO) foi definido uma função padrão para o calculo do salário base, e nas classes RECEPCIONISTA e VETERINARIO existe um calculo diferente para cada uma das classes;
 21/05/2026 - João Sergio - Foi feito uma atualização da main. Foi adicionado as funções iniciarMenu, CadastrarTutor, CadastrarAnimal e marcarConsulta;
+25/05/2026 - João Sergio - Foi criado a pasta "dados sobre o projeto", com os arquivos "alunos.txt", "atualizacoes.txt", "ComoCompilar.txt", "requisitos_nao_funcionais.txt" e "uml.png";
+25/05/2026 - Joao Sergio - Foi criado a pasta bin, para que o codigo compilado seja criado nessa pasta e evite a poluição do codigo fonte;
