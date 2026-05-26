@@ -21,7 +21,7 @@ public class Funcionario extends Pessoa {
     this.funcionarioAtivo = true;
   }
 
-  public double calcularSalario() {
+  public double calcularSalario(int qtdConsultasRealizadas) {
             return this.getSalarioBase();
         }
 
