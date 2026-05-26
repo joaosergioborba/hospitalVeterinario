@@ -48,7 +48,19 @@ public class ClinicaVeterinaria {
       this.animais.add(data);
 
     }
+    public List<Animal> procurarAnimaisPorNome(String nome, Boolean animalAtivo){
 
+      List<Animal> resultado = animais.stream().filter(a -> a.getNome().equalsIgnoreCase(nome)).toList();
+      return resultado;
+      
+
+    }
+    public List<Animal> procurarAnimaisPorTutor(int idTutor, Boolean animalAtivo ){
+
+      List<Animal> resultado = animais.stream().filter(a -> a.getTutor().getId() == idTutor).toList();
+      return resultado;
+
+    }
     
     
     public void adicionarFuncionarioService(Funcionario data){

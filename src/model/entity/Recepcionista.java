@@ -12,7 +12,7 @@ public class Recepcionista extends Funcionario{
   }
 
   @Override
-        public double calcularSalario() {
+        public double calcularSalario(int qtdConsultasRealizadas) {
             return this.getSalarioBase();
         }
   

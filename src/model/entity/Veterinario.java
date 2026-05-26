@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import model.enums.Funcao;
 
 public class Veterinario extends Funcionario{
-  private int qtdConsultasRealizadas;
+  
 
   public Veterinario(String cpf, String nome, LocalDate dataNascimento, String endereco, Funcao funcao, String especialidade, double salarioBase) {
 
@@ -14,15 +14,7 @@ public class Veterinario extends Funcionario{
   
 
   @Override
-    public double calcularSalario() {
+    public double calcularSalario(int qtdConsultasRealizadas) {
       return this.getSalarioBase() + (qtdConsultasRealizadas * 50.0);
-    }
-
-    public void setQtdConsultasRealizadas(int qtd){
-      this.qtdConsultasRealizadas = qtd;
-    }
-
-    public int getQtdConsultasRealizadas(){
-      return qtdConsultasRealizadas;
     }
 }
