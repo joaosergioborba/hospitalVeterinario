@@ -48,6 +48,9 @@ public class ClinicaVeterinaria {
       this.animais.add(data);
 
     }
+
+    
+    
     public void adicionarFuncionarioService(Funcionario data){
 
       this.funcionarios.add(data);
