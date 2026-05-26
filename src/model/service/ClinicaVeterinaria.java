@@ -48,11 +48,17 @@ public class ClinicaVeterinaria {
       this.animais.add(data);
 
     }
+    public Animal procurarAnimaisPorId(int id, Boolean animalAtivo){
+
+       Animal resultado = animais.stream().filter(a -> a.getTutor().getId() == id).findFirst().orElse(null);
+      return resultado;
+      
+    }
+
     public List<Animal> procurarAnimaisPorNome(String nome, Boolean animalAtivo){
 
       List<Animal> resultado = animais.stream().filter(a -> a.getNome().equalsIgnoreCase(nome)).toList();
       return resultado;
-      
 
     }
     public List<Animal> procurarAnimaisPorTutor(int idTutor, Boolean animalAtivo ){
@@ -64,11 +70,24 @@ public class ClinicaVeterinaria {
     
     
     public void adicionarFuncionarioService(Funcionario data){
+      if(isCpfCadastrado(data.getCpf())){
+
+      } else {
+        System.out.println("Não foi possível adicionar esse Usuário. CPF já cadastrado no banco de dados");
+
+      }
 
       this.funcionarios.add(data);
 
     }
     public void adicionarTutorService(Tutor data){
+
+      if(isCpfCadastrado(data.getCpf())){
+
+      } else {
+        System.out.println("Não foi possível adicionar esse Usuário. CPF já cadastrado no banco de dados");
+
+      }
 
       this.tutores.add(data);
 
