@@ -1,6 +1,5 @@
 package main;
 
-
 //imports
 
 import java.time.LocalDate;
@@ -11,6 +10,8 @@ import java.util.Scanner;
 import model.entity.*;
 import model.enums.*;
 import model.service.ClinicaVeterinaria;
+import javax.swing.*;
+import java.awt.*;
 
 
 
@@ -20,10 +21,10 @@ public class App {
     private Scanner leitor;
     private ClinicaVeterinaria clinica;
 
-    public App() {
-        this.leitor = new Scanner(System.in);
-        this.clinica = new ClinicaVeterinaria(); 
-    }
+     public App() {
+         this.leitor = new Scanner(System.in);
+         this.clinica = new ClinicaVeterinaria(); 
+     }
 
 
     public void iniciarMenu(){
@@ -43,9 +44,11 @@ public class App {
         }
 
         System.out.println("Escolha uma opção [digite apenas o numero]: ");
-        Scanner leitor = new Scanner(System.in);
+        //Scanner leitor = new Scanner(System.in);
         int opcaoSelecionada = this.leitor.nextInt();
         this.leitor.nextLine();
+
+
         
 
         switch(opcaoSelecionada){
@@ -61,7 +64,7 @@ public class App {
                 System.out.println("Função em desenvolvimento\n");
             break;
             case 4:
-                leitor.close();
+                this.leitor.close();
             break;
         }
 
@@ -136,15 +139,77 @@ public class App {
 
 
     }
+
+
+    public void janelaPrincipal(){
+        JFrame janela = new JFrame("PataCloud - hospital veterinário");
+
+    janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    janela.setSize(400,300);
+    janela.setLocationRelativeTo(null);
+
+    JPanel painel = new JPanel();
+
+    ImageIcon logo = new ImageIcon("../assets/logoa.png");
+
+    JLabel imagem = new JLabel(logo);
+
+    painel.setLayout(new FlowLayout());
+
+    JLabel texto = new JLabel("Bem-vindo ao PataCloud");
+
+    JButton btnIniciar = new JButton("Iniciar atendimento");
+
+    btnIniciar.addActionListener(e -> {
+
+    });
+
+    painel.add(texto);
+    painel.add(btnIniciar);
+    janela.add(painel);
+    painel.add(imagem);
+
+    janela.setVisible(true);
+    }
+
+
+    public void janelaTeste(){
+
+      JTextField campoUsuario = new JTextField();
+      JPasswordField campoSenha = new JPasswordField();
+
+      
+
+      Object[] loginFuncionario = {
+        "Usuário: ", campoUsuario,
+        "Senha: ", campoSenha
+      };
+
+      int opcao = JOptionPane.showConfirmDialog(
+        null, 
+        loginFuncionario, 
+        "Login do sistema",
+        JOptionPane.OK_CANCEL_OPTION
+      );
+
+      if(opcao == JOptionPane.OK_OPTION){
+        String usuario = campoUsuario.getText();
+
+        String senha = new String(
+            campoSenha.getPassword()
+        );
+
+        JOptionPane.showMessageDialog(null, "usuario" + usuario +  "\nSenha: "+  senha);
+      }
+    }
     
     public static void main(String[] args) throws Exception {
 
         App app = new App();
 
-        app.iniciarMenu();
-       
+       // app.iniciarMenu();
 
-
+        app.janelaTeste();
        
       /*
 
@@ -162,8 +227,7 @@ public class App {
         System.out.println("=======================================");
         System.out.println(" PACIENTE: " + animal1.getNome());
         System.out.println(" RESPONSÁVEL (Tutor): " + animal1.getTutor().getPessoa().getNome());   
-        System.out.println(" CIDADE: " + animal1.getTutor().getPessoa().getEndereco());*/
-
-
+        System.out.println(" CIDADE: " + animal1.getTutor().getPessoa().getEndereco());
+        */
     }
 }
