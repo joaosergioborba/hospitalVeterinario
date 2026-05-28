@@ -1,11 +1,10 @@
 1º esteja no caminho hospitalVeterinario\src no seu terminal;
 2º rode a instrução abaixo para compilar:
-  javac -d bin -sourcepath src src/main/App.java
-
-  javac -d ../bin -sourcepath . main/App.java model/entity/*.java model/enums/*.java model/service/*.java
+  javac -d ../bin -sourcepath . -cp "../lib/app.jar" main/App.java
 
   
 3º rode a instrução abaixo para rodar o codigo:
   java -cp bin main.App
+  java -cp "../bin;../lib/nome-do-seu-arquivo-javax.jar" main.App
 
   obs: o codigo será compilado na pasta bin
