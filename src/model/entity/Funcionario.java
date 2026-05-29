@@ -10,6 +10,7 @@ public class Funcionario extends Pessoa {
   private String especialidade;
   private double salarioBase;
   private boolean funcionarioAtivo;
+  protected String senha;
 
   public Funcionario(String cpf, String nome, LocalDate dataNascimento, String endereco, Funcao funcao, String especialidade, double salarioBase) {
 

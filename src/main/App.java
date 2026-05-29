@@ -10,6 +10,10 @@ import java.util.Scanner;
 import model.entity.*;
 import model.enums.*;
 import model.service.ClinicaVeterinaria;
+import model.view.Screen;
+import model.view.TelaCaminhoFeliz;
+import model.view.TelaLogin;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -141,75 +145,26 @@ public class App {
     }
 
 
-    public void janelaPrincipal(){
-        JFrame janela = new JFrame("PataCloud - hospital veterinário");
-
-    janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    janela.setSize(400,300);
-    janela.setLocationRelativeTo(null);
-
-    JPanel painel = new JPanel();
-
-    ImageIcon logo = new ImageIcon("../assets/logoa.png");
-
-    JLabel imagem = new JLabel(logo);
-
-    painel.setLayout(new FlowLayout());
-
-    JLabel texto = new JLabel("Bem-vindo ao PataCloud");
-
-    JButton btnIniciar = new JButton("Iniciar atendimento");
-
-    btnIniciar.addActionListener(e -> {
-
-    });
-
-    painel.add(texto);
-    painel.add(btnIniciar);
-    janela.add(painel);
-    painel.add(imagem);
-
-    janela.setVisible(true);
-    }
-
-
-    public void janelaTeste(){
-
-      JTextField campoUsuario = new JTextField();
-      JPasswordField campoSenha = new JPasswordField();
-
-      
-
-      Object[] loginFuncionario = {
-        "Usuário: ", campoUsuario,
-        "Senha: ", campoSenha
-      };
-
-      int opcao = JOptionPane.showConfirmDialog(
-        null, 
-        loginFuncionario, 
-        "Login do sistema",
-        JOptionPane.OK_CANCEL_OPTION
-      );
-
-      if(opcao == JOptionPane.OK_OPTION){
-        String usuario = campoUsuario.getText();
-
-        String senha = new String(
-            campoSenha.getPassword()
-        );
-
-        JOptionPane.showMessageDialog(null, "usuario" + usuario +  "\nSenha: "+  senha);
-      }
-    }
+    
     
     public static void main(String[] args) throws Exception {
 
         App app = new App();
 
+        Screen tela = new Screen("Tela login - PatasCloud", 400, 300);
+        TelaLogin login = new TelaLogin();
+
+        tela.setContent(login);
+        tela.show();
+        
+        TelaCaminhoFeliz telaCaminhoFeliz = new TelaCaminhoFeliz();
+
        // app.iniciarMenu();
 
-        app.janelaTeste();
+
+
+       //telaCaminhoFeliz.janelaTeste();
+       // app.janelaTeste();
        
       /*
 

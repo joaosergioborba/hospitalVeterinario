@@ -8,6 +8,7 @@ public class Pessoa {
   private String cpf;
   private String nome;
   private LocalDate dataNascimento;
+  
   protected String endereco;
   protected boolean pessoaAtiva;
 

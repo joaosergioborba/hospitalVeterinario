@@ -20,3 +20,10 @@ SEM DATA - Eloisa e Joao Sergio - Foi definido os requisitos funcionais e não f
 28/05/2026 - Joao Sergio - Comentei parte do codigo da main, pois as adicoes devera ser via ;
 28/05/2026 - Joao Sergio e Eloisa Franco - Resolvemos um problema de compilação;
 28/05/2026 - Joao Sergio e Eloisa Franco - Criamos a funcao janelaTeste, na qual será responsavel por fazer o caminho feliz;
+28/05/2026 - João Sergio - Foi criado uma pasta para desenvolver as interfaces, pasta chamada view;
+28/05/2026 - Eloisa Franco - Desenvolvou uma logo para o hospital;
+28/05/2026 - Joao sergio e Eloisa Franco - Foi migrado o codigo da da interface do caminho feliz para a pasta view;
+29/05/2026 - Joao Sergio e Eloisa Franco - foi definido a cor padrao de fundo das telas, a qual será na cor rgb (236, 250, 255);
+29/05/2026 - Joao Sergio - Comecei a desenvolver a classe que será o molde das demais telas (class Screen);
+29/05/2026 - Joao Sergio - Adicionei dois inputs na tela de login  e um  botão com uma funcao que verifica se os campos foram preenchidos ou nao, caso positivo avanca para a validação dos dados, caso falso mostra um aviso de campos preenchidos incorretamente;
+29/05/2026 - Joao Sergio - Desenvolvi a funcao de login no service

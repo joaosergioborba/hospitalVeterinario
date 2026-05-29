@@ -9,14 +9,18 @@ import model.entity.Exame;
 import model.entity.Funcionario;
 import model.entity.Medicacao;
 import model.entity.Produto;
+import model.entity.Recepcionista;
 import model.entity.RegistroClinico;
 import model.entity.Tutor;
 import model.entity.Vacina;
+import model.entity.Veterinario;
 
 public class ClinicaVeterinaria {
 
     private List<Animal> animais = new ArrayList<>();
     private List<Funcionario> funcionarios = new ArrayList<>();
+    private List<Veterinario> veterinarios = new ArrayList<>();
+    private List<Recepcionista> recepcionistas = new ArrayList<>();
     private List<Tutor> tutores = new ArrayList<>();
     private List<Atendimento> atendimentos = new ArrayList<>();
     private List<RegistroClinico> registrosClinicos = new ArrayList<>();
@@ -48,6 +52,7 @@ public class ClinicaVeterinaria {
       this.animais.add(data);
 
     }
+    
     public Animal procurarAnimaisPorId(int id, Boolean animalAtivo){
 
        Animal resultado = animais.stream().filter(a -> a.getTutor().getId() == id).findFirst().orElse(null);
@@ -122,6 +127,8 @@ public class ClinicaVeterinaria {
       this.produtos.add(data);
 
     }
+
+    
     
 
 
