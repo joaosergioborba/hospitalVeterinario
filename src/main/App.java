@@ -145,18 +145,9 @@ public class App {
 
     }
 
-
     
-    
-    public static void main(String[] args) throws Exception {
 
-        
-
-        App app = new App();
-        ClinicaVeterinaria sistemaClinica = new ClinicaVeterinaria();
-
-        Veterinario vet = new Veterinario("05705129130", "joao", LocalDate.of(2020,4,20), "cuiabraza", "este", 1500.00, "1234");
-        sistemaClinica.adicionarFuncionarioService(vet);
+    public void login(ClinicaVeterinaria sistemaClinica){
 
         Screen tela = new Screen("Tela login - PatasCloud", 400, 300);
         TelaPrincipal telaPrincipal = new TelaPrincipal(sistemaClinica);
@@ -169,33 +160,38 @@ public class App {
 
         tela.setContent(login, "login");
         tela.show();
-        
-       // TelaCaminhoFeliz telaCaminhoFeliz = new TelaCaminhoFeliz();
 
-       // app.iniciarMenu();
-
-
-
-       //telaCaminhoFeliz.janelaTeste();
-       // app.janelaTeste();
-       
-      /*
-
-        Tutor tutor1 = new Tutor("123.456.789-00", "Ana Oliveira", LocalDate.of(2020,4,20), "Cuiabá - MT");
-        
-
-     
-        Animal animal1 = new Animal(
-            "Thor", 5, "Golden Retriever", "Macho", 
-            TamanhoPelo.LONGO, "Dourado", PorteAnimal.GRANDE, tutor1
-        );
-
-        System.out.println("\n=======================================");
-        System.out.println("      SISTEMA HOSPITAL VETERINÁRIO     ");
-        System.out.println("=======================================");
-        System.out.println(" PACIENTE: " + animal1.getNome());
-        System.out.println(" RESPONSÁVEL (Tutor): " + animal1.getTutor().getPessoa().getNome());   
-        System.out.println(" CIDADE: " + animal1.getTutor().getPessoa().getEndereco());
-        */
     }
+
+
+    
+    public static void main(String[] args) throws Exception {
+
+        
+
+        App app = new App();
+        ClinicaVeterinaria sistemaClinica = new ClinicaVeterinaria();
+
+        Veterinario vet = new Veterinario("123456789", "joao", LocalDate.of(2020,4,20), "cuiabraza", "este", 1500.00, "1234");
+        sistemaClinica.adicionarFuncionarioService(vet);
+        Veterinario vet2 = new Veterinario("123456", "Usuario teste", LocalDate.of(2020,4,20), "cuiabraza", "Quality Assurance", 1500.00, "123456");
+        sistemaClinica.adicionarFuncionarioService(vet2);
+
+        //app.login(sistemaClinica);
+
+        String menu = JOptionPane.showInputDialog(
+        "==== Menu ====\n\n" +
+        "1 - Testar versão simplificado (codigo aula passada)\n" + 
+        "2 - testar versão premium (em desenvolvimento)\n"
+      );
+
+      if(menu.equals("1")){
+        TelaCaminhoFeliz telaCaminhoFeliz = new TelaCaminhoFeliz();
+        telaCaminhoFeliz.janelaTeste();
+        //app.janelaTeste();
+    } else {
+        JOptionPane.showConfirmDialog(null, "Essa versão foi desenvolvida usando paineis, botões e funções de validação de dados.\n Utilize o usuario e senha -> 123456");
+        app.login(sistemaClinica);
+    }
+}
 }
