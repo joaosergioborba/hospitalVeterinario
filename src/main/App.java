@@ -13,6 +13,7 @@ import model.service.ClinicaVeterinaria;
 import model.view.Screen;
 import model.view.TelaCaminhoFeliz;
 import model.view.TelaLogin;
+import model.view.TelaPrincipal;
 
 import javax.swing.*;
 import java.awt.*;
@@ -158,9 +159,15 @@ public class App {
         sistemaClinica.adicionarFuncionarioService(vet);
 
         Screen tela = new Screen("Tela login - PatasCloud", 400, 300);
-        TelaLogin login = new TelaLogin(sistemaClinica);
+        TelaPrincipal telaPrincipal = new TelaPrincipal(sistemaClinica);
 
-        tela.setContent(login);
+        TelaLogin login = new TelaLogin(sistemaClinica, () ->{
+
+            tela.adicionarTela(telaPrincipal, "tela principal");;
+            tela.navegar("tela principal");
+        });
+
+        tela.setContent(login, "login");
         tela.show();
         
        // TelaCaminhoFeliz telaCaminhoFeliz = new TelaCaminhoFeliz();

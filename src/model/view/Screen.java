@@ -27,17 +27,46 @@ public class Screen{
   
   }
 
-  public void setContent(JPanel contentPanel) {
+  public void setContent(JPanel contentPanel, String nomeTela) {
     
         // Torna o painel transparente para herdar a cor azul do fundo
         contentPanel.setOpaque(false); 
         //frame.setContentPane(contentPanel);
         //frame.revalidate();
-        painelPrincipal.add(contentPanel, "teste");
+        painelPrincipal.add(contentPanel, nomeTela);
     }
 
     public void show() {
         frame.setVisible(true);
+
+    }
+
+    public void adicionarTela(JPanel novaTela, String nomeTela){
+
+      painelPrincipal.add(novaTela, nomeTela);
+
+    }
+
+    public void navegar(String nomeTela){
+
+      cardLayout.show(painelPrincipal, nomeTela);
+      frame.setSize(1500, 700);
+        frame.setLocationRelativeTo(null);
+
+    }
+
+    public void remove(){
+      frame.getContentPane().removeAll();
+      frame.setSize(1500,700);
+      
+    }
+
+    public void repaint(){
+  
+      frame.setLocationRelativeTo(null);
+      frame.revalidate();
+      frame.repaint();
+
     }
 
 
