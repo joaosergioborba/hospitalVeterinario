@@ -12,7 +12,7 @@ public class Funcionario extends Pessoa {
   private boolean funcionarioAtivo;
   protected String senha;
 
-  public Funcionario(String cpf, String nome, LocalDate dataNascimento, String endereco, Funcao funcao, String especialidade, double salarioBase) {
+  public Funcionario(String cpf, String nome, LocalDate dataNascimento, String endereco, Funcao funcao, String especialidade, double salarioBase, String senha) {
 
     super(cpf, nome, dataNascimento, endereco);// aqui esta chamando o construtor (acho q é esse o nome )da classe pai (Pessoa) - tipo a funcao principal la da classe principal.
 
@@ -20,6 +20,7 @@ public class Funcionario extends Pessoa {
     this.especialidade = especialidade;
     this.salarioBase = salarioBase;
     this.funcionarioAtivo = true;
+    this.senha = senha;
   }
 
   public double calcularSalario(int qtdConsultasRealizadas) {
@@ -63,6 +64,14 @@ public class Funcionario extends Pessoa {
 
     public boolean isFuncionarioAtivo() {
         return funcionarioAtivo;
+    }
+
+    public String getSenha(){
+      return this.senha;
+    }
+
+    public void setSenha(String senha){
+      this.senha = senha;
     }
 
     

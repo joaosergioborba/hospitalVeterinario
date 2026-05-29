@@ -19,8 +19,6 @@ public class ClinicaVeterinaria {
 
     private List<Animal> animais = new ArrayList<>();
     private List<Funcionario> funcionarios = new ArrayList<>();
-    private List<Veterinario> veterinarios = new ArrayList<>();
-    private List<Recepcionista> recepcionistas = new ArrayList<>();
     private List<Tutor> tutores = new ArrayList<>();
     private List<Atendimento> atendimentos = new ArrayList<>();
     private List<RegistroClinico> registrosClinicos = new ArrayList<>();
@@ -53,20 +51,20 @@ public class ClinicaVeterinaria {
 
     }
     
-    public Animal procurarAnimaisPorId(int id, Boolean animalAtivo){
+    public Animal procurarAnimaisPorIdService(int id, Boolean animalAtivo){
 
        Animal resultado = animais.stream().filter(a -> a.getTutor().getId() == id).findFirst().orElse(null);
       return resultado;
       
     }
 
-    public List<Animal> procurarAnimaisPorNome(String nome, Boolean animalAtivo){
+    public List<Animal> procurarAnimaisPorNomeService(String nome, Boolean animalAtivo){
 
       List<Animal> resultado = animais.stream().filter(a -> a.getNome().equalsIgnoreCase(nome)).toList();
       return resultado;
 
     }
-    public List<Animal> procurarAnimaisPorTutor(int idTutor, Boolean animalAtivo ){
+    public List<Animal> procurarAnimaisPorTutorService(int idTutor, Boolean animalAtivo ){
 
       List<Animal> resultado = animais.stream().filter(a -> a.getTutor().getId() == idTutor).toList();
       return resultado;
@@ -128,9 +126,26 @@ public class ClinicaVeterinaria {
 
     }
 
-    
+    public Boolean login(String cpf, String senha){
+
+      Funcionario resultado = funcionarios.stream().filter(funcionarioAtual-> funcionarioAtual.getCpf() == cpf).findFirst().orElse(null);
+
+
+      if(resultado.getCpf().isEmpty()){
+        return false;
+      }
+
+      if(!(resultado.getSenha().equals(senha))){
+
+        return false;
+
+      }
+      return true;
+
+    }
     
 
+     
 
   
 }

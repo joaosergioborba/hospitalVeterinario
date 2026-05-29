@@ -12,7 +12,11 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import model.service.ClinicaVeterinaria;
+
 public class TelaLogin extends JPanel {
+
+  private ClinicaVeterinaria clinicaVeterinaria;
 
   public TelaLogin(){
     
@@ -24,6 +28,7 @@ public class TelaLogin extends JPanel {
     
     JLabel labelUsuario = new JLabel("Usuário:");
     JTextField campoUsuario = new JTextField(30);
+
 
     JLabel labelSenha = new JLabel("Senha:");
     JPasswordField campoSenha = new JPasswordField(30);
@@ -43,7 +48,14 @@ public class TelaLogin extends JPanel {
 
       }
 
-      
+      if(!(clinicaVeterinaria.login(usuarioDigitado, senhaDigitada))){
+
+        JOptionPane.showMessageDialog(null, "Usuário ou senha são invalidos");
+        return;
+
+      }
+
+
     });
 
 

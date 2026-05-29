@@ -148,8 +148,12 @@ public class App {
     
     
     public static void main(String[] args) throws Exception {
+        
 
         App app = new App();
+
+        Veterinario vet = new Veterinario("05705129130", "joao", LocalDate.of(2020,4,20), "cuiabraza", "este", 1500.00, "1234");
+        ClinicaVeterinaria.
 
         Screen tela = new Screen("Tela login - PatasCloud", 400, 300);
         TelaLogin login = new TelaLogin();
