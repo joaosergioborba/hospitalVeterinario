@@ -34,13 +34,10 @@ public class ClinicaVeterinaria {
 
     public boolean isCpfCadastrado(String cpf){
       for (Tutor tutor : tutores) {
-
         String cpfRegistro = tutor.getCpf();
-
-        if (cpfRegistro == cpf){
+        if (cpfRegistro.equals(cpf)){
           return true;
         }
-        
       }
       return false;
     }
@@ -75,12 +72,12 @@ public class ClinicaVeterinaria {
     public void adicionarFuncionarioService(Funcionario data){
       if(isCpfCadastrado(data.getCpf())){
 
-      } else {
         System.out.println("Não foi possível adicionar esse Usuário. CPF já cadastrado no banco de dados");
+      } else {
 
+        this.funcionarios.add(data);
       }
 
-      this.funcionarios.add(data);
 
     }
     public void adicionarTutorService(Tutor data){
@@ -128,10 +125,10 @@ public class ClinicaVeterinaria {
 
     public Boolean login(String cpf, String senha){
 
-      Funcionario resultado = funcionarios.stream().filter(funcionarioAtual-> funcionarioAtual.getCpf() == cpf).findFirst().orElse(null);
+      Funcionario resultado = funcionarios.stream().filter(funcionarioAtual-> funcionarioAtual.getCpf().equals(cpf)).findFirst().orElse(null);
 
 
-      if(resultado.getCpf().isEmpty()){
+      if(resultado == null){
         return false;
       }
 

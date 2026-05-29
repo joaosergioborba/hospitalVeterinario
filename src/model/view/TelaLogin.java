@@ -18,7 +18,9 @@ public class TelaLogin extends JPanel {
 
   private ClinicaVeterinaria clinicaVeterinaria;
 
-  public TelaLogin(){
+  public TelaLogin(ClinicaVeterinaria clinicaVeterinaria){
+
+    this.clinicaVeterinaria = clinicaVeterinaria;
     
     JLabel labelBemVindo = new JLabel("Bem-vindo ao PatasCloud");
     URL imageURL = getClass().getResource("/assets/logo_sem_fundo.png");
@@ -54,6 +56,8 @@ public class TelaLogin extends JPanel {
         return;
 
       }
+
+      System.out.println("Login efeituado com sucesso");
 
 
     });

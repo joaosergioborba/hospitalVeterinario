@@ -148,20 +148,22 @@ public class App {
     
     
     public static void main(String[] args) throws Exception {
+
         
 
         App app = new App();
+        ClinicaVeterinaria sistemaClinica = new ClinicaVeterinaria();
 
         Veterinario vet = new Veterinario("05705129130", "joao", LocalDate.of(2020,4,20), "cuiabraza", "este", 1500.00, "1234");
-        ClinicaVeterinaria.
+        sistemaClinica.adicionarFuncionarioService(vet);
 
         Screen tela = new Screen("Tela login - PatasCloud", 400, 300);
-        TelaLogin login = new TelaLogin();
+        TelaLogin login = new TelaLogin(sistemaClinica);
 
         tela.setContent(login);
         tela.show();
         
-        TelaCaminhoFeliz telaCaminhoFeliz = new TelaCaminhoFeliz();
+       // TelaCaminhoFeliz telaCaminhoFeliz = new TelaCaminhoFeliz();
 
        // app.iniciarMenu();
 
