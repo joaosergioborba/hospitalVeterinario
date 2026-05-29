@@ -55,21 +55,6 @@ public class Screen{
 
     }
 
-    public void remove(){
-      frame.getContentPane().removeAll();
-      frame.setSize(1500,700);
-      
-    }
-
-    public void repaint(){
-  
-      frame.setLocationRelativeTo(null);
-      frame.revalidate();
-      frame.repaint();
-
-    }
-
-
 
   
 }

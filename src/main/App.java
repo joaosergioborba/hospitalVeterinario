@@ -149,6 +149,9 @@ public class App {
 
     public void login(ClinicaVeterinaria sistemaClinica){
 
+
+        
+        
         Screen tela = new Screen("Tela login - PatasCloud", 400, 300);
         TelaPrincipal telaPrincipal = new TelaPrincipal(sistemaClinica);
 
@@ -171,6 +174,12 @@ public class App {
 
         App app = new App();
         ClinicaVeterinaria sistemaClinica = new ClinicaVeterinaria();
+
+        Animal teste = new Animal ("teste", 17, null, null, null, null, null, null);
+
+        String nome = teste.getNome();
+
+        System.out.println(nome);
 
         Veterinario vet = new Veterinario("123456789", "joao", LocalDate.of(2020,4,20), "cuiabraza", "este", 1500.00, "1234");
         sistemaClinica.adicionarFuncionarioService(vet);

@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 
 import model.service.ClinicaVeterinaria;
 
+//usei heranca de JPanel pq ai nao precisamos ficar colocando JPanel toda hr
 public class TelaLogin extends JPanel {
 
   private ClinicaVeterinaria clinicaVeterinaria;
