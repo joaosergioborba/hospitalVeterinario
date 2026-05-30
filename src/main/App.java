@@ -191,7 +191,7 @@ public class App {
         String menu = JOptionPane.showInputDialog(
         "==== Menu ====\n\n" +
         "1 - Testar versão simplificado (codigo aula passada)\n" + 
-        "2 - testar versão premium (em desenvolvimento)\n"
+        "2 - testar versão premium - Beta (em desenvolvimento)\n"
       );
 
       if(menu.equals("1")){

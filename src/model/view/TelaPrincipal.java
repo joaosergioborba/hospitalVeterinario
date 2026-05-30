@@ -11,28 +11,60 @@ public class TelaPrincipal extends JPanel {
   public TelaPrincipal(ClinicaVeterinaria clinicaVeterinaria){
 
     this.clinicaVeterinaria = clinicaVeterinaria;
-    JLabel labelBemVindo = new JLabel("Seja Bem-vindo de volta, usuario");
+    JLabel labelBemVindo = new JLabel("Seja Bem-vindo de volta, usuario!");
 
-    JButton cadastrarFuncionario = new JButton("cadastrar_funcionario");
-    JButton cadastrarTutor = new JButton("cadastrar_tutor");
-    JButton cadastrarAnimal = new JButton("cadastrar_tutor");
-    JButton EntradaAnimal = new JButton("dar_entrada_animal");
+    JButton funcionarioButton = new JButton("Gerenciar funcionários");
+    JButton tutorButton = new JButton("Gerenciar tutores");
+    JButton animalButton = new JButton("Gerenciar animais");
+    JButton EntradaAnimalButton = new JButton("Dar entrada animal");
+    
 
-    EntradaAnimal.addActionListener(e-> {
-      JFrame janelaPai = (JFrame) SwingUtilities.getWindowAncestor(this);
+    EntradaAnimalButton.addActionListener(e-> {
+     entradaAnimal();
+    });
+
+    funcionarioButton.addActionListener(e->{
+      telaEmDesenvolvimento();
+    });
+
+    tutorButton.addActionListener(e->{
+      telaEmDesenvolvimento();
+    });
+    animalButton.addActionListener(e->{
+      telaEmDesenvolvimento();
+    });
+
+
+    add(labelBemVindo);
+    add(EntradaAnimalButton);
+    add(funcionarioButton);
+    add(tutorButton);
+    add(animalButton);
+   
+
+  }
+
+  private void entradaAnimal(){
+     JFrame janelaPai = (JFrame) SwingUtilities.getWindowAncestor(this);
       PopUpModel telaEntrada = new PopUpModel(janelaPai, "Tela entrada de animal - PatasCloud");
       TelaEntradaAnimal telaLancamentoEntrada = new TelaEntradaAnimal(clinicaVeterinaria);
 
       telaEntrada.setContent(telaLancamentoEntrada);
         telaEntrada.show();
+  }
 
-    });
+  private void funcionarioButtonClicked(){
 
 
-    add(labelBemVindo);
-    add(EntradaAnimal);
-   
+    
+  }
 
+  private void telaEmDesenvolvimento(){
+    JFrame janelaPai = (JFrame) SwingUtilities.getWindowAncestor(this);
+    PopUpModel telaDesenvolvimento = new PopUpModel(janelaPai, "Tela em desenvolvimento");
+    PopUpEmDesenvolvimento popUp = new PopUpEmDesenvolvimento();
+    telaDesenvolvimento.setContent(popUp);
+    telaDesenvolvimento.show();
   }
   
 

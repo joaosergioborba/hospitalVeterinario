@@ -22,7 +22,7 @@ public class PopUpModel {
 
   public  PopUpModel(JFrame janelaPai, String tituloPagina){
 
-    jDialog = new JDialog(janelaPai, tituloPagina, true);
+    jDialog = new JDialog(janelaPai, tituloPagina, false);
     jDialog.setSize(900, 500);
     jDialog.setLocationRelativeTo(janelaPai);
     jDialog.setResizable(false);

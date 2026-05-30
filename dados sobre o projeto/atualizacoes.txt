@@ -28,4 +28,4 @@ SEM DATA - Eloisa e Joao Sergio - Foi definido os requisitos funcionais e não f
 29/05/2026 - Joao Sergio - Adicionei dois inputs na tela de login  e um  botão com uma funcao que verifica se os campos foram preenchidos ou nao, caso positivo avanca para a validação dos dados, caso falso mostra um aviso de campos preenchidos incorretamente;
 29/05/2026 - Joao Sergio - Desenvolvi a funcao de login no service;
 29/05/2026- Joao Sergio - Foi adicionado a proxima etapa do login, agora apos estar tudo certo com o login, o programa vai para a tela principal (ainda em contrução);
-29/05/2026 - Joao sergio - desenvolvi a pagina de entrada de animais;
+29/05/2026 - Joao sergio - desenvolvi a primeira versão da pagina de entrada de animais;
