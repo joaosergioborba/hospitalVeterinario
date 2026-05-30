@@ -21,13 +21,13 @@ public class TelaEntradaAnimal extends JPanel {
     JLabel labelEnderecoTutor = new JLabel("Endereco do tutor:");
     JTextField campoEnderecoTutor = new JTextField(30);
 
-    JLabel labelNomeAnimal = new JLabel("Endereco do tutor:");
+    JLabel labelNomeAnimal = new JLabel("Nome do animal:");
     JTextField campoNomeAnimal = new JTextField(30);
 
-    JLabel labelIdadeAnimal = new JLabel("Endereco do tutor:");
+    JLabel labelIdadeAnimal = new JLabel("Idade do animal");
     JTextField campoIdadeAnimal = new JTextField(30);
 
-    JLabel labelNomeVeterinario = new JLabel("Nome veterinario:");
+    JLabel labelNomeVeterinario = new JLabel("Nome veterinario Responsável:");
     JTextField campoNomeVeterinario = new JTextField(30);
 
     add(labelNomeTutor);
