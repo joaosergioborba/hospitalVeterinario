@@ -2,6 +2,7 @@ package model.view;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -32,6 +33,27 @@ public class TelaEntradaAnimal extends JPanel {
     JTextField campoNomeVeterinario = new JTextField(30);
 
     JButton lancarBotao = new JButton("Lancar entrada");
+    JButton preencherPadraoBotao = new JButton("Carregar dados padroes");
+
+    lancarBotao.addActionListener(e->{
+
+      String nomeTutorDigitado = campoNomeTutor.getText();
+      String cpfTutorDigitado = campoCpfTutor.getText();
+      String enderecoTutorDigitado = campoEnderecoTutor.getText();
+      String nomeAnimalDigitado = campoNomeAnimal.getText();
+      String idadeAnimalDigitado = campoIdadeAnimal.getText();
+      String nomeVeterinarioDigitado = campoNomeTutor.getText();
+
+      if(nomeTutorDigitado.isEmpty() || cpfTutorDigitado.isEmpty() || enderecoTutorDigitado.isEmpty() || nomeAnimalDigitado.isEmpty() || idadeAnimalDigitado.isEmpty() || nomeVeterinarioDigitado.isEmpty()){
+
+        JOptionPane.showMessageDialog(null, "Campos preenchidos incorretamente. Tente novamente!");
+
+      }
+
+    });
+
+
+    
 
     add(labelNomeTutor);
     add(campoNomeTutor);
