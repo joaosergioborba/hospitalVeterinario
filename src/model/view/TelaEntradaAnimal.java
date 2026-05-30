@@ -1,11 +1,15 @@
 package model.view;
 
+import java.time.LocalDate;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import model.entity.Tutor;
+import model.entity.Veterinario;
 import model.service.ClinicaVeterinaria;
 
 public class TelaEntradaAnimal extends JPanel {
@@ -16,6 +20,7 @@ public class TelaEntradaAnimal extends JPanel {
 
     JLabel labelNomeTutor = new JLabel("Nome do tutor:");
     JTextField campoNomeTutor = new JTextField(30);
+    
 
     JLabel labelCpfTutor = new JLabel("Cpf do tutor:");
     JTextField campoCpfTutor = new JTextField(30);
@@ -50,10 +55,20 @@ public class TelaEntradaAnimal extends JPanel {
 
       }
 
+      
+      
+
     });
 
 
-    
+    preencherPadraoBotao.addActionListener(e->{
+      campoNomeTutor.setText("SALSICHA");
+      campoCpfTutor.setText("65364238016");
+      campoEnderecoTutor.setText("NORVILLE ROGERS");
+      campoNomeAnimal.setText("SCOOBY DOO");
+      campoIdadeAnimal.setText("7");
+      campoNomeVeterinario.setText("JOE RUBY");
+    });
 
     add(labelNomeTutor);
     add(campoNomeTutor);
@@ -74,6 +89,7 @@ public class TelaEntradaAnimal extends JPanel {
     add(campoNomeVeterinario);
 
     add(lancarBotao);
+    add(preencherPadraoBotao);
 
 
 
