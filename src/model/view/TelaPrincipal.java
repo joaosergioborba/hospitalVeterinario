@@ -54,6 +54,8 @@ public class TelaPrincipal extends JPanel {
   }
 
   private void funcionarioButtonClicked(){
+    
+    
 
 
     
@@ -61,7 +63,8 @@ public class TelaPrincipal extends JPanel {
 
   private void telaEmDesenvolvimento(){
     JFrame janelaPai = (JFrame) SwingUtilities.getWindowAncestor(this);
-    PopUpModel telaDesenvolvimento = new PopUpModel(janelaPai, "Tela em desenvolvimento");
+    PopUpOperacoes telaDesenvolvimento = new PopUpOperacoes(janelaPai, "Tela em desenvolvimento");
+    //PopUpModel telaDesenvolvimento = new PopUpModel(janelaPai, "Tela em desenvolvimento");
     PopUpEmDesenvolvimento popUp = new PopUpEmDesenvolvimento();
     telaDesenvolvimento.setContent(popUp);
     telaDesenvolvimento.show();

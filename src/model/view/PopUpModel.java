@@ -28,9 +28,9 @@ public class PopUpModel {
     jDialog.setResizable(false);
     jDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
-    JPanel panel = cabecalhoPadrao();
+    JPanel CabecalhoPanel = cabecalhoPadrao();
     painelBase = new JPanel(new BorderLayout());
-    painelBase.add(panel, BorderLayout.NORTH);
+    painelBase.add(CabecalhoPanel, BorderLayout.NORTH);
     jDialog.setContentPane(painelBase);
     
 
@@ -78,6 +78,8 @@ public class PopUpModel {
 
   }
 
+
+  
   public void setContent (JPanel conteudo){
     painelBase.add(conteudo);
 

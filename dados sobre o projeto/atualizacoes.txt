@@ -29,3 +29,5 @@ SEM DATA - Eloisa e Joao Sergio - Foi definido os requisitos funcionais e não f
 29/05/2026 - Joao Sergio - Desenvolvi a funcao de login no service;
 29/05/2026- Joao Sergio - Foi adicionado a proxima etapa do login, agora apos estar tudo certo com o login, o programa vai para a tela principal (ainda em contrução);
 29/05/2026 - Joao sergio - desenvolvi a primeira versão da pagina de entrada de animais;
+30/05/2026 - Joao Sergio - Criei uma nova classe, provavelmente vou usar polimorfismo, para que o cabecalho padrao das interface de popup seja diferente dos popup de operacao;
+30/05/2026 - Joao Sergio - Apliquei polimorfismo na classe PopUpOperacoes, pois o molde é o mesmo so muda que o cabecalho nos operacoes serão diferentes;
