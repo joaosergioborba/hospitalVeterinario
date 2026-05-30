@@ -22,7 +22,7 @@ public class PopUpModel {
   public  PopUpModel(JFrame janelaPai, String tituloPagina){
 
     jDialog = new JDialog(janelaPai, tituloPagina, true);
-    jDialog.setSize(800, 800);
+    jDialog.setSize(900, 500);
     jDialog.setLocationRelativeTo(janelaPai);
     jDialog.setResizable(false);
     jDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -67,7 +67,7 @@ public class PopUpModel {
     panel.add(editarImagem);
     panel.add(carregarImagem);
     panel.add(baixarImagem);
-    panel.add(AvisoLabel)
+    panel.add(AvisoLabel);
     
 
     return panel;

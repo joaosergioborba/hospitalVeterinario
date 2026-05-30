@@ -1,5 +1,6 @@
 package model.view;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -30,6 +31,8 @@ public class TelaEntradaAnimal extends JPanel {
     JLabel labelNomeVeterinario = new JLabel("Nome veterinario Responsável:");
     JTextField campoNomeVeterinario = new JTextField(30);
 
+    JButton lancarBotao = new JButton("Lancar entrada");
+
     add(labelNomeTutor);
     add(campoNomeTutor);
 
@@ -47,6 +50,8 @@ public class TelaEntradaAnimal extends JPanel {
     
     add(labelNomeVeterinario);
     add(campoNomeVeterinario);
+
+    add(lancarBotao)
 
 
 
