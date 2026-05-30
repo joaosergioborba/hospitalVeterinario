@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import model.entity.Animal;
 import model.entity.Tutor;
 import model.entity.Veterinario;
 import model.service.ClinicaVeterinaria;
@@ -55,7 +56,14 @@ public class TelaEntradaAnimal extends JPanel {
 
       }
 
-      
+      Tutor tutor = new Tutor(cpfTutorDigitado, nomeTutorDigitado, null, enderecoTutorDigitado);
+      Veterinario veterinario = new Veterinario(null, nomeVeterinarioDigitado, null, null, null, 0.00, null);
+      Animal animal = new Animal(nomeAnimalDigitado, Integer.parseInt(idadeAnimalDigitado), null, null, null, null, null, tutor);
+
+      JOptionPane.showMessageDialog(null, "Paciente registrado. Em breve será chamado");
+      JOptionPane.showMessageDialog(null, "Animal: " + animal.getNome() + "\n" + "Tutor: " + animal.getTutor().getNome() + "\n");
+
+    
       
 
     });

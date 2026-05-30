@@ -2,6 +2,7 @@ package model.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
@@ -51,11 +52,14 @@ public class PopUpModel {
     ImageIcon pesquisarIcon=new ImageIcon(enderecoIconePesquisar);
     ImageIcon baixarIcon=new ImageIcon(enderecoIconeBaixar);
 
-    JLabel incluirImagem = new JLabel(incluirIcon);
+    JLabel incluirImagem = (new JLabel(incluirIcon));
     JLabel editarImagem = new JLabel(editarIcon);
     JLabel carregarImagem = new JLabel(carregarIcon);
     JLabel pesquisarImagem = new JLabel(pesquisarIcon);
     JLabel baixarImagem = new JLabel(baixarIcon);
+
+    incluirImagem.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    
 
     panel.setBackground(new Color(41, 128, 185));
 
