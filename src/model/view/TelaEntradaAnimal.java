@@ -51,7 +51,7 @@ public class TelaEntradaAnimal extends JPanel {
     add(labelNomeVeterinario);
     add(campoNomeVeterinario);
 
-    add(lancarBotao)
+    add(lancarBotao);
 
 
 
