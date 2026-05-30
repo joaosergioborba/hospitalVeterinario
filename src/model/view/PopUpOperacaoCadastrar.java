@@ -9,9 +9,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class PopUpOperacoes extends PopUpModel{
+public class PopUpOperacaoCadastrar extends PopUpModel{
 
-  public PopUpOperacoes(JFrame janelaPai, String tituloPagina){
+  public PopUpOperacaoCadastrar(JFrame janelaPai, String tituloPagina){
     super(janelaPai, tituloPagina);
   }
 

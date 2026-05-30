@@ -28,9 +28,14 @@ public class PopUpModel {
     jDialog.setResizable(false);
     jDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
-    JPanel CabecalhoPanel = cabecalhoPadrao();
     painelBase = new JPanel(new BorderLayout());
+
+    JPanel CabecalhoPanel = cabecalhoPadrao();
     painelBase.add(CabecalhoPanel, BorderLayout.NORTH);
+
+    JPanel rodapePanel = rodapePadrao();
+    painelBase.add(rodapePanel, BorderLayout.SOUTH);
+
     jDialog.setContentPane(painelBase);
     
 
@@ -76,6 +81,21 @@ public class PopUpModel {
 
     return panel;
 
+  }
+
+  public JPanel rodapePadrao(){
+
+    JPanel panel = new JPanel();
+    URL enderecoIconePesquisar = getClass().getResource("/assets/pesquisarIcon.png");
+    ImageIcon pesquisarIcon=new ImageIcon(enderecoIconePesquisar);
+    JLabel pesquisarImagem = new JLabel(pesquisarIcon);
+
+    JLabel descricaoPesquiser = new JLabel("Pesquisar");
+    
+    panel.add(pesquisarImagem);
+    panel.add(descricaoPesquiser);
+
+    return panel;
   }
 
 
