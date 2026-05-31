@@ -5,8 +5,11 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import model.service.ClinicaVeterinaria;
+import model.view.PopUpOperacao.PopUpOperacaoIncluir_animal;
 import model.view.abstract_class.PopUpModel;
 import model.view.abstract_class.PopUpOperacao;
+import model.view.conteudoPopUps.PopUpEmDesenvolvimento;
+import model.view.conteudoPopUps.PopUpIncluirAnimal;
 
 public class TelaAnimal extends PopUpModel {
 
@@ -21,13 +24,11 @@ public class TelaAnimal extends PopUpModel {
   public void incluirButtonClicked() {
 
     //JPanel janelaPai = (JPanel) SwingUtilities.getWindowAncestor(this);
-    PopUpOperacao telaDesenvolvimento = new PopUpOperacao(janelaPai, "Cadastrar um novo animal - PatasCloud", clinicaVeterinaria);
+    PopUpOperacaoIncluir_animal telaCadastro = new PopUpOperacaoIncluir_animal(janelaPai, "Cadastrar um novo animal - PatasCloud", clinicaVeterinaria);
     //PopUpModel telaDesenvolvimento = new PopUpModel(janelaPai, "Tela em desenvolvimento");
-    PopUpEmDesenvolvimento popUp = new PopUpEmDesenvolvimento();
-    telaDesenvolvimento.setContent(popUp);
-    telaDesenvolvimento.show();
+    PopUpIncluirAnimal popUp = new PopUpIncluirAnimal();
+    //telaCadastro.setContent(popUp);
+    //telaCadastro.show();
 
-
-    
   }
 }

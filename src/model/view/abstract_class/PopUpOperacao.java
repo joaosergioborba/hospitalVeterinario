@@ -5,6 +5,7 @@ import java.awt.Cursor;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,15 +30,18 @@ public class PopUpOperacao extends PopUpModel{
     
     ImageIcon salvarIcon=new ImageIcon(enderecoSalvarIcon);
     
-    JLabel salvarImagem = (new JLabel(salvarIcon));
-   
-    salvarImagem.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    
+    JButton salvar = new JButton();
+    salvar.setIcon(salvarIcon);
+    salvar.setText("Salvar");
+
+    salvar.addActionListener(e->{
+      salvarButtonClicked();
+    });
 
     panel.setBackground(new Color(41, 128, 185));
 
     JLabel AvisoLabel = new JLabel("botoes em desenvolvimento");
-    panel.add(salvarImagem);
+    panel.add(salvar);
     return panel;
 
   }
@@ -52,15 +56,25 @@ public class PopUpOperacao extends PopUpModel{
     
     ImageIcon salvarIcon=new ImageIcon(enderecoSalvarIcon);
     
-    JLabel salvarImagem = (new JLabel(salvarIcon));
    
-    salvarImagem.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+    JButton salvar = new JButton();
+    salvar.setIcon(salvarIcon);
+    salvar.setText("Salvar");
+
+    salvar.addActionListener(e->{
+      salvarButtonClicked();
+    });
+
+   
     
 
     panel.setBackground(new Color(41, 128, 185));
-    panel.add(salvarImagem);
+    panel.add(salvar);
     return panel;
 
   }
+
+  public void salvarButtonClicked(){}
   
 }

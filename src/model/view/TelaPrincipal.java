@@ -5,6 +5,7 @@ import javax.swing.*;
 import model.service.ClinicaVeterinaria;
 import model.view.abstract_class.PopUpModel;
 import model.view.abstract_class.PopUpOperacao;
+import model.view.conteudoPopUps.PopUpEmDesenvolvimento;
 
 //usei heranca de JPanel pq ai nao precisamos ficar colocando JPanel toda hr
 public class TelaPrincipal extends JPanel {
