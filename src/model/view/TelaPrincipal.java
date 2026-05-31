@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import model.service.ClinicaVeterinaria;
 import model.view.abstract_class.PopUpModel;
+import model.view.abstract_class.PopUpOperacao;
 
 //usei heranca de JPanel pq ai nao precisamos ficar colocando JPanel toda hr
 public class TelaPrincipal extends JPanel {
@@ -33,7 +34,7 @@ public class TelaPrincipal extends JPanel {
       telaEmDesenvolvimento();
     });
     animalButton.addActionListener(e->{
-      telaEmDesenvolvimento();
+      gerenciarAnimalButtonClicked();
     });
 
 
@@ -49,7 +50,7 @@ public class TelaPrincipal extends JPanel {
 
   private void entradaAnimal(){
      JFrame janelaPai = (JFrame) SwingUtilities.getWindowAncestor(this);
-      PopUpModel telaEntrada = new PopUpModel(janelaPai, "Tela entrada de animal - PatasCloud");
+      PopUpModel telaEntrada = new PopUpModel(janelaPai, "Tela entrada de animal - PatasCloud", clinicaVeterinaria);
       TelaEntradaAnimal telaLancamentoEntrada = new TelaEntradaAnimal(clinicaVeterinaria);
 
       telaEntrada.setContent(telaLancamentoEntrada);
@@ -59,7 +60,7 @@ public class TelaPrincipal extends JPanel {
   private void funcionarioButtonClicked(){
 
     JFrame janelaPai = (JFrame) SwingUtilities.getWindowAncestor(this);
-    PopUpModel telaFuncionarios = new PopUpModel(janelaPai, "Gerenciamento de funcionarios");
+    PopUpModel telaFuncionarios = new PopUpModel(janelaPai, "Gerenciamento de funcionarios", clinicaVeterinaria);
 
     
 
@@ -72,11 +73,20 @@ public class TelaPrincipal extends JPanel {
 
   private void telaEmDesenvolvimento(){
     JFrame janelaPai = (JFrame) SwingUtilities.getWindowAncestor(this);
-    PopUpOperacao telaDesenvolvimento = new PopUpOperacao(janelaPai, "Tela em desenvolvimento");
+    PopUpOperacao telaDesenvolvimento = new PopUpOperacao(janelaPai, "Tela em desenvolvimento", clinicaVeterinaria);
     //PopUpModel telaDesenvolvimento = new PopUpModel(janelaPai, "Tela em desenvolvimento");
     PopUpEmDesenvolvimento popUp = new PopUpEmDesenvolvimento();
     telaDesenvolvimento.setContent(popUp);
     telaDesenvolvimento.show();
+  }
+
+  private void gerenciarAnimalButtonClicked(){
+    JFrame janelaPai = (JFrame) SwingUtilities.getWindowAncestor(this);
+    TelaAnimal telaGerenciarAnimais = new TelaAnimal(janelaPai, "Gerenciar animais - PatasCloud", clinicaVeterinaria);
+    //PopUpModel telaDesenvolvimento = new PopUpModel(janelaPai, "Tela em desenvolvimento");
+    PopUpEmDesenvolvimento popUp = new PopUpEmDesenvolvimento();
+    telaGerenciarAnimais.setContent(popUp);
+    telaGerenciarAnimais.show();
   }
   
 
