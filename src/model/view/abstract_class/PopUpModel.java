@@ -133,11 +133,7 @@ public class PopUpModel {
     return panel;
   }
 
-  public void incluirButtonClicked(){
-
-
-
-  }
+  public void incluirButtonClicked(){}
 
 
   

@@ -1,4 +1,4 @@
-package model.view;
+package model.view.conteudoPopUps;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
