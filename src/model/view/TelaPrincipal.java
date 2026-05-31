@@ -17,6 +17,7 @@ public class TelaPrincipal extends JPanel {
     JButton tutorButton = new JButton("Gerenciar tutores");
     JButton animalButton = new JButton("Gerenciar animais");
     JButton EntradaAnimalButton = new JButton("Dar entrada animal");
+    JButton atendimentolButton = new JButton("Gerenciar Atendimentos");
     
 
     EntradaAnimalButton.addActionListener(e-> {
@@ -40,6 +41,7 @@ public class TelaPrincipal extends JPanel {
     add(funcionarioButton);
     add(tutorButton);
     add(animalButton);
+    add(atendimentolButton);
    
 
   }
@@ -54,6 +56,10 @@ public class TelaPrincipal extends JPanel {
   }
 
   private void funcionarioButtonClicked(){
+
+    JFrame janelaPai = (JFrame) SwingUtilities.getWindowAncestor(this);
+    PopUpModel telaFuncionarios = new PopUpModel(janelaPai, "Gerenciamento de funcionarios");
+    
     
 
 

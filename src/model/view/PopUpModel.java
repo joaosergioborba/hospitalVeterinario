@@ -6,6 +6,7 @@ import java.awt.Cursor;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -57,13 +58,39 @@ public class PopUpModel {
     ImageIcon pesquisarIcon=new ImageIcon(enderecoIconePesquisar);
     ImageIcon baixarIcon=new ImageIcon(enderecoIconeBaixar);
 
-    JLabel incluirImagem = (new JLabel(incluirIcon));
-    JLabel editarImagem = new JLabel(editarIcon);
-    JLabel carregarImagem = new JLabel(carregarIcon);
-    JLabel pesquisarImagem = new JLabel(pesquisarIcon);
-    JLabel baixarImagem = new JLabel(baixarIcon);
+    JButton incluirButton = new JButton();
+    JButton editarButton = new JButton();
+    JButton carregarButton = new JButton();
+    JButton pesquisarButton = new JButton();
+    JButton baixarButton = new JButton();
+    
 
-    incluirImagem.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    incluirButton.setIcon(incluirIcon);
+    editarButton.setIcon(editarIcon);
+    carregarButton.setIcon(carregarIcon);
+    pesquisarButton.setIcon(pesquisarIcon);
+    baixarButton.setIcon(baixarIcon);
+
+    incluirButton.setText("Incluir");
+    editarButton.setText("Editar");
+    carregarButton.setText("Carregar");
+    pesquisarButton.setText("Pesquisar");
+    baixarButton.setText("Baixar");
+
+
+    //JLabel incluirImagem = (new JLabel(incluirIcon));
+    //JLabel editarImagem = new JLabel(editarIcon);
+    //JLabel carregarImagem = new JLabel(carregarIcon);
+    ///JLabel pesquisarImagem = new JLabel(pesquisarIcon);
+    //JLabel baixarImagem = new JLabel(baixarIcon);
+
+    JButton pesquisar = new JButton();
+
+    pesquisar.setIcon(pesquisarIcon);
+    pesquisar.setText("pesquisar");
+
+    //incluirImagem.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    //incluirImagem.addMouseListener();
     
 
     panel.setBackground(new Color(41, 128, 185));
@@ -71,11 +98,11 @@ public class PopUpModel {
     JLabel AvisoLabel = new JLabel("botoes em desenvolvimento");
     
 
-    panel.add(pesquisarImagem);
-    panel.add(incluirImagem);
-    panel.add(editarImagem);
-    panel.add(carregarImagem);
-    panel.add(baixarImagem);
+    panel.add(pesquisarButton);
+    panel.add(incluirButton);
+    panel.add(editarButton);
+    panel.add(carregarButton);
+    panel.add(baixarButton);
     panel.add(AvisoLabel);
     
 

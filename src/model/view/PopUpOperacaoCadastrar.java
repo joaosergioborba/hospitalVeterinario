@@ -33,14 +33,28 @@ public class PopUpOperacaoCadastrar extends PopUpModel{
     panel.setBackground(new Color(41, 128, 185));
 
     JLabel AvisoLabel = new JLabel("botoes em desenvolvimento");
-    
-
-    
     panel.add(salvarImagem);
+    return panel;
+
+  }
+
+
+  @Override
+  public JPanel rodapePadrao(){
+
+    JPanel panel = new JPanel();
+
+    URL enderecoSalvarIcon = getClass().getResource("/assets/salvarIcon.png");
     
+    ImageIcon salvarIcon=new ImageIcon(enderecoSalvarIcon);
+    
+    JLabel salvarImagem = (new JLabel(salvarIcon));
    
+    salvarImagem.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     
 
+    panel.setBackground(new Color(41, 128, 185));
+    panel.add(salvarImagem);
     return panel;
 
   }
