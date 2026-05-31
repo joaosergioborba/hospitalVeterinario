@@ -186,6 +186,10 @@ public class App {
         Veterinario vet2 = new Veterinario("123456", "Usuario teste", LocalDate.of(2020,4,20), "cuiabraza", "Quality Assurance", 1500.00, "123456");
         sistemaClinica.adicionarFuncionarioService(vet2);
 
+        Tutor tutor1 = new Tutor("123456", "Joana", null, null);
+        tutor1.setId(1);
+
+        sistemaClinica.adicionarTutorService(tutor1);
         //app.login(sistemaClinica);
 
         String menu = JOptionPane.showInputDialog(

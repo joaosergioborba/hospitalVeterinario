@@ -92,6 +92,17 @@ public class ClinicaVeterinaria {
       this.tutores.add(data);
 
     }
+
+
+    public Tutor procurarTutorPorIdService(int id){
+
+      Tutor resultado = tutores.stream().filter(a -> a.getId() == id).findFirst().orElse(null);
+      
+      return resultado;
+
+
+
+    }
     public void adicionarAtendimentoService(Atendimento data){
 
       this.atendimentos.add(data);

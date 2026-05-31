@@ -1,12 +1,10 @@
 package model.view.PopUpOperacao;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import java.awt.event.FocusListener;
 
+import javax.swing.*;
+
+import model.entity.Tutor;
 import model.service.ClinicaVeterinaria;
 import model.view.abstract_class.PopUpOperacao;
 
@@ -48,6 +46,36 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
     JButton lancarBotao = new JButton("Lancar entrada");
     JButton preencherPadraoBotao = new JButton("Carregar dados padroes");
 
+    campoTutorId.setInputVerifier(new InputVerifier() {
+    @Override
+    public boolean verify(JComponent input) {
+
+      try {
+
+        JTextField tf = (JTextField) input;
+
+        if(tf.getText().isEmpty()){
+          return true;
+
+        }
+        int id = Integer.parseInt(tf.getText());
+
+        
+    
+        Tutor tutor = clinicaVeterinaria.procurarTutorPorIdService(id);
+    
+        if(tutor != null){
+          campoTutorNome.setText(tutor.getNome());
+          return true;
+        }
+        JOptionPane.showMessageDialog(null, "O id do tutor informado é invalido!");
+        return false;
+      }  catch (NumberFormatException e){
+        JOptionPane.showMessageDialog(null, "O id informado não é um id válido! Digite apenas números");
+        return false;
+      }
+    }});
+
 
     lancarBotao.addActionListener(e->{
 
@@ -58,6 +86,8 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
     });
 
     preencherPadraoBotao.addActionListener(e->{
+
+      preencherPadraoButtonClicked(campoNomeAnimal, campoIdadeAnimal, campoRacaAnimal, campoTamanhoPelagemAnimal, campoSexoAnimal, campoPorteAnimal, campoTutorId, campoTutorNome);
 
     });
 
@@ -83,6 +113,8 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
     panel.add(labelTutorId);
     panel.add(campoTutorId);
 
+    panel.add(campoTutorNome);
+
     panel.add(lancarBotao);
     panel.add(preencherPadraoBotao);
 
@@ -107,7 +139,20 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
 
       JOptionPane.showMessageDialog(null, "Campos preenchidos incprretamente. Tente novamente!");
     }
+
+    
     
   }
+
+   public void preencherPadraoButtonClicked(JTextField nome, JTextField  idade, JTextField raca, JTextField tamanhoPelagem, JTextField sexo, JTextField porte, JTextField tutorId, JTextField nomeTutor) {
+    nome.setText("BURRO");
+    idade.setText("15");
+    raca.setText("BURRO FALANTE");
+    tamanhoPelagem.setText("CURTA");
+    sexo.setText("MACHO");
+    porte.setText("MEDIO");
+    tutorId.setText("1");
+    nomeTutor.setText("SHREK");
+   }
   
 }
