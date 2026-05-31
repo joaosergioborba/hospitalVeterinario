@@ -1,4 +1,4 @@
-package model.view;
+package model.view.abstract_class;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -9,9 +9,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class PopUpOperacaoCadastrar extends PopUpModel{
 
-  public PopUpOperacaoCadastrar(JFrame janelaPai, String tituloPagina){
+//decidimos utilizar as classes abstratas porque nao devem ser instanciadas, uma vez que serão apenas um molde para as subclasses
+abstract class PopUpOperacao extends PopUpModel{
+
+  public PopUpOperacao(JFrame janelaPai, String tituloPagina){
     super(janelaPai, tituloPagina);
   }
 

@@ -1,4 +1,4 @@
-package model.view;
+package model.view.abstract_class;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -13,7 +13,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PopUpModel {
+
+//decidimos utilizar as classes abstratas porque nao devem ser instanciadas, uma vez que serão apenas um molde para as subclasses
+
+abstract class PopUpModel {
 
   //esse recurso de dialog foi o unico jeito que achei para que quando eu fechar a tela nao feche o programa inteiro e sim so a janela, mas funciona de um jeito muito pareceido com o Jframe
 
@@ -77,17 +80,16 @@ public class PopUpModel {
     pesquisarButton.setText("Pesquisar");
     baixarButton.setText("Baixar");
 
+    incluirButton.addActionListener(e->{
+      incluirButtonClicked();
+    });
+
 
     //JLabel incluirImagem = (new JLabel(incluirIcon));
     //JLabel editarImagem = new JLabel(editarIcon);
     //JLabel carregarImagem = new JLabel(carregarIcon);
-    ///JLabel pesquisarImagem = new JLabel(pesquisarIcon);
+    //JLabel pesquisarImagem = new JLabel(pesquisarIcon);
     //JLabel baixarImagem = new JLabel(baixarIcon);
-
-    JButton pesquisar = new JButton();
-
-    pesquisar.setIcon(pesquisarIcon);
-    pesquisar.setText("pesquisar");
 
     //incluirImagem.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     //incluirImagem.addMouseListener();
@@ -123,6 +125,12 @@ public class PopUpModel {
     panel.add(descricaoPesquiser);
 
     return panel;
+  }
+
+  public void incluirButtonClicked(){
+
+
+
   }
 
 

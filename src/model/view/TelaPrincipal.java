@@ -3,6 +3,7 @@ package model.view;
 import javax.swing.*;
 
 import model.service.ClinicaVeterinaria;
+import model.view.abstract_class.PopUpModel;
 
 //usei heranca de JPanel pq ai nao precisamos ficar colocando JPanel toda hr
 public class TelaPrincipal extends JPanel {
@@ -59,7 +60,7 @@ public class TelaPrincipal extends JPanel {
 
     JFrame janelaPai = (JFrame) SwingUtilities.getWindowAncestor(this);
     PopUpModel telaFuncionarios = new PopUpModel(janelaPai, "Gerenciamento de funcionarios");
-    
+
     
 
 
@@ -67,9 +68,11 @@ public class TelaPrincipal extends JPanel {
     
   }
 
+
+
   private void telaEmDesenvolvimento(){
     JFrame janelaPai = (JFrame) SwingUtilities.getWindowAncestor(this);
-    PopUpOperacaoCadastrar telaDesenvolvimento = new PopUpOperacaoCadastrar(janelaPai, "Tela em desenvolvimento");
+    PopUpOperacao telaDesenvolvimento = new PopUpOperacao(janelaPai, "Tela em desenvolvimento");
     //PopUpModel telaDesenvolvimento = new PopUpModel(janelaPai, "Tela em desenvolvimento");
     PopUpEmDesenvolvimento popUp = new PopUpEmDesenvolvimento();
     telaDesenvolvimento.setContent(popUp);
