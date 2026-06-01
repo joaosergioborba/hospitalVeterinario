@@ -10,6 +10,7 @@ import java.util.Scanner;
 import model.entity.*;
 import model.enums.*;
 import model.service.ClinicaVeterinaria;
+import model.service.carregarDadosIniciais;
 import model.view.Screen;
 import model.view.TelaCaminhoFeliz;
 import model.view.TelaLogin;
@@ -173,7 +174,9 @@ public class App {
         
 
         App app = new App();
+
         ClinicaVeterinaria sistemaClinica = new ClinicaVeterinaria();
+        carregarDadosIniciais inicar = new carregarDadosIniciais(sistemaClinica);
 
         Animal teste = new Animal ("teste", 17, null, null, null, null, null, null);
 

@@ -42,7 +42,28 @@ public class ClinicaVeterinaria {
       return false;
     }
 
+    // animais services
+
+    public int buscarProximoIdAnimalService(){
+      int maiorId = 0;
+
+      for (Animal  animal: animais) {
+
+        int idAtual = animal.getId();
+
+        if(idAtual > maiorId){
+          maiorId = idAtual;
+        }
+        
+      }
+      return maiorId + 1;
+
+    }
+
+    
     public void adicionarAnimalService(Animal data){
+
+      data.setId(buscarProximoIdAnimalService());
 
       this.animais.add(data);
 
@@ -68,6 +89,14 @@ public class ClinicaVeterinaria {
 
     }
     
+    public List<Animal> listarAnimaisCadastrados(Boolean animalAtivo){
+
+      List<Animal> lista = animais.stream().filter(a-> a.isAnimalAtivo() == animalAtivo).toList();
+      return lista;
+
+    }
+
+    //funcionarios services
     
     public void adicionarFuncionarioService(Funcionario data){
       if(isCpfCadastrado(data.getCpf())){
@@ -80,16 +109,38 @@ public class ClinicaVeterinaria {
 
 
     }
+
+
+  // tutor services
+  
+    public int buscarProximoIdTutorService(){
+      int maiorId = 0;
+
+      for (Tutor  tutor: tutores) {
+
+        int idAtual = tutor.getId();
+
+        if(idAtual > maiorId){
+          maiorId = idAtual;
+        }
+        
+      }
+      return maiorId + 1;
+
+    }
     public void adicionarTutorService(Tutor data){
 
       if(isCpfCadastrado(data.getCpf())){
 
-      } else {
         System.out.println("Não foi possível adicionar esse Usuário. CPF já cadastrado no banco de dados");
+        return;
+      } else {
+
+        data.setId(buscarProximoIdTutorService());
+        this.tutores.add(data);
 
       }
 
-      this.tutores.add(data);
 
     }
 
