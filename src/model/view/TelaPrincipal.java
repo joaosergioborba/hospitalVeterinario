@@ -15,6 +15,12 @@ public class TelaPrincipal extends JPanel {
 
     this.clinicaVeterinaria = clinicaVeterinaria;
     JLabel labelBemVindo = new JLabel("Seja Bem-vindo de volta, usuario!");
+    JLabel labelInstrucoes = new JLabel("Fluxo para o caminho feliz -> \n 1- Aperte no botão lancar entrada \n 2- Digite os dados solicitados ou aperte no botão carregar dados padrao \n 3 - Aperte em lançar OBS: OS BOTÕES SUPERIORES DA TELA APERTA AINDA ESTÃO EM DESENVOLVIMENTO");
+
+    JLabel caminho = new JLabel("------------ CAMINHO PARA GERENCIAR ANIMAIS ---------");
+
+    JLabel labelInstrucoesAnimal = new JLabel("1 - Click em gerenciar animais \n 2 - Click no botão INCLUIR no cabeçalho da tela \n 3 - preencha os dados (OBS: O CAMPO ID ANIMAL  E NOME DO TUTOR NÃO DEVE SER PREENCHIDO) OU APERTE EM CARREGAR DADOS PADROES \n" );
+    JLabel labelInstrucoesAnimal2 = new JLabel("5 - Apos apertar em lancar, o campo ID ANIMAL será preenchido com o id do animal OBS(O CAMPO NOME DO TUTOR SERÁ PREENCHIDO AUTOMATICAMENTE APOS UM ID TUTOR VALIDOR FOR PREENCHIDO)" );
 
     JButton funcionarioButton = new JButton("Gerenciar funcionários");
     JButton tutorButton = new JButton("Gerenciar tutores");
@@ -45,6 +51,11 @@ public class TelaPrincipal extends JPanel {
     add(tutorButton);
     add(animalButton);
     add(atendimentolButton);
+
+    add(labelInstrucoes);
+    add(caminho);
+    add(labelInstrucoesAnimal);
+    add(labelInstrucoesAnimal2);
    
 
   }

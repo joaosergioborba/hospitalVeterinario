@@ -4,7 +4,11 @@ import java.awt.event.FocusListener;
 
 import javax.swing.*;
 
+import model.entity.Animal;
 import model.entity.Tutor;
+import model.enums.PorteAnimal;
+import model.enums.Sexo;
+import model.enums.TamanhoPelo;
 import model.service.ClinicaVeterinaria;
 import model.view.abstract_class.PopUpOperacao;
 
@@ -17,6 +21,9 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
     super(janelaPai, tituloPagina, clinicaVeterinaria);
 
     panel = new JPanel();
+
+    JLabel labelIdAnimal = new JLabel("Id animal: ");
+    JTextField campoIdAnimal = new JTextField(30);
 
     JLabel labelNomeAnimal = new JLabel("Nome: ");
     JTextField campoNomeAnimal = new JTextField(30);
@@ -79,7 +86,7 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
 
     lancarBotao.addActionListener(e->{
 
-      salvarButtonClicked(campoNomeAnimal, campoIdadeAnimal, campoRacaAnimal, campoTamanhoPelagemAnimal, campoSexoAnimal, campoPorteAnimal, campoTutorId);
+      salvarButtonClicked(campoIdAnimal, campoNomeAnimal, campoIdadeAnimal, campoRacaAnimal, campoTamanhoPelagemAnimal, campoSexoAnimal, campoPorteAnimal, campoTutorId);
 
     
 
@@ -87,10 +94,13 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
 
     preencherPadraoBotao.addActionListener(e->{
 
-      preencherPadraoButtonClicked(campoNomeAnimal, campoIdadeAnimal, campoRacaAnimal, campoTamanhoPelagemAnimal, campoSexoAnimal, campoPorteAnimal, campoTutorId, campoTutorNome);
+      preencherPadraoButtonClicked( campoNomeAnimal, campoIdadeAnimal, campoRacaAnimal, campoTamanhoPelagemAnimal, campoSexoAnimal, campoPorteAnimal, campoTutorId, campoTutorNome);
 
     });
 
+
+    panel.add(labelIdAnimal);
+    panel.add(campoIdAnimal);
 
     panel.add(labelNomeAnimal);
     panel.add(campoNomeAnimal);
@@ -113,6 +123,7 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
     panel.add(labelTutorId);
     panel.add(campoTutorId);
 
+    panel.add(labelTutorNome);
     panel.add(campoTutorNome);
 
     panel.add(lancarBotao);
@@ -125,7 +136,7 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
 
   
   
-  public void salvarButtonClicked(JTextField nome, JTextField  idade, JTextField raca, JTextField tamanhoPelagem, JTextField sexo, JTextField porte, JTextField tutorId) {
+  public void salvarButtonClicked(JTextField idAnimal, JTextField nome, JTextField  idade, JTextField raca, JTextField tamanhoPelagem, JTextField sexo, JTextField porte, JTextField tutorId) {
 
     String nomeDigitado = nome.getText();
     String idadeDigitado = (idade.getText());
@@ -141,6 +152,20 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
     }
 
     
+
+    Tutor tutor = clinicaVeterinaria.procurarTutorPorIdService(Integer.parseInt(tutorIdDigitado));
+
+    if(tutor == null){
+      JOptionPane.showConfirmDialog(null, "Tutor não encontrado");
+      return;
+    }
+
+    Animal animal = new Animal(nomeDigitado, Integer.parseInt(idadeDigitado), racaDigitado, null, null, null, null, tutor);
+
+    clinicaVeterinaria.adicionarAnimalService(animal);
+    idAnimal.setText(String.valueOf(animal.getId()));
+    
+    
     
   }
 
@@ -152,7 +177,6 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
     sexo.setText("MACHO");
     porte.setText("MEDIO");
     tutorId.setText("1");
-    nomeTutor.setText("SHREK");
    }
   
 }

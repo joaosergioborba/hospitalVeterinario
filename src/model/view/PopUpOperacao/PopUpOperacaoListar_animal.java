@@ -1,0 +1,35 @@
+package model.view.PopUpOperacao;
+
+import java.util.List;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import model.entity.Animal;
+import model.service.ClinicaVeterinaria;
+import model.view.abstract_class.PopUpOperacao;
+
+public class PopUpOperacaoListar_animal extends PopUpOperacao {
+  
+  public PopUpOperacaoListar_animal(JFrame janelaPai, String tituloPagina, ClinicaVeterinaria clinicaVeterinaria, List<Animal> lista){
+    super(janelaPai, tituloPagina, clinicaVeterinaria);
+
+    JPanel panel = new JPanel();
+
+    panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS)); // essa parte eu vi no gemini, seria para meio que pular a linha entre um animal e outro
+
+    for(Animal animal: lista){
+
+      panel.add(new JLabel("Animal: "+ animal.getNome() + "-> Tutor: " + animal.getTutor().getNome() + "\n"));
+    
+    }
+    
+    setContent(panel);
+    show();
+  }
+
+
+  
+}

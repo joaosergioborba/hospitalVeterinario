@@ -90,6 +90,10 @@ public class PopUpModel {
       incluirButtonClicked();
     });
 
+    pesquisarButton.addActionListener(e->{
+      pesquisarButtonClicked(panel);
+    });
+
 
     //JLabel incluirImagem = (new JLabel(incluirIcon));
     //JLabel editarImagem = new JLabel(editarIcon);
@@ -133,7 +137,11 @@ public class PopUpModel {
     return panel;
   }
 
+  
+
   public void incluirButtonClicked(){}
+
+  public void pesquisarButtonClicked(JPanel panel){}
 
 
   
