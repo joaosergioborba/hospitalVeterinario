@@ -1,6 +1,7 @@
 package model.view.PopUpOperacao;
 
 import java.awt.event.FocusListener;
+import java.net.URL;
 
 import javax.swing.*;
 
@@ -52,6 +53,8 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
 
     JButton lancarBotao = new JButton("Lancar entrada");
     JButton preencherPadraoBotao = new JButton("Carregar dados padroes");
+
+    campoIdAnimal.setEditable(false);
 
     campoTutorId.setInputVerifier(new InputVerifier() {
     @Override
@@ -179,4 +182,6 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
     tutorId.setText("1");
    }
   
+
+   
 }
