@@ -7,9 +7,9 @@ import model.enums.Funcao;
 public class Veterinario extends Funcionario{
   
 
-  public Veterinario(String cpf, String nome, LocalDate dataNascimento, String endereco, Funcao funcao, String especialidade, double salarioBase) {
+  public Veterinario(String cpf, String nome, LocalDate dataNascimento, String endereco, String especialidade, double salarioBase, String senha) {
 
-    super(cpf, nome, dataNascimento, endereco, funcao, especialidade, salarioBase);
+    super(cpf, nome, dataNascimento, endereco, Funcao.MEDICO_VETERINARIO, especialidade, salarioBase, senha);
   }
   
 

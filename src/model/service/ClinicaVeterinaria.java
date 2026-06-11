@@ -9,9 +9,11 @@ import model.entity.Exame;
 import model.entity.Funcionario;
 import model.entity.Medicacao;
 import model.entity.Produto;
+import model.entity.Recepcionista;
 import model.entity.RegistroClinico;
 import model.entity.Tutor;
 import model.entity.Vacina;
+import model.entity.Veterinario;
 
 public class ClinicaVeterinaria {
 
@@ -32,64 +34,124 @@ public class ClinicaVeterinaria {
 
     public boolean isCpfCadastrado(String cpf){
       for (Tutor tutor : tutores) {
-
         String cpfRegistro = tutor.getCpf();
-
-        if (cpfRegistro == cpf){
+        if (cpfRegistro.equals(cpf)){
           return true;
         }
-        
       }
       return false;
     }
 
+    // animais services
+
+    public int buscarProximoIdAnimalService(){
+      int maiorId = 0;
+
+      for (Animal  animal: animais) {
+
+        int idAtual = animal.getId();
+
+        if(idAtual > maiorId){
+          maiorId = idAtual;
+        }
+        
+      }
+      return maiorId + 1;
+
+    }
+
+    
     public void adicionarAnimalService(Animal data){
+
+      data.setId(buscarProximoIdAnimalService());
 
       this.animais.add(data);
 
     }
-    public Animal procurarAnimaisPorId(int id, Boolean animalAtivo){
+    
+    public Animal procurarAnimaisPorIdService(int id, Boolean animalAtivo){
 
        Animal resultado = animais.stream().filter(a -> a.getTutor().getId() == id).findFirst().orElse(null);
       return resultado;
       
     }
 
-    public List<Animal> procurarAnimaisPorNome(String nome, Boolean animalAtivo){
+    public List<Animal> procurarAnimaisPorNomeService(String nome, Boolean animalAtivo){
 
       List<Animal> resultado = animais.stream().filter(a -> a.getNome().equalsIgnoreCase(nome)).toList();
       return resultado;
 
     }
-    public List<Animal> procurarAnimaisPorTutor(int idTutor, Boolean animalAtivo ){
+    public List<Animal> procurarAnimaisPorTutorService(int idTutor, Boolean animalAtivo ){
 
       List<Animal> resultado = animais.stream().filter(a -> a.getTutor().getId() == idTutor).toList();
       return resultado;
 
     }
     
+    public List<Animal> listarAnimaisCadastrados(Boolean animalAtivo){
+
+      List<Animal> lista = animais.stream().filter(a-> a.isAnimalAtivo() == animalAtivo).toList();
+      return lista;
+
+    }
+
+    //funcionarios services
     
     public void adicionarFuncionarioService(Funcionario data){
       if(isCpfCadastrado(data.getCpf())){
 
-      } else {
         System.out.println("Não foi possível adicionar esse Usuário. CPF já cadastrado no banco de dados");
+      } else {
 
+        this.funcionarios.add(data);
       }
 
-      this.funcionarios.add(data);
+
+    }
+
+
+  // tutor services
+  
+    public int buscarProximoIdTutorService(){
+      int maiorId = 0;
+
+      for (Tutor  tutor: tutores) {
+
+        int idAtual = tutor.getId();
+
+        if(idAtual > maiorId){
+          maiorId = idAtual;
+        }
+        
+      }
+      return maiorId + 1;
 
     }
     public void adicionarTutorService(Tutor data){
 
       if(isCpfCadastrado(data.getCpf())){
 
-      } else {
         System.out.println("Não foi possível adicionar esse Usuário. CPF já cadastrado no banco de dados");
+        return;
+      } else {
+
+        data.setId(buscarProximoIdTutorService());
+        this.tutores.add(data);
 
       }
 
-      this.tutores.add(data);
+
+    }
+
+
+    public Tutor procurarTutorPorIdService(int id){
+
+      Tutor resultado = tutores.stream().filter(a -> a.getId() == id).findFirst().orElse(null);
+      
+      return resultado;
+
+
 
     }
     public void adicionarAtendimentoService(Atendimento data){
@@ -122,8 +184,27 @@ public class ClinicaVeterinaria {
       this.produtos.add(data);
 
     }
+
+    public Boolean login(String cpf, String senha){
+
+      Funcionario resultado = funcionarios.stream().filter(funcionarioAtual-> funcionarioAtual.getCpf().equals(cpf)).findFirst().orElse(null);
+
+
+      if(resultado == null){
+        return false;
+      }
+
+      if(!(resultado.getSenha().equals(senha))){
+
+        return false;
+
+      }
+      return true;
+
+    }
     
 
+     
 
   
 }

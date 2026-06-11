@@ -2,6 +2,7 @@ package model.entity;
 
 
 import model.enums.PorteAnimal;
+import model.enums.Sexo;
 import model.enums.TamanhoPelo;
 
 public class Animal {
@@ -9,14 +10,14 @@ public class Animal {
   private String nome;
   private int idade;
   private String raca;
-  private String sexo;
+  private Sexo sexo;
   private TamanhoPelo pelagemTamanho;
   private String pelagemCor;
   private PorteAnimal porteAnimal;
   private Tutor tutor;
   private boolean animalAtivo;
 
-  public Animal (String nome, int idade, String raca, String sexo, TamanhoPelo pelagemTamanho, String pelagemCor, PorteAnimal porteAnimal, Tutor tutor) {
+  public Animal (String nome, int idade, String raca, Sexo sexo, TamanhoPelo pelagemTamanho, String pelagemCor, PorteAnimal porteAnimal, Tutor tutor) {
     this.nome = nome;
     this.idade = idade;
     this.raca = raca;
@@ -28,9 +29,13 @@ public class Animal {
     this.animalAtivo = true;
   }
 
-
     public int getId() {
         return id;
+    }
+    public void setId(int id){
+
+        this.id = id;
+
     }
 
     public String getNome() {
@@ -59,11 +64,11 @@ public class Animal {
         this.raca = raca;
     }
 
-    public String getSexo() {
+    public Sexo getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(Sexo sexo) {
         this.sexo = sexo;
     }
 

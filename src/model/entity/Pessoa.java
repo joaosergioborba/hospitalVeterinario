@@ -8,6 +8,7 @@ public class Pessoa {
   private String cpf;
   private String nome;
   private LocalDate dataNascimento;
+  
   protected String endereco;
   protected boolean pessoaAtiva;
 
@@ -28,6 +29,9 @@ public class Pessoa {
 
   public int getId(){
     return id;
+  }
+  public void setId(int id){
+    this.id = id;
   }
 
   public String getCpf(){

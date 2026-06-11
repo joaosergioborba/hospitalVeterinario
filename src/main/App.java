@@ -10,6 +10,12 @@ import java.util.Scanner;
 import model.entity.*;
 import model.enums.*;
 import model.service.ClinicaVeterinaria;
+import model.service.carregarDadosIniciais;
+import model.view.Screen;
+import model.view.TelaCaminhoFeliz;
+import model.view.TelaLogin;
+import model.view.TelaPrincipal;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -140,94 +146,69 @@ public class App {
 
     }
 
+    
 
-    public void janelaPrincipal(){
-        JFrame janela = new JFrame("PataCloud - hospital veterinário");
+    public void login(ClinicaVeterinaria sistemaClinica){
 
-    janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    janela.setSize(400,300);
-    janela.setLocationRelativeTo(null);
 
-    JPanel painel = new JPanel();
+        
+        
+        Screen tela = new Screen("Tela login - PatasCloud", 400, 300);
+        TelaPrincipal telaPrincipal = new TelaPrincipal(sistemaClinica);
 
-    ImageIcon logo = new ImageIcon("../assets/logoa.png");
+        TelaLogin login = new TelaLogin(sistemaClinica, () ->{
 
-    JLabel imagem = new JLabel(logo);
+            tela.adicionarTela(telaPrincipal, "tela principal");;
+            tela.navegar("tela principal");
+        });
 
-    painel.setLayout(new FlowLayout());
+        tela.setContent(login, "login");
+        tela.show();
 
-    JLabel texto = new JLabel("Bem-vindo ao PataCloud");
-
-    JButton btnIniciar = new JButton("Iniciar atendimento");
-
-    btnIniciar.addActionListener(e -> {
-
-    });
-
-    painel.add(texto);
-    painel.add(btnIniciar);
-    janela.add(painel);
-    painel.add(imagem);
-
-    janela.setVisible(true);
     }
 
 
-    public void janelaTeste(){
-
-      JTextField campoUsuario = new JTextField();
-      JPasswordField campoSenha = new JPasswordField();
-
-      
-
-      Object[] loginFuncionario = {
-        "Usuário: ", campoUsuario,
-        "Senha: ", campoSenha
-      };
-
-      int opcao = JOptionPane.showConfirmDialog(
-        null, 
-        loginFuncionario, 
-        "Login do sistema",
-        JOptionPane.OK_CANCEL_OPTION
-      );
-
-      if(opcao == JOptionPane.OK_OPTION){
-        String usuario = campoUsuario.getText();
-
-        String senha = new String(
-            campoSenha.getPassword()
-        );
-
-        JOptionPane.showMessageDialog(null, "usuario" + usuario +  "\nSenha: "+  senha);
-      }
-    }
     
     public static void main(String[] args) throws Exception {
 
-        App app = new App();
-
-       // app.iniciarMenu();
-
-        app.janelaTeste();
-       
-      /*
-
-        Tutor tutor1 = new Tutor("123.456.789-00", "Ana Oliveira", LocalDate.of(2020,4,20), "Cuiabá - MT");
         
 
-     
-        Animal animal1 = new Animal(
-            "Thor", 5, "Golden Retriever", "Macho", 
-            TamanhoPelo.LONGO, "Dourado", PorteAnimal.GRANDE, tutor1
-        );
+        App app = new App();
 
-        System.out.println("\n=======================================");
-        System.out.println("      SISTEMA HOSPITAL VETERINÁRIO     ");
-        System.out.println("=======================================");
-        System.out.println(" PACIENTE: " + animal1.getNome());
-        System.out.println(" RESPONSÁVEL (Tutor): " + animal1.getTutor().getPessoa().getNome());   
-        System.out.println(" CIDADE: " + animal1.getTutor().getPessoa().getEndereco());
-        */
+        ClinicaVeterinaria sistemaClinica = new ClinicaVeterinaria();
+        carregarDadosIniciais inicar = new carregarDadosIniciais(sistemaClinica);
+
+        Animal teste = new Animal ("teste", 17, null, null, null, null, null, null);
+
+        String nome = teste.getNome();
+
+        System.out.println(nome);
+
+        Veterinario vet = new Veterinario("123456789", "joao", LocalDate.of(2020,4,20), "cuiabraza", "este", 1500.00, "1234");
+        sistemaClinica.adicionarFuncionarioService(vet);
+        Veterinario vet2 = new Veterinario("123456", "Usuario teste", LocalDate.of(2020,4,20), "cuiabraza", "Quality Assurance", 1500.00, "123456");
+        sistemaClinica.adicionarFuncionarioService(vet2);
+
+        Tutor tutor1 = new Tutor("123456", "Joana", null, null);
+        tutor1.setId(1);
+
+        sistemaClinica.adicionarTutorService(tutor1);
+        //app.login(sistemaClinica);
+
+        String menu = JOptionPane.showInputDialog(
+        "==== Menu ====\n\n" +
+        "1 - Testar versão simplificado (codigo aula passada)\n" + 
+        "2 - testar versão premium - Beta (em desenvolvimento)\n"
+      );
+
+      if(menu.equals("1")){
+        TelaCaminhoFeliz telaCaminhoFeliz = new TelaCaminhoFeliz();
+        telaCaminhoFeliz.janelaTeste();
+        //app.janelaTeste();
+    } else {
+        JOptionPane.showConfirmDialog(null, "Essa versão foi desenvolvida usando paineis, botões e funções de validação de dados.\n Utilize o usuario e senha -> 123456");
+        JOptionPane.showConfirmDialog(null, "Será carregado um conjunto de informações predefinidas");
+        app.login(sistemaClinica);
     }
+}
 }
