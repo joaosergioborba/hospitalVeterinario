@@ -32,3 +32,7 @@ SEM DATA - Eloisa e Joao Sergio - Foi definido os requisitos funcionais e não f
 30/05/2026 - Joao Sergio - Criei uma nova classe, provavelmente vou usar polimorfismo, para que o cabecalho padrao das interface de popup seja diferente dos popup de operacao;
 30/05/2026 - Joao Sergio - Apliquei polimorfismo na classe PopUpOperacoes, pois o molde é o mesmo so muda que o cabecalho nos operacoes serão diferentes;
 31/05/2026 - João Sergio - foi alterar as classes PopUpModel e PopUpOperacao para uma classe abstrata
+31/05/2026 - Joao Sergio - tirei as classes abstratas por q deu errado 
+11/06/2026 - Joao Sergio e Eloisa - criei o arquivo validarDadosService que vai validar se as entradas estão corretas (obs: nao vai validar se um campo pode ou nao ser utilizado, vai verificar se é valido ou não, tipo um cpf, se tiver fora do padrao nao permite)
+11/06/2026 - Joao Sergio e eloisa - Adicionamos a funcao que verifica se o cpf é valido
+11/06/2026 - Joao sergio - Estou mudando os campos sexo e porte animal no cadastro do animal para que sera radios para selecionar

@@ -72,7 +72,11 @@ public class TelaPrincipal extends JPanel {
   private void funcionarioButtonClicked(){
 
     JFrame janelaPai = (JFrame) SwingUtilities.getWindowAncestor(this);
-    PopUpModel telaFuncionarios = new PopUpModel(janelaPai, "Gerenciamento de funcionarios", clinicaVeterinaria);
+    PopUpModel telaFuncionario = new PopUpModel(janelaPai, "Tela funcionarios - PatasCloud", clinicaVeterinaria);
+    TelaFuncionario gerenciaDeFuncionario = new TelaFuncionario(clinicaVeterinaria);
+
+    telaFuncionario.setContent(gerenciaDeFuncionario);
+    telaFuncionario.show();
 
     
 
