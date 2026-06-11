@@ -207,6 +207,7 @@ public class App {
         //app.janelaTeste();
     } else {
         JOptionPane.showConfirmDialog(null, "Essa versão foi desenvolvida usando paineis, botões e funções de validação de dados.\n Utilize o usuario e senha -> 123456");
+        JOptionPane.showConfirmDialog(null, "Será carregado um conjunto de informações predefinidas");
         app.login(sistemaClinica);
     }
 }

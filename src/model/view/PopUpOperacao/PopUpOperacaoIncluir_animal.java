@@ -1,5 +1,6 @@
 package model.view.PopUpOperacao;
 
+import java.awt.Color;
 import java.awt.event.FocusListener;
 import java.net.URL;
 
@@ -183,5 +184,36 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
    }
   
 
+   @Override
+   public JPanel cabecalhoPadrao(){
+    
+    JPanel panel = new JPanel();
+
+    URL enderecoSalvarIcon = getClass().getResource("/assets/salvarIcon.png");
+    URL enderecoIncluirIcon = getClass().getResource("/assets/incluirIcon.png");
+    
+    ImageIcon salvarIcon=new ImageIcon(enderecoSalvarIcon);
+    ImageIcon incluirIcon=new ImageIcon(enderecoIncluirIcon);
+    
+    JButton salvar = new JButton();
+    salvar.setIcon(salvarIcon);
+    salvar.setText("Salvar");
+
+    JButton incluir = new JButton();
+    incluir.setIcon(incluirIcon);
+    incluir.setText("Incluir");
+
+    salvar.addActionListener(e->{
+      salvarButtonClicked();
+    });
+
+    panel.setBackground(new Color(41, 128, 185));
+
+    JLabel AvisoLabel = new JLabel("botoes em desenvolvimento");
+    panel.add(incluir);
+    panel.add(salvar);
+    return panel;
+
+  }
    
 }

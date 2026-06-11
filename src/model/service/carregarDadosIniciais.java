@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import model.entity.Animal;
 import model.entity.Tutor;
+import model.entity.Veterinario;
 import model.enums.PorteAnimal;
 import model.enums.Sexo;
 import model.enums.TamanhoPelo;
@@ -54,7 +55,7 @@ public class carregarDadosIniciais {
 
     Animal animal1 = new Animal("SOL", 10 ,"DOBERMAN", Sexo.FEMEA,TamanhoPelo.CURTO, "PRETO", PorteAnimal.GRANDE, tutor1);
     clinicaVeterinaria.adicionarAnimalService(animal1);
-    
+
     Animal animal2 = new Animal("LUNA", 4, "VIRA-LATA", Sexo.FEMEA, TamanhoPelo.LONGO, "CARAMELO", PorteAnimal.MEDIO, tutor1);
     clinicaVeterinaria.adicionarAnimalService(animal2);
 
@@ -86,6 +87,44 @@ public class carregarDadosIniciais {
     clinicaVeterinaria.adicionarAnimalService(animal11);
 
     
+    // funcionarios
+
+    Veterinario vet1 = new Veterinario("11577531086","Ana Paula Santos", LocalDate.of(1990, 5, 30), "Av. Cuiaba, centro, 209", "Clinica veterario", 2000.10, "1526");
+    clinicaVeterinaria.adicionarFuncionarioService(vet1);
+
+    Veterinario vet2 = new Veterinario("23456789012", "Carlos Eduardo Lima", LocalDate.of(1985, 3, 15), "Rua das Flores, 123", "Cirurgia", 4500.00, "2048");
+    clinicaVeterinaria.adicionarFuncionarioService(vet2);
+
+    Veterinario vet3 = new Veterinario("34567890123", "Mariana Costa", LocalDate.of(1992, 11, 8), "Av. Brasil, Jd. Paulista, 500", "Ortopedia", 3800.50, "3150");
+    clinicaVeterinaria.adicionarFuncionarioService(vet3);
+
+    
+    Veterinario vet4 = new Veterinario("45678901234", "Roberto Alves", LocalDate.of(1988, 7, 22), "Rua XV de Novembro, 88", "Dermatologia", 3200.75, "4201");
+    clinicaVeterinaria.adicionarFuncionarioService(vet4);
+
+  
+    Veterinario vet5 = new Veterinario("56789012345", "Fernanda Ribeiro", LocalDate.of(1980, 1, 10), "Alameda dos Anjos, 340", "Cardiologia", 5100.00, "1199");
+    clinicaVeterinaria.adicionarFuncionarioService(vet5);
+
+
+    Veterinario vet6 = new Veterinario("67890123456", "Lucas Martins", LocalDate.of(1995, 9, 5), "Av. Independência, 1010", "Neurologia", 4200.00, "5874");
+    clinicaVeterinaria.adicionarFuncionarioService(vet6);
+
+    Veterinario vet7 = new Veterinario("78901234567", "Juliana Mendes", LocalDate.of(1983, 12, 18), "Rua do Comércio, 45", "Oncologia", 5500.20, "6321");
+    clinicaVeterinaria.adicionarFuncionarioService(vet7);
+
+    
+    Veterinario vet8 = new Veterinario("89012345678", "Thiago Rocha", LocalDate.of(1991, 4, 25), "Praça da Matriz, S/N", "Oftalmologia", 3600.00, "7412");
+    clinicaVeterinaria.adicionarFuncionarioService(vet8);
+
+    // Variação
+    Veterinario vet9 = new Veterinario("90123456789", "Camila Ferreira", LocalDate.of(1987, 8, 12), "Rua das Acácias, 77", "Odontologia", 3400.90, "8523");
+    clinicaVeterinaria.adicionarFuncionarioService(vet9);
+
+    // Vari
+    Veterinario vet10 = new Veterinario("01234567890", "Bruno Carvalho", LocalDate.of(1989, 2, 28), "Rodovia Principal, Km 5", "Silvestres", 4800.00, "9630");
+    clinicaVeterinaria.adicionarFuncionarioService(vet10);
+
     
 
 

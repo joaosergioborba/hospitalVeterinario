@@ -29,7 +29,6 @@ public class Animal {
     this.animalAtivo = true;
   }
 
-
     public int getId() {
         return id;
     }
