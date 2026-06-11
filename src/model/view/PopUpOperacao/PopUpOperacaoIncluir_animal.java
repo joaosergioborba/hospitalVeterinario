@@ -37,13 +37,29 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
     JTextField campoRacaAnimal = new JTextField(30);
 
     JLabel labelSexoAnimal = new JLabel("Sexo: ");
-    JTextField campoSexoAnimal = new JTextField(30);
+    JRadioButton opcaoMacho = new JRadioButton("MACHO");
+     opcaoMacho.setActionCommand(Sexo.MACHO.name());
+    JRadioButton opcaoFemea= new JRadioButton("FEMEA");
+     opcaoFemea.setActionCommand(Sexo.FEMEA.name());
+
+    ButtonGroup grupoSexo = new ButtonGroup();
+    grupoSexo.add(opcaoMacho);
+    grupoSexo.add(opcaoFemea);
 
     JLabel labelTamanhoPelagemAnimal = new JLabel("Tamanho pelagem: ");
     JTextField campoTamanhoPelagemAnimal = new JTextField(30);
 
     JLabel labelPorteAnimal = new JLabel("Porte animal: ");
-    JTextField campoPorteAnimal = new JTextField(30);
+    JRadioButton opcaoPorteP = new JRadioButton("PEQUENO");
+    opcaoPorteP.setActionCommand(PorteAnimal.PEQUENO.name());
+    JRadioButton opcaoPorteM= new JRadioButton("MEDIO");
+    opcaoPorteM.setActionCommand(PorteAnimal.MEDIO.name());
+    JRadioButton opcaoPorteG= new JRadioButton("GRANDE");
+    opcaoPorteG.setActionCommand(PorteAnimal.GRANDE.name());
+    ButtonGroup grupoPorteAnimal = new ButtonGroup();
+    grupoPorteAnimal.add(opcaoPorteP);
+    grupoPorteAnimal.add(opcaoPorteM);
+    grupoPorteAnimal.add(opcaoPorteG);
 
     JLabel labelTutorId = new JLabel("Id do Tutor");
     JTextField campoTutorId = new JTextField(30);
@@ -51,12 +67,38 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
     JLabel labelTutorNome = new JLabel("Nome do Tutor");
     JTextField campoTutorNome = new JTextField(30);
 
-
-    JButton lancarBotao = new JButton("Lancar entrada");
+    JButton incluirBotao = new JButton("Incluir");
+    JButton lancarBotao = new JButton("Salvar");
     JButton preencherPadraoBotao = new JButton("Carregar dados padroes");
 
     campoIdAnimal.setEditable(false);
+    campoTutorNome.setEditable(false);
+    campoIdadeAnimal.setInputVerifier(new InputVerifier() {
+    @Override
+    public boolean verify(JComponent input) {
 
+      try {
+
+        JTextField tf = (JTextField) input;
+
+        if(tf.getText().isEmpty()){
+          return true;
+
+        }
+        int id = Integer.parseInt(tf.getText());
+
+        if(id < 0){
+          JOptionPane.showMessageDialog(null, "A idade informada é invalida! o animal não pode ter uma idade menor que zero.");
+          return false;
+        }
+    
+    
+        return true;
+      }  catch (NumberFormatException e){
+        JOptionPane.showMessageDialog(null, "O id informado não é um id válido! Digite apenas números");
+        return false;
+      }
+    }});
     campoTutorId.setInputVerifier(new InputVerifier() {
     @Override
     public boolean verify(JComponent input) {
@@ -90,7 +132,7 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
 
     lancarBotao.addActionListener(e->{
 
-      salvarButtonClicked(campoIdAnimal, campoNomeAnimal, campoIdadeAnimal, campoRacaAnimal, campoTamanhoPelagemAnimal, campoSexoAnimal, campoPorteAnimal, campoTutorId);
+      salvarButtonClicked(campoIdAnimal, campoNomeAnimal, campoIdadeAnimal, campoRacaAnimal, campoTamanhoPelagemAnimal, grupoSexo, grupoPorteAnimal, campoTutorId);
 
     
 
@@ -98,7 +140,13 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
 
     preencherPadraoBotao.addActionListener(e->{
 
-      preencherPadraoButtonClicked( campoNomeAnimal, campoIdadeAnimal, campoRacaAnimal, campoTamanhoPelagemAnimal, campoSexoAnimal, campoPorteAnimal, campoTutorId, campoTutorNome);
+      preencherPadraoButtonClicked( campoNomeAnimal, campoIdadeAnimal, campoRacaAnimal, campoTamanhoPelagemAnimal, opcaoMacho, opcaoPorteM, campoTutorId, campoTutorNome);
+
+    });
+
+    incluirBotao.addActionListener(e->{
+
+      incluirButtonClicked(campoIdAnimal, campoNomeAnimal, campoIdadeAnimal, campoRacaAnimal, campoTamanhoPelagemAnimal, grupoSexo, grupoPorteAnimal, campoTutorId);
 
     });
 
@@ -119,10 +167,13 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
     panel.add(campoTamanhoPelagemAnimal);
 
     panel.add(labelSexoAnimal);
-    panel.add(campoSexoAnimal);
+    panel.add(opcaoMacho);
+    panel.add(opcaoFemea);
 
     panel.add(labelPorteAnimal);
-    panel.add(campoPorteAnimal);
+    panel.add(opcaoPorteP);
+    panel.add(opcaoPorteM);
+    panel.add(opcaoPorteG);
 
     panel.add(labelTutorId);
     panel.add(campoTutorId);
@@ -130,6 +181,7 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
     panel.add(labelTutorNome);
     panel.add(campoTutorNome);
 
+    panel.add(incluirBotao);
     panel.add(lancarBotao);
     panel.add(preencherPadraoBotao);
 
@@ -140,47 +192,91 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
 
   
   
-  public void salvarButtonClicked(JTextField idAnimal, JTextField nome, JTextField  idade, JTextField raca, JTextField tamanhoPelagem, JTextField sexo, JTextField porte, JTextField tutorId) {
+  public void salvarButtonClicked(JTextField idAnimal, JTextField nome, JTextField  idade, JTextField raca, JTextField tamanhoPelagem, ButtonGroup sexo, ButtonGroup porte, JTextField tutorId) {
 
     String nomeDigitado = nome.getText();
     String idadeDigitado = (idade.getText());
     String racaDigitado = raca.getText();
     String tamanhoPelagemDigitado = tamanhoPelagem.getText();
-    String sexoDigitado = sexo.getText();
-    String porteDigitado = porte.getText();
+    Sexo sexoDigitado = sexo.getSelection() != null ? Sexo.valueOf(sexo.getSelection().getActionCommand()) : null;
+    PorteAnimal porteDigitado = porte.getSelection() != null ? PorteAnimal.valueOf(porte.getSelection().getActionCommand()) : null;
     String tutorIdDigitado = tutorId.getText();
 
-    if(nomeDigitado.isEmpty() || idadeDigitado.isEmpty() || racaDigitado.isEmpty() || tamanhoPelagemDigitado.isEmpty() || sexoDigitado.isEmpty() || porteDigitado.isEmpty() || tutorIdDigitado.isEmpty()){
-
+    if(nomeDigitado.isEmpty() || idadeDigitado.isEmpty() || racaDigitado.isEmpty() || tamanhoPelagemDigitado.isEmpty() || sexoDigitado == null || porteDigitado == null || tutorIdDigitado.isEmpty()){
       JOptionPane.showMessageDialog(null, "Campos preenchidos incprretamente. Tente novamente!");
+      return;
     }
-
-    
 
     Tutor tutor = clinicaVeterinaria.procurarTutorPorIdService(Integer.parseInt(tutorIdDigitado));
 
     if(tutor == null){
-      JOptionPane.showConfirmDialog(null, "Tutor não encontrado");
+      JOptionPane.showMessageDialog(null, "Tutor não encontrado");
       return;
     }
 
-    Animal animal = new Animal(nomeDigitado, Integer.parseInt(idadeDigitado), racaDigitado, null, null, null, null, tutor);
+    System.out.println(idAnimal.getText());
+
+    if(idAnimal.getText().isEmpty()){
+
+      Animal animal = new Animal(nomeDigitado, Integer.parseInt(idadeDigitado), racaDigitado, null, null, null, null, tutor);
 
     clinicaVeterinaria.adicionarAnimalService(animal);
     idAnimal.setText(String.valueOf(animal.getId()));
+
+    JOptionPane.showMessageDialog(null, "Cadastro salvo com sucesso!");
+
+    } else {
+      JOptionPane.showConfirmDialog(null, "Para iniciar um novo cadastro aperte em incluir ou reabra a pagina, por enquanto não é possivel atualizar um cadastro");
+    }
+
+    
+
+    
+
+    
     
     
     
   }
 
-   public void preencherPadraoButtonClicked(JTextField nome, JTextField  idade, JTextField raca, JTextField tamanhoPelagem, JTextField sexo, JTextField porte, JTextField tutorId, JTextField nomeTutor) {
+   public void preencherPadraoButtonClicked(JTextField nome, JTextField  idade, JTextField raca, JTextField tamanhoPelagem,   JRadioButton sexo, JRadioButton porte, JTextField tutorId, JTextField nomeTutor) {
     nome.setText("BURRO");
     idade.setText("15");
     raca.setText("BURRO FALANTE");
     tamanhoPelagem.setText("CURTA");
-    sexo.setText("MACHO");
-    porte.setText("MEDIO");
+    sexo.setSelected(true);
+    porte.setSelected(true);
     tutorId.setText("1");
+   }
+
+   public void incluirButtonClicked(JTextField idAnimal, JTextField nome, JTextField  idade, JTextField raca, JTextField tamanhoPelagem, ButtonGroup sexo, ButtonGroup porte, JTextField tutorId){
+
+    if(idAnimal.getText().isEmpty() && (!nome.getText().isEmpty() || !idade.getText().isEmpty() || !raca.getText().isEmpty()  || !tutorId.getText().isEmpty())){
+
+      int resposta = JOptionPane.showConfirmDialog(null, "Você deseja salvar os dados antes de continuar?");
+
+      if(resposta == JOptionPane.YES_OPTION){
+
+        salvarButtonClicked(idAnimal, nome, idade, raca, tamanhoPelagem, sexo, porte, tutorId);
+
+      } else if(resposta == JOptionPane.CANCEL_OPTION){
+
+        return;
+
+      }
+
+     
+
+    }
+
+    idAnimal.setText(null);
+    nome.setText(null);;
+    idade.setText(null);
+    raca.setText(null);
+    raca.setText(null);
+    tamanhoPelagem.setText(null);
+    tutorId.setText(null);
+
    }
   
 
