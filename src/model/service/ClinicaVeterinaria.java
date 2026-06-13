@@ -9,11 +9,10 @@ import model.entity.Exame;
 import model.entity.Funcionario;
 import model.entity.Medicacao;
 import model.entity.Produto;
-import model.entity.Recepcionista;
 import model.entity.RegistroClinico;
 import model.entity.Tutor;
 import model.entity.Vacina;
-import model.entity.Veterinario;
+
 
 public class ClinicaVeterinaria {
 
@@ -69,9 +68,9 @@ public class ClinicaVeterinaria {
 
     }
     
-    public Animal procurarAnimaisPorIdService(int id, Boolean animalAtivo){
+    public Animal procurarAnimaisPorIdService(int id){
 
-       Animal resultado = animais.stream().filter(a -> a.getTutor().getId() == id).findFirst().orElse(null);
+       Animal resultado = animais.stream().filter(a -> a.getId()== id).findFirst().orElse(null);
       return resultado;
       
     }
@@ -97,16 +96,59 @@ public class ClinicaVeterinaria {
     }
 
     //funcionarios services
+
+    public int buscarProximoIdFuncionarioService(){
+      int maiorId = 0;
+
+      for (Funcionario  funcionario: funcionarios) {
+
+        int idAtual = funcionario.getId();
+
+        if(idAtual > maiorId){
+          maiorId = idAtual;
+        }
+        
+      }
+      return maiorId + 1;
+
+    }
     
-    public void adicionarFuncionarioService(Funcionario data){
+    public int adicionarFuncionarioService(Funcionario data){
       if(isCpfCadastrado(data.getCpf())){
 
         System.out.println("Não foi possível adicionar esse Usuário. CPF já cadastrado no banco de dados");
+        return -1;
       } else {
 
+        data.setId(buscarProximoIdFuncionarioService());
         this.funcionarios.add(data);
+        return data.getId();
       }
 
+
+    }
+
+    public Funcionario procurarFuncionarioPorCPFservice(String cpf){
+
+      Funcionario resultado = funcionarios.stream().filter(a -> a.getCpf().equals(cpf)).findFirst().orElse(null);
+      
+      return resultado;
+    }
+
+    public Funcionario procurarFuncionarioPorIdService(int id){
+
+      Funcionario resultado = funcionarios.stream().filter(a -> a.getId() == id).findFirst().orElse(null);
+      
+      return resultado;
+
+
+
+    }
+
+    public List<Funcionario> listarFuncionariosCadastrados(Boolean entidadeAtiva){
+
+      List<Funcionario> lista = funcionarios.stream().filter(a-> a.isPessoaAtiva() == entidadeAtiva).toList();
+      return lista;
 
     }
 
@@ -128,32 +170,44 @@ public class ClinicaVeterinaria {
       return maiorId + 1;
 
     }
-    public void adicionarTutorService(Tutor data){
+    public int adicionarTutorService(Tutor data){
 
       if(isCpfCadastrado(data.getCpf())){
 
         System.out.println("Não foi possível adicionar esse Usuário. CPF já cadastrado no banco de dados");
-        return;
+        return -1;
       } else {
 
         data.setId(buscarProximoIdTutorService());
         this.tutores.add(data);
+        return data.getId();
 
       }
 
 
     }
 
-
     public Tutor procurarTutorPorIdService(int id){
 
       Tutor resultado = tutores.stream().filter(a -> a.getId() == id).findFirst().orElse(null);
+      return resultado;
+    }
+
+    public Tutor procurarTutorPorCPFservice(String cpf){
+
+      Tutor resultado = tutores.stream().filter(a -> a.getCpf().equals(cpf)).findFirst().orElse(null);
       
       return resultado;
+    }
 
+    public List<Tutor> listarTutoresCadastrados(Boolean entidadeAtiva){
 
+      List<Tutor> lista = tutores.stream().filter(a-> a.isPessoaAtiva() == entidadeAtiva).toList();
+      return lista;
 
     }
+
+
     public void adicionarAtendimentoService(Atendimento data){
 
       this.atendimentos.add(data);
@@ -184,6 +238,8 @@ public class ClinicaVeterinaria {
       this.produtos.add(data);
 
     }
+
+    // funcionarios
 
     public Boolean login(String cpf, String senha){
 

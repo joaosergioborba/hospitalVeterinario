@@ -27,9 +27,9 @@ public class App {
     private Scanner leitor;
     private ClinicaVeterinaria clinica;
 
-     public App() {
+     public App(ClinicaVeterinaria clinica) {
          this.leitor = new Scanner(System.in);
-         this.clinica = new ClinicaVeterinaria(); 
+         this.clinica = clinica; 
      }
 
 
@@ -173,9 +173,9 @@ public class App {
 
         
 
-        App app = new App();
-
+        
         ClinicaVeterinaria sistemaClinica = new ClinicaVeterinaria();
+        App app = new App(sistemaClinica);
         carregarDadosIniciais inicar = new carregarDadosIniciais(sistemaClinica);
 
         Animal teste = new Animal ("teste", 17, null, null, null, null, null, null);
