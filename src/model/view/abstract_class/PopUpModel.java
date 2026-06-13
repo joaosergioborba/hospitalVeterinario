@@ -18,13 +18,12 @@ import model.service.ClinicaVeterinaria;
 
 //decidimos utilizar as classes abstratas porque nao devem ser instanciadas, uma vez que serão apenas um molde para as subclasses
 
-public class PopUpModel {
-
+public class PopUpModel extends JPanel{
   //esse recurso de dialog foi o unico jeito que achei para que quando eu fechar a tela nao feche o programa inteiro e sim so a janela, mas funciona de um jeito muito pareceido com o Jframe
 
   private JDialog jDialog;
   //private JPanel panel;
-  private JPanel painelBase;
+  protected JPanel painelBase;
   protected JFrame janelaPai;
   protected ClinicaVeterinaria clinicaVeterinaria;
 

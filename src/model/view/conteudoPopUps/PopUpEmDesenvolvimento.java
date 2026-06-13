@@ -7,7 +7,7 @@ public class PopUpEmDesenvolvimento extends JPanel{
 
   public PopUpEmDesenvolvimento(){
 
-    JLabel aviso = new JLabel("Opss, essa tela ainda está em desenvolvimento");
+    JLabel aviso = new JLabel("Botões incluir e pesquisar estão liberados para uso - ainda podem conter falhas");
   
     add(aviso);
   }

@@ -14,9 +14,9 @@ import model.service.ClinicaVeterinaria;
 
 
 //decidimos utilizar as classes abstratas porque nao devem ser instanciadas, uma vez que serão apenas um molde para as subclasses
-public class PopUpOperacao extends PopUpModel{
+public class PopUpOperacaoIncluir extends PopUpModel{
 
-  public PopUpOperacao(JFrame janelaPai, String tituloPagina, ClinicaVeterinaria clinicaVeterinaria){
+  public PopUpOperacaoIncluir(JFrame janelaPai, String tituloPagina, ClinicaVeterinaria clinicaVeterinaria){
     super(janelaPai, tituloPagina, clinicaVeterinaria);
   }
 
@@ -27,24 +27,38 @@ public class PopUpOperacao extends PopUpModel{
     JPanel panel = new JPanel();
 
     URL enderecoSalvarIcon = getClass().getResource("/assets/salvarIcon.png");
+    URL enderecoIncluirIcon = getClass().getResource("/assets/incluirIcon.png");
     
     ImageIcon salvarIcon=new ImageIcon(enderecoSalvarIcon);
+    ImageIcon incluirIcon=new ImageIcon(enderecoIncluirIcon);
     
     JButton salvar = new JButton();
     salvar.setIcon(salvarIcon);
     salvar.setText("Salvar");
 
+    JButton incluir = new JButton();
+    incluir.setIcon(incluirIcon);
+    incluir.setText("Incluir");
+
     salvar.addActionListener(e->{
       salvarButtonClicked();
+    });
+
+    incluir.addActionListener(e->{
+      incluirButtonClicked();
+
     });
 
     panel.setBackground(new Color(41, 128, 185));
 
     JLabel AvisoLabel = new JLabel("botoes em desenvolvimento");
+    panel.add(incluir);
     panel.add(salvar);
     return panel;
 
   }
+
+  
 
 
   @Override
@@ -75,6 +89,11 @@ public class PopUpOperacao extends PopUpModel{
 
   }
 
-  public void salvarButtonClicked(){}
+  public void salvarButtonClicked(){
+    System.out.println("estou aquii");
+  }
+  public void incluirButtonClicked(){
+    System.out.println("estou aquii");
+  }
   
 }

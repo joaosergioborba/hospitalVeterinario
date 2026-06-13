@@ -13,7 +13,7 @@ import model.service.ClinicaVeterinaria;
 import model.view.PopUpOperacao.PopUpOperacaoIncluir_animal;
 import model.view.PopUpOperacao.PopUpOperacaoListar_animal;
 import model.view.abstract_class.PopUpModel;
-import model.view.abstract_class.PopUpOperacao;
+import model.view.abstract_class.PopUpOperacaoIncluir;
 import model.view.conteudoPopUps.PopUpEmDesenvolvimento;
 import model.view.conteudoPopUps.PopUpIncluirAnimal;
 
@@ -42,8 +42,5 @@ public class TelaAnimal extends PopUpModel {
   public void pesquisarButtonClicked(JPanel panel){
 
     PopUpOperacaoListar_animal telaListagem = new PopUpOperacaoListar_animal(janelaPai, "Lista de animais cadastrado - PatasCloud", clinicaVeterinaria, clinicaVeterinaria.listarAnimaisCadastrados(true));
-
-    
-    
   }
 }

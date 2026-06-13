@@ -1,9 +1,5 @@
 package model.view.PopUpOperacao;
 
-import java.awt.Color;
-import java.awt.event.FocusListener;
-import java.net.URL;
-
 import javax.swing.*;
 
 import model.entity.Animal;
@@ -12,12 +8,29 @@ import model.enums.PorteAnimal;
 import model.enums.Sexo;
 import model.enums.TamanhoPelo;
 import model.service.ClinicaVeterinaria;
-import model.view.abstract_class.PopUpOperacao;
+import model.view.abstract_class.PopUpOperacaoIncluir;
 
-public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
+public class PopUpOperacaoIncluir_animal extends PopUpOperacaoIncluir{
 
   private JPanel panel;
-  
+  private Tutor tutor;
+  private JTextField campoIdAnimal;
+  private JTextField campoNomeAnimal;
+  private JTextField campoIdadeAnimal;
+  private JTextField campoRacaAnimal;
+  private JRadioButton opcaoMacho;
+  private JRadioButton opcaoFemea;
+  private JRadioButton opcaoPorteP;
+  private JRadioButton opcaoPorteM;
+  private JRadioButton opcaoPorteG;
+  private ButtonGroup grupoPorteAnimal;
+  private JRadioButton opcaoPelagemC;
+  private JRadioButton opcaoPelagemM;
+  private JRadioButton opcaoPelagemL;
+  private ButtonGroup grupoPelagemAnimal;
+  private JTextField campoTutorId;
+  private JTextField campoTutorNome;
+  private ButtonGroup grupoSexo;
 
   public PopUpOperacaoIncluir_animal(JFrame janelaPai, String tituloPagina, ClinicaVeterinaria clinicaVeterinaria){
     super(janelaPai, tituloPagina, clinicaVeterinaria);
@@ -25,50 +38,57 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
     panel = new JPanel();
 
     JLabel labelIdAnimal = new JLabel("Id animal: ");
-    JTextField campoIdAnimal = new JTextField(30);
+    this.campoIdAnimal = new JTextField(30);
 
     JLabel labelNomeAnimal = new JLabel("Nome: ");
-    JTextField campoNomeAnimal = new JTextField(30);
+    this.campoNomeAnimal = new JTextField(30);
 
     JLabel labelIdadeAnimal = new JLabel("Idade: ");
-    JTextField campoIdadeAnimal = new JTextField(30);
+    this.campoIdadeAnimal = new JTextField(30);
 
     JLabel labelRacaAnimal = new JLabel("Raça: ");
-    JTextField campoRacaAnimal = new JTextField(30);
+    this.campoRacaAnimal = new JTextField(30);
 
     JLabel labelSexoAnimal = new JLabel("Sexo: ");
-    JRadioButton opcaoMacho = new JRadioButton("MACHO");
+    this.opcaoMacho = new JRadioButton("MACHO");
      opcaoMacho.setActionCommand(Sexo.MACHO.name());
-    JRadioButton opcaoFemea= new JRadioButton("FEMEA");
+    this.opcaoFemea= new JRadioButton("FEMEA");
      opcaoFemea.setActionCommand(Sexo.FEMEA.name());
 
-    ButtonGroup grupoSexo = new ButtonGroup();
-    grupoSexo.add(opcaoMacho);
-    grupoSexo.add(opcaoFemea);
+    this.grupoSexo = new ButtonGroup();
+    this.grupoSexo.add(opcaoMacho);
+    this.grupoSexo.add(opcaoFemea);
 
     JLabel labelTamanhoPelagemAnimal = new JLabel("Tamanho pelagem: ");
-    JTextField campoTamanhoPelagemAnimal = new JTextField(30);
+    this.opcaoPelagemC = new JRadioButton("CURTO");
+    opcaoPelagemC.setActionCommand(TamanhoPelo.CURTO.name());
+    this.opcaoPelagemM = new JRadioButton("MEDIO");
+    opcaoPelagemM.setActionCommand(TamanhoPelo.MEDIO.name());
+    this.opcaoPelagemL = new JRadioButton("LONGO");
+    opcaoPelagemL.setActionCommand(TamanhoPelo.LONGO.name());
+    this.grupoPelagemAnimal = new ButtonGroup();
+    this.grupoPelagemAnimal.add(opcaoPelagemC);
+    this.grupoPelagemAnimal.add(opcaoPelagemM);
+    this.grupoPelagemAnimal.add(opcaoPelagemL);
 
     JLabel labelPorteAnimal = new JLabel("Porte animal: ");
-    JRadioButton opcaoPorteP = new JRadioButton("PEQUENO");
+    this.opcaoPorteP = new JRadioButton("PEQUENO");
     opcaoPorteP.setActionCommand(PorteAnimal.PEQUENO.name());
-    JRadioButton opcaoPorteM= new JRadioButton("MEDIO");
+    this.opcaoPorteM= new JRadioButton("MEDIO");
     opcaoPorteM.setActionCommand(PorteAnimal.MEDIO.name());
-    JRadioButton opcaoPorteG= new JRadioButton("GRANDE");
+    this.opcaoPorteG= new JRadioButton("GRANDE");
     opcaoPorteG.setActionCommand(PorteAnimal.GRANDE.name());
-    ButtonGroup grupoPorteAnimal = new ButtonGroup();
-    grupoPorteAnimal.add(opcaoPorteP);
-    grupoPorteAnimal.add(opcaoPorteM);
-    grupoPorteAnimal.add(opcaoPorteG);
+    this.grupoPorteAnimal = new ButtonGroup();
+    this.grupoPorteAnimal.add(opcaoPorteP);
+    this.grupoPorteAnimal.add(opcaoPorteM);
+    this.grupoPorteAnimal.add(opcaoPorteG);
 
     JLabel labelTutorId = new JLabel("Id do Tutor");
-    JTextField campoTutorId = new JTextField(30);
+    this.campoTutorId = new JTextField(30);
 
     JLabel labelTutorNome = new JLabel("Nome do Tutor");
-    JTextField campoTutorNome = new JTextField(30);
+    this.campoTutorNome = new JTextField(30);
 
-    JButton incluirBotao = new JButton("Incluir");
-    JButton lancarBotao = new JButton("Salvar");
     JButton preencherPadraoBotao = new JButton("Carregar dados padroes");
 
     campoIdAnimal.setEditable(false);
@@ -99,6 +119,8 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
         return false;
       }
     }});
+
+    
     campoTutorId.setInputVerifier(new InputVerifier() {
     @Override
     public boolean verify(JComponent input) {
@@ -129,29 +151,14 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
       }
     }});
 
+    preencherPadraoBotao.addActionListener(e-> {
 
-    lancarBotao.addActionListener(e->{
-
-      salvarButtonClicked(campoIdAnimal, campoNomeAnimal, campoIdadeAnimal, campoRacaAnimal, campoTamanhoPelagemAnimal, grupoSexo, grupoPorteAnimal, campoTutorId);
-
-    
+      preencherPadraoButtonClicked( campoNomeAnimal, campoIdadeAnimal, campoRacaAnimal, opcaoPelagemC, opcaoMacho, opcaoPorteM, campoTutorId, campoTutorNome);
 
     });
-
-    preencherPadraoBotao.addActionListener(e->{
-
-      preencherPadraoButtonClicked( campoNomeAnimal, campoIdadeAnimal, campoRacaAnimal, campoTamanhoPelagemAnimal, opcaoMacho, opcaoPorteM, campoTutorId, campoTutorNome);
-
-    });
-
-    incluirBotao.addActionListener(e->{
-
-      incluirButtonClicked(campoIdAnimal, campoNomeAnimal, campoIdadeAnimal, campoRacaAnimal, campoTamanhoPelagemAnimal, grupoSexo, grupoPorteAnimal, campoTutorId);
-
-    });
-
 
     panel.add(labelIdAnimal);
+
     panel.add(campoIdAnimal);
 
     panel.add(labelNomeAnimal);
@@ -164,7 +171,9 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
     panel.add(campoRacaAnimal);
 
     panel.add(labelTamanhoPelagemAnimal);
-    panel.add(campoTamanhoPelagemAnimal);
+    panel.add(opcaoPelagemC);
+    panel.add(opcaoPelagemM);
+    panel.add(opcaoPelagemL);
 
     panel.add(labelSexoAnimal);
     panel.add(opcaoMacho);
@@ -181,8 +190,6 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
     panel.add(labelTutorNome);
     panel.add(campoTutorNome);
 
-    panel.add(incluirBotao);
-    panel.add(lancarBotao);
     panel.add(preencherPadraoBotao);
 
     setContent(panel);
@@ -192,22 +199,22 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
 
   
   
-  public void salvarButtonClicked(JTextField idAnimal, JTextField nome, JTextField  idade, JTextField raca, JTextField tamanhoPelagem, ButtonGroup sexo, ButtonGroup porte, JTextField tutorId) {
+  public void salvarButtonClickedFunction(JTextField idAnimal, JTextField nome, JTextField  idade, JTextField raca, ButtonGroup tamanhoPelagem, ButtonGroup sexo, ButtonGroup porte, JTextField tutorId) {
 
     String nomeDigitado = nome.getText();
     String idadeDigitado = (idade.getText());
     String racaDigitado = raca.getText();
-    String tamanhoPelagemDigitado = tamanhoPelagem.getText();
+    TamanhoPelo tamanhoPelagemDigitado = tamanhoPelagem.getSelection() != null ? TamanhoPelo.valueOf(tamanhoPelagem.getSelection().getActionCommand()): null;
     Sexo sexoDigitado = sexo.getSelection() != null ? Sexo.valueOf(sexo.getSelection().getActionCommand()) : null;
     PorteAnimal porteDigitado = porte.getSelection() != null ? PorteAnimal.valueOf(porte.getSelection().getActionCommand()) : null;
     String tutorIdDigitado = tutorId.getText();
 
-    if(nomeDigitado.isEmpty() || idadeDigitado.isEmpty() || racaDigitado.isEmpty() || tamanhoPelagemDigitado.isEmpty() || sexoDigitado == null || porteDigitado == null || tutorIdDigitado.isEmpty()){
+    if(nomeDigitado.isEmpty() || idadeDigitado.isEmpty() || racaDigitado.isEmpty() || tamanhoPelagemDigitado == null || sexoDigitado == null || porteDigitado == null || tutorIdDigitado.isEmpty()){
       JOptionPane.showMessageDialog(null, "Campos preenchidos incprretamente. Tente novamente!");
       return;
     }
 
-    Tutor tutor = clinicaVeterinaria.procurarTutorPorIdService(Integer.parseInt(tutorIdDigitado));
+    this.tutor = clinicaVeterinaria.procurarTutorPorIdService(Integer.parseInt(tutorIdDigitado));
 
     if(tutor == null){
       JOptionPane.showMessageDialog(null, "Tutor não encontrado");
@@ -220,36 +227,47 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
 
       Animal animal = new Animal(nomeDigitado, Integer.parseInt(idadeDigitado), racaDigitado, null, null, null, null, tutor);
 
+      int resposta = JOptionPane.showConfirmDialog(null,"COnfirma a geração do id do animal?");
+
+      if(resposta != JOptionPane.YES_OPTION){
+        return;
+      }
+
     clinicaVeterinaria.adicionarAnimalService(animal);
     idAnimal.setText(String.valueOf(animal.getId()));
 
     JOptionPane.showMessageDialog(null, "Cadastro salvo com sucesso!");
 
+
     } else {
-      JOptionPane.showConfirmDialog(null, "Para iniciar um novo cadastro aperte em incluir ou reabra a pagina, por enquanto não é possivel atualizar um cadastro");
+
+      Animal animal = clinicaVeterinaria.procurarAnimaisPorIdService(Integer.parseInt(campoIdAnimal.getText()));
+
+      animal.setNome(nomeDigitado);
+      animal.setIdade(Integer.parseInt(idadeDigitado));
+      animal.setRaca(racaDigitado);
+      animal.setPelagemTamanho(null);
+      animal.setSexo(sexoDigitado);
+      animal.setPorteAnimal(porteDigitado);
+      animal.setTutor(tutor);
+
+
+
+      JOptionPane.showMessageDialog(null, "Os dados foram atualizados com sucesso!");
     }
-
-    
-
-    
-
-    
-    
-    
-    
   }
 
-   public void preencherPadraoButtonClicked(JTextField nome, JTextField  idade, JTextField raca, JTextField tamanhoPelagem,   JRadioButton sexo, JRadioButton porte, JTextField tutorId, JTextField nomeTutor) {
+   public void preencherPadraoButtonClicked(JTextField nome, JTextField  idade, JTextField raca, JRadioButton tamanhoPelagem,   JRadioButton sexo, JRadioButton porte, JTextField tutorId, JTextField nomeTutor) {
     nome.setText("BURRO");
     idade.setText("15");
     raca.setText("BURRO FALANTE");
-    tamanhoPelagem.setText("CURTA");
+    tamanhoPelagem.setSelected(true);
     sexo.setSelected(true);
     porte.setSelected(true);
     tutorId.setText("1");
    }
 
-   public void incluirButtonClicked(JTextField idAnimal, JTextField nome, JTextField  idade, JTextField raca, JTextField tamanhoPelagem, ButtonGroup sexo, ButtonGroup porte, JTextField tutorId){
+   public void incluirButtonClickedFunction(JTextField idAnimal, JTextField nome, JTextField  idade, JTextField raca, ButtonGroup tamanhoPelagem, ButtonGroup sexo, ButtonGroup porte, JTextField tutorId){
 
     if(idAnimal.getText().isEmpty() && (!nome.getText().isEmpty() || !idade.getText().isEmpty() || !raca.getText().isEmpty()  || !tutorId.getText().isEmpty())){
 
@@ -257,7 +275,7 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
 
       if(resposta == JOptionPane.YES_OPTION){
 
-        salvarButtonClicked(idAnimal, nome, idade, raca, tamanhoPelagem, sexo, porte, tutorId);
+        salvarButtonClickedFunction(idAnimal, nome, idade, raca, grupoPelagemAnimal, sexo, porte, tutorId);
 
       } else if(resposta == JOptionPane.CANCEL_OPTION){
 
@@ -274,42 +292,27 @@ public class PopUpOperacaoIncluir_animal extends PopUpOperacao{
     idade.setText(null);
     raca.setText(null);
     raca.setText(null);
-    tamanhoPelagem.setText(null);
     tutorId.setText(null);
 
    }
   
+@Override
+public void salvarButtonClicked(){
 
-   @Override
-   public JPanel cabecalhoPadrao(){
-    
-    JPanel panel = new JPanel();
+  
+  salvarButtonClickedFunction(campoIdAnimal, campoNomeAnimal,campoIdadeAnimal, campoRacaAnimal,grupoPelagemAnimal, grupoSexo, grupoPorteAnimal, campoTutorId);
 
-    URL enderecoSalvarIcon = getClass().getResource("/assets/salvarIcon.png");
-    URL enderecoIncluirIcon = getClass().getResource("/assets/incluirIcon.png");
-    
-    ImageIcon salvarIcon=new ImageIcon(enderecoSalvarIcon);
-    ImageIcon incluirIcon=new ImageIcon(enderecoIncluirIcon);
-    
-    JButton salvar = new JButton();
-    salvar.setIcon(salvarIcon);
-    salvar.setText("Salvar");
+}
 
-    JButton incluir = new JButton();
-    incluir.setIcon(incluirIcon);
-    incluir.setText("Incluir");
+@Override
+public void incluirButtonClicked(){
 
-    salvar.addActionListener(e->{
-      salvarButtonClicked();
-    });
+  incluirButtonClickedFunction(campoIdAnimal, campoNomeAnimal, campoIdadeAnimal, campoRacaAnimal, grupoPelagemAnimal, grupoSexo, grupoPorteAnimal, campoTutorId);
 
-    panel.setBackground(new Color(41, 128, 185));
 
-    JLabel AvisoLabel = new JLabel("botoes em desenvolvimento");
-    panel.add(incluir);
-    panel.add(salvar);
-    return panel;
 
-  }
+}
+ 
+
    
 }

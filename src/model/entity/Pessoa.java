@@ -63,4 +63,15 @@ public class Pessoa {
   public void setEndereco(String endereco){
     this.endereco = endereco;
   }
+
+  public void setNascimento(LocalDate data){
+    this.dataNascimento = data;
+  }
+  public LocalDate getNascimento(){
+    return this.dataNascimento;
+  }
+
+  public boolean isPessoaAtiva(){
+    return this.pessoaAtiva;
+  }
 }

@@ -1,13 +1,14 @@
 package model.view.conteudoPopUps;
 
+
 import javax.swing.*;
 
 import model.service.ClinicaVeterinaria;
 import model.view.abstract_class.PopUpOperacaoIncluir;
 
-public class PopUpIncluirAnimal extends PopUpOperacaoIncluir {
+public class PopUpIncluirTutor extends PopUpOperacaoIncluir {
 
-  public PopUpIncluirAnimal(JFrame janelaPai, String tituloPagina, ClinicaVeterinaria clinicaVeterinaria){
+  public PopUpIncluirTutor(JFrame janelaPai, String tituloPagina, ClinicaVeterinaria clinicaVeterinaria){
     super(janelaPai, tituloPagina, clinicaVeterinaria);
 
     JLabel labelNomeAnimal = new JLabel("Nome: ");
