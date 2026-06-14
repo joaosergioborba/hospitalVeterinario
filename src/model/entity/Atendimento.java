@@ -40,7 +40,7 @@ public class Atendimento {
     this.status = StatusAtendimento.CANCELADO;
   }
 
-  public void recepcaoParaAtendimento(){
+  public void checkInParaAtendimento(){
     this.status = StatusAtendimento.ESPERA;
   }
 
