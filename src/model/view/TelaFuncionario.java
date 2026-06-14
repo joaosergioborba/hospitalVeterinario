@@ -25,7 +25,7 @@ public class TelaFuncionario extends PopUpModel{
   @Override
   public void incluirButtonClicked() {
 
-    PopUpOperacaoIncluir_funcionario telaCadastro = new PopUpOperacaoIncluir_funcionario(janelaPai, "Cadastrar um novo animal - PatasCloud", clinicaVeterinaria);
+    PopUpOperacaoIncluir_funcionario telaCadastro = new PopUpOperacaoIncluir_funcionario(janelaPai, "Cadastrar um novo funcionário - PatasCloud", clinicaVeterinaria);
     
   }
 
@@ -33,7 +33,7 @@ public class TelaFuncionario extends PopUpModel{
   @Override
   public void pesquisarButtonClicked(JPanel panel){
 
-    PopUpOperacaoListar_Funcionario telaListagem = new PopUpOperacaoListar_Funcionario(janelaPai, "Lista de tutores cadastrados - PatasCloud", clinicaVeterinaria, clinicaVeterinaria.listarFuncionariosCadastrados(true));
+    PopUpOperacaoListar_Funcionario telaListagem = new PopUpOperacaoListar_Funcionario(janelaPai, "Lista de funcionários cadastrados - PatasCloud", clinicaVeterinaria, clinicaVeterinaria.listarFuncionariosCadastrados(true));
   }
   
 }

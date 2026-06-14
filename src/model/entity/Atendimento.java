@@ -37,12 +37,15 @@ public class Atendimento {
   public void cancelarAtendimento(){
     this.status = StatusAtendimento.CANCELADO;
   }
+
   public void recepcaoParaAtendimento(){
     this.status = StatusAtendimento.ESPERA;
   }
+
   public void iniciarAtendimento(){
     this.status = StatusAtendimento.EM_ATENDIMENTO;
   }
+
   public void finalizarAtendimento(){
     this.status = StatusAtendimento.FINALIZADO;
   }
@@ -98,4 +101,5 @@ public class Atendimento {
     public void setStatus(StatusAtendimento status) {
         this.status = status;
     }
+    
 }
