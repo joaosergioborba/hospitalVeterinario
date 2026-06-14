@@ -1,7 +1,9 @@
 package model.service;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 import model.entity.Animal;
 import model.entity.Atendimento;
@@ -26,6 +28,7 @@ public class ClinicaVeterinaria {
     private List<Vacina> vacinas = new ArrayList<>();
     private List<Produto> produtos = new ArrayList<>();
     private List<Medicacao> medicacoes = new ArrayList<>();
+    private Queue<Atendimento> filaAtendimento = new LinkedList<>();
 
 
     public ClinicaVeterinaria(){
@@ -172,12 +175,6 @@ public class ClinicaVeterinaria {
 
     }
 
-    public List<Atendimento> listarAtendimentosCadastrados(Boolean entidadeAtiva){
-
-      List<Atendimento> lista = atendimentos.stream().toList();
-      return lista;
-
-    }
 
 
     public int adicionarTutorService(Tutor data){
@@ -220,6 +217,33 @@ public class ClinicaVeterinaria {
 
     //atendimentos
 
+     public List<Atendimento> listarAtendimentosCadastrados(Boolean entidadeAtiva){
+
+      List<Atendimento> lista = atendimentos.stream().toList();
+      return lista;
+
+    }
+
+    public List<Atendimento> listarAtendimentoAtivosPorAnimalIdService(int id){
+
+      List<Atendimento> lista = atendimentos.stream().filter(a-> (a.getAnimal().getId() == id  && a.getStatus() == StatusAtendimento.AGENDADO) ).toList();
+      return lista;
+
+    }
+
+    public List<Atendimento> listarAtendimentoAtivosPorTutorIdService(int id){
+
+      List<Atendimento> lista = atendimentos.stream().filter(a-> (a.getAnimal().getId() == id && a.getStatus() == StatusAtendimento.AGENDADO)).toList();
+      return lista;
+
+    }
+    public List<Atendimento> listarAtendimentoAtivosPorVeterinarioIdService(int id){
+
+      List<Atendimento> lista = atendimentos.stream().filter(a-> (a.getAnimal().getId() == id && a.getStatus() == StatusAtendimento.AGENDADO)).toList();
+      return lista;
+
+    }
+
     public int buscarProximoIdAtendimentoService(){
       int maiorId = 0;
 
@@ -242,6 +266,8 @@ public class ClinicaVeterinaria {
       return resultado;
     }
 
+    
+
 
     public int adicionarAtendimentoService(Atendimento data){
 
@@ -258,6 +284,46 @@ public class ClinicaVeterinaria {
       this.registrosClinicos.add(data);
 
     }
+
+    public void checkInPaciente(Atendimento atendimento){
+
+      atendimento.checkInParaAtendimento();
+      filaAtendimento.add(atendimento);
+
+    }
+
+    public Atendimento visualizarProximoAtendimento(){
+
+      if(filaAtendimento.isEmpty()){
+
+        return null;
+
+      }
+
+      return filaAtendimento.peek();
+
+    }
+
+    public Atendimento iniciarAtendimento(){
+
+      if(filaAtendimento.isEmpty()){
+
+        return null;
+
+      }
+
+      Atendimento removido = filaAtendimento.poll();
+      removido.iniciarAtendimento();
+      return removido;
+
+    }
+
+    public void finalizarAtendimento(Atendimento atendimento){
+
+      atendimento.finalizarAtendimento();
+
+    }
+
     public void adicionarExameService(Exame data){
 
       this.exames.add(data);

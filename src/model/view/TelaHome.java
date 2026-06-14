@@ -6,6 +6,7 @@ import javax.swing.*;
 
 import model.service.ClinicaVeterinaria;
 import model.view.abstract_class.PopUpModel;
+import model.view.recepcao.TelaRecepcao;
 
 
 //usei heranca de JPanel pq ai nao precisamos ficar colocando JPanel toda hr
@@ -108,7 +109,7 @@ public class TelaHome extends JPanel {
 
     public void abrirTelaRecepcao(JFrame Pai, String tituloPagina, ClinicaVeterinaria clinicaVeterinaria){
 
-      TelaPrincipal telaRecepcao = new TelaPrincipal(Pai, "Tela Recepção - PatasCloud", clinicaVeterinaria);
+      TelaRecepcao telaRecepcao = new TelaRecepcao(Pai, "Tela Recepção - PatasCloud", clinicaVeterinaria);
       telaRecepcao.show();
     }
   

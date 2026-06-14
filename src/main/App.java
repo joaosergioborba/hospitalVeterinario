@@ -15,7 +15,7 @@ import model.view.Screen;
 import model.view.TelaCaminhoFeliz;
 import model.view.TelaHome;
 import model.view.TelaLogin;
-import model.view.TelaPrincipal;
+import model.view.recepcao.TelaRecepcao;
 
 import javax.swing.*;
 import java.awt.*;
