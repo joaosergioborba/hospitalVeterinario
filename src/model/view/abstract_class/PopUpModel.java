@@ -46,6 +46,8 @@ public class PopUpModel extends JPanel{
     painelBase.add(rodapePanel, BorderLayout.SOUTH);
 
     jDialog.setContentPane(painelBase);
+
+    
     
 
   }

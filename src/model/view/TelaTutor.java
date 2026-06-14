@@ -23,7 +23,7 @@ public class TelaTutor extends PopUpModel{
   @Override
   public void incluirButtonClicked() {
 
-    PopUpOperacaoIncluir_tutor telaCadastro = new PopUpOperacaoIncluir_tutor(janelaPai, "Cadastrar um novo animal - PatasCloud", clinicaVeterinaria);
+    PopUpOperacaoIncluir_tutor telaCadastro = new PopUpOperacaoIncluir_tutor(janelaPai, "Cadastrar um novo tutor - PatasCloud", clinicaVeterinaria);
     
   }
 

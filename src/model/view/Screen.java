@@ -51,7 +51,7 @@ public class Screen{
 
       cardLayout.show(painelPrincipal, nomeTela);
       frame.setSize(1500, 700);
-        frame.setLocationRelativeTo(null);
+      frame.setLocationRelativeTo(null);
 
     }
 

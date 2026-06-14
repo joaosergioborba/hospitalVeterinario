@@ -5,6 +5,7 @@ import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -15,16 +16,35 @@ import javax.swing.JTextField;
 import model.service.ClinicaVeterinaria;
 
 //usei heranca de JPanel pq ai nao precisamos ficar colocando JPanel toda hr
-public class TelaLogin extends JPanel {
+public class TelaLogin {
+
+  private JDialog jDialog;
+  private JPanel painelBase;
+  private JFrame janelaPai;
 
   private ClinicaVeterinaria clinicaVeterinaria;
   private Runnable acaoAoLogar;
 
-  public TelaLogin(ClinicaVeterinaria clinicaVeterinaria, Runnable acaoAoLogar){
-
-
+  public  TelaLogin(JFrame Pai, String tituloPagina, ClinicaVeterinaria clinicaVeterinaria, Runnable acao){
+    this.janelaPai = Pai;
     this.clinicaVeterinaria = clinicaVeterinaria;
-    this.acaoAoLogar = acaoAoLogar;
+    this.acaoAoLogar = acao;
+    jDialog = new JDialog(janelaPai, tituloPagina, false);
+    jDialog.setSize(400, 310);
+    jDialog.setLocationRelativeTo(janelaPai);
+    jDialog.setResizable(false);
+    jDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+    painelBase = new JPanel(new BorderLayout());
+    jDialog.setContentPane(painelBase);
+    painelBase.add(conteudoPagina(Pai, clinicaVeterinaria, acao));
+    
+  }
+
+
+
+  public JPanel conteudoPagina(JFrame pai, ClinicaVeterinaria clinicaVeterinaria, Runnable acaoAoLogar){
+
+    JPanel panel = new JPanel();
     
     JLabel labelBemVindo = new JLabel("Bem-vindo ao PatasCloud");
     URL imageURL = getClass().getResource("/assets/logo_sem_fundo.png");
@@ -62,25 +82,30 @@ public class TelaLogin extends JPanel {
       }
 
       acaoAoLogar.run();
-      System.out.println("Login efeituado com sucesso");
+      close();
 
 
     });
 
+    panel.add(imagem);
+    panel.add(labelBemVindo);
 
-    add(imagem);
-    add(labelBemVindo);
+    panel.add(labelUsuario);
+    panel.add(campoUsuario);
 
-    add(labelUsuario);
-    add(campoUsuario);
+    panel.add(labelSenha);
+    panel.add(campoSenha);
 
-    add(labelSenha);
-    add(campoSenha);
+    panel.add(loginButton);
+    return panel;
+  }
 
-    add(loginButton);
+   public void show(){
+    jDialog.setVisible(true);
+  }
 
-
-
+  public void close(){
+    jDialog.dispose();
   }
 
 }
