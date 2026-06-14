@@ -124,7 +124,9 @@ public class carregarDadosIniciais {
     // Vari
     Veterinario vet10 = new Veterinario("01234567890", "Bruno Carvalho", LocalDate.of(1989, 2, 28), "Rodovia Principal, Km 5", "Silvestres", 4800.00, "9630");
     clinicaVeterinaria.adicionarFuncionarioService(vet10);
-
+  
+    Veterinario teste = new Veterinario("123456", "Bruno Carvalho", LocalDate.of(1989, 2, 28), "Rodovia Principal, Km 5", "Silvestres", 4800.00, "123456");
+  clinicaVeterinaria.adicionarFuncionarioService(teste);
     
 
 

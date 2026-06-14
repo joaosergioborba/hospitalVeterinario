@@ -4,11 +4,8 @@ import java.net.URL;
 
 import javax.swing.*;
 
-import model.entity.Funcionario;
 import model.service.ClinicaVeterinaria;
-import model.view.abstract_class.PopUpModel;
-import model.view.abstract_class.PopUpOperacaoIncluir;
-import model.view.conteudoPopUps.PopUpEmDesenvolvimento;
+
 
 //usei heranca de JPanel pq ai nao precisamos ficar colocando JPanel toda hr
 public class TelaHome extends JPanel {
@@ -75,6 +72,7 @@ public class TelaHome extends JPanel {
   }
 
   private void abrirManualSistema(){
+    
   }
 
   private void abrirCentroDiagnostico(){
@@ -87,8 +85,26 @@ public class TelaHome extends JPanel {
   }
 
   private void abrirRecepcao(){
+
+    login(clinicaVeterinaria);
     
   }
+
+  public void login (ClinicaVeterinaria sistemaClinica){
+
+        Screen tela = new Screen("Tela login - PatasCloud", 400, 300);
+        TelaPrincipal telaPrincipal = new TelaPrincipal(sistemaClinica);
+        TelaLogin login = new TelaLogin(sistemaClinica, () ->{
+
+            
+            tela.adicionarTela(telaPrincipal, "tela principal");;
+            tela.navegar("tela principal");
+        });
+
+        tela.setContent(login, "login");
+        tela.show();
+
+    }
   
 
 }
