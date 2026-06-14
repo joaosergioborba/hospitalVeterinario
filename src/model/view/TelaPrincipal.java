@@ -70,6 +70,11 @@ public class TelaPrincipal {
       gerenciarAnimalButtonClicked(Pai);
     });
 
+    atendimentolButton.addActionListener(e->{
+
+      gerenciarAtendimentoButtonClicked(Pai);
+
+    });
 
     panel.add(labelBemVindo);
     panel.add(EntradaAnimalButton);
@@ -131,6 +136,12 @@ public class TelaPrincipal {
     PopUpEmDesenvolvimento popUp = new PopUpEmDesenvolvimento();
     telaGerenciarFuncionario.setContent(popUp);
     telaGerenciarFuncionario.show();
+  }
+  private void gerenciarAtendimentoButtonClicked(JFrame Pai){
+    TelaAtendimento telaGerenciarAtendimento = new TelaAtendimento(Pai, "Gerenciar Funcionarios - PatasCloud", clinicaVeterinaria);
+    PopUpEmDesenvolvimento popUp = new PopUpEmDesenvolvimento();
+    telaGerenciarAtendimento.setContent(popUp);
+    telaGerenciarAtendimento.show();
   }
 
    public void show(){

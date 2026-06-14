@@ -1,6 +1,7 @@
 package model.entity;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ public class Atendimento {
   private int id;
   private Animal animal;
   private Funcionario veterinario;
-  private Date data;
+  private LocalDate data;
   private String observacoes;
   private String diagnostico; //atualizar uml
   private StatusAtendimento status;
@@ -18,7 +19,7 @@ public class Atendimento {
 
   //to usando protected em alguns pq isso permite que os filhos tbm acesse diretamente essa tag
 
-  public Atendimento(Animal animal, Date data, String observacoes, Funcionario veterinario ) {
+  public Atendimento(Animal animal, LocalDate data, String observacoes, Funcionario veterinario ) {
     this.animal = animal;
     this.data = data;
     this.veterinario = veterinario;
@@ -62,6 +63,10 @@ public class Atendimento {
     public int getId() {
         return id;
     }
+
+    public void setId(int id){
+      this.id = id;
+    }
     
     public Animal getAnimal() {
         return animal;
@@ -79,11 +84,11 @@ public class Atendimento {
         this.veterinario = veterinario;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
@@ -93,6 +98,14 @@ public class Atendimento {
 
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
+    }
+
+    public String getDiagnostico(){
+      return this.diagnostico;
+    }
+
+    public void setDiagnostico(String diagnostico){
+      this.diagnostico = diagnostico;
     }
 
     public StatusAtendimento getStatus() {

@@ -12,6 +12,7 @@ import model.entity.Produto;
 import model.entity.RegistroClinico;
 import model.entity.Tutor;
 import model.entity.Vacina;
+import model.enums.StatusAtendimento;
 
 
 public class ClinicaVeterinaria {
@@ -170,6 +171,15 @@ public class ClinicaVeterinaria {
       return maiorId + 1;
 
     }
+
+    public List<Atendimento> listarAtendimentosCadastrados(Boolean entidadeAtiva){
+
+      List<Atendimento> lista = atendimentos.stream().toList();
+      return lista;
+
+    }
+
+
     public int adicionarTutorService(Tutor data){
 
       if(isCpfCadastrado(data.getCpf())){
@@ -208,11 +218,41 @@ public class ClinicaVeterinaria {
     }
 
 
-    public void adicionarAtendimentoService(Atendimento data){
+    //atendimentos
 
-      this.atendimentos.add(data);
+    public int buscarProximoIdAtendimentoService(){
+      int maiorId = 0;
+
+      for (Atendimento  a: atendimentos) {
+
+        int idAtual = a.getId();
+
+        if(idAtual > maiorId){
+          maiorId = idAtual;
+        }
+        
+      }
+      return maiorId + 1;
 
     }
+
+    public Atendimento procurarAtendimentoPorIdService(int id){
+
+      Atendimento resultado = atendimentos.stream().filter(a -> a.getId() == id).findFirst().orElse(null);
+      return resultado;
+    }
+
+
+    public int adicionarAtendimentoService(Atendimento data){
+
+      data.setId(buscarProximoIdAtendimentoService());
+
+      this.atendimentos.add(data);
+      return data.getId();
+
+    }
+
+
     public void adicionarRegistroClinicoService(RegistroClinico data){
 
       this.registrosClinicos.add(data);
@@ -259,8 +299,6 @@ public class ClinicaVeterinaria {
 
     }
     
-
-     
 
   
 }

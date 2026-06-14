@@ -4,8 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import model.service.ClinicaVeterinaria;
-import model.view.PopUpOperacao.PopUpOperacaoIncluir_funcionario;
-import model.view.PopUpOperacao.PopUpOperacaoListar_Funcionario;
+import model.view.PopUpOperacao.PopUpOperacaoIncluir_atendimento;
+import model.view.PopUpOperacao.PopUpOperacaoListar_atendimento;
 import model.view.abstract_class.PopUpModel;
 
 public class TelaAtendimento extends PopUpModel{
@@ -21,7 +21,7 @@ public class TelaAtendimento extends PopUpModel{
   @Override
   public void incluirButtonClicked() {
 
-    PopUpOperacaoIncluir_funcionario telaCadastro = new PopUpOperacaoIncluir_funcionario(janelaPai, "Cadastrar atendimentos - PatasCloud", clinicaVeterinaria);
+    PopUpOperacaoIncluir_atendimento telaCadastro = new PopUpOperacaoIncluir_atendimento(janelaPai, "Cadastrar atendimentos - PatasCloud", clinicaVeterinaria);
     
   }
 
@@ -29,7 +29,8 @@ public class TelaAtendimento extends PopUpModel{
   @Override
   public void pesquisarButtonClicked(JPanel panel){
 
-    PopUpOperacaoListar_Funcionario telaListagem = new PopUpOperacaoListar_Funcionario(janelaPai, "Lista de atendimentos cadastrados - PatasCloud", clinicaVeterinaria, clinicaVeterinaria.listarFuncionariosCadastrados(true));
+
+    PopUpOperacaoListar_atendimento telaListagem = new PopUpOperacaoListar_atendimento(janelaPai, "Lista de atendimentos cadastrados - PatasCloud", clinicaVeterinaria, clinicaVeterinaria.listarAtendimentosCadastrados(true));
   }
   
 }

@@ -3,8 +3,10 @@ package model.service;
 import java.time.LocalDate;
 
 import model.entity.Animal;
+import model.entity.Funcionario;
 import model.entity.Tutor;
 import model.entity.Veterinario;
+import model.enums.Funcao;
 import model.enums.PorteAnimal;
 import model.enums.Sexo;
 import model.enums.TamanhoPelo;
@@ -127,7 +129,12 @@ public class carregarDadosIniciais {
   
     Veterinario teste = new Veterinario("123456", "Bruno Carvalho", LocalDate.of(1989, 2, 28), "Rodovia Principal, Km 5", "Silvestres", 4800.00, "123456");
   clinicaVeterinaria.adicionarFuncionarioService(teste);
+
+    Funcionario funcionario1 = new Funcionario("1234567", "Bruninho Carvalho", LocalDate.of(1989, 2, 28), "Rodovia Principal, Km 5", Funcao.LIMPEZA,"Silvestres", 1800.00, "123456");
+  clinicaVeterinaria.adicionarFuncionarioService(funcionario1);
     
+
+  
 
 
 
