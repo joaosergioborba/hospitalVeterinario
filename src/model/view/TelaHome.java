@@ -5,6 +5,7 @@ import java.net.URL;
 import javax.swing.*;
 
 import model.service.ClinicaVeterinaria;
+import model.view.abstract_class.PopUpModel;
 
 
 //usei heranca de JPanel pq ai nao precisamos ficar colocando JPanel toda hr
@@ -86,24 +87,29 @@ public class TelaHome extends JPanel {
 
   private void abrirRecepcao(){
 
-    login(clinicaVeterinaria);
+    loginRecepcao(clinicaVeterinaria);
     
   }
 
-  public void login (ClinicaVeterinaria sistemaClinica){
+  public void login(Screen tela, JFrame janelaPai){
 
-        Screen tela = new Screen("Tela login - PatasCloud", 400, 300);
-        TelaPrincipal telaPrincipal = new TelaPrincipal(sistemaClinica);
-        TelaLogin login = new TelaLogin(sistemaClinica, () ->{
+  }
 
-            
-            tela.adicionarTela(telaPrincipal, "tela principal");;
-            tela.navegar("tela principal");
-        });
+  public void loginRecepcao (ClinicaVeterinaria sistemaClinica){
+    JFrame janelaPai = (JFrame) SwingUtilities.getWindowAncestor(this);
+    TelaLogin login = new TelaLogin(janelaPai, "Login - PatasCloud",sistemaClinica, () ->{
+        abrirTelaRecepcao(janelaPai, "tela teste", clinicaVeterinaria);
+    });
+    
+    login.show();
 
-        tela.setContent(login, "login");
-        tela.show();
+    }
 
+
+    public void abrirTelaRecepcao(JFrame Pai, String tituloPagina, ClinicaVeterinaria clinicaVeterinaria){
+
+      TelaPrincipal telaRecepcao = new TelaPrincipal(Pai, "Tela Recepção - PatasCloud", clinicaVeterinaria);
+      telaRecepcao.show();
     }
   
 

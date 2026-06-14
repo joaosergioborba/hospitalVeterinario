@@ -33,24 +33,24 @@ public class App {
 
     
 
-    public void login(ClinicaVeterinaria sistemaClinica){
+    // public void login(ClinicaVeterinaria sistemaClinica){
 
 
-        Screen tela = new Screen("Tela login - PatasCloud", 400, 300);
-        TelaPrincipal telaPrincipal = new TelaPrincipal(sistemaClinica);
-        TelaHome home = new TelaHome(sistemaClinica);
+    //     Screen tela = new Screen("Tela login - PatasCloud", 400, 300);
+    //     TelaPrincipal telaPrincipal = new TelaPrincipal(sistemaClinica);
+    //     TelaHome home = new TelaHome(sistemaClinica);
 
-        TelaLogin login = new TelaLogin(sistemaClinica, () ->{
+    //     TelaLogin login = new TelaLogin(sistemaClinica, () ->{
 
 
-            tela.adicionarTela(home, "tela principal");;
-            tela.navegar("tela principal");
-        });
+    //         tela.adicionarTela(home, "tela principal");;
+    //         tela.navegar("tela principal");
+    //     });
 
-        tela.setContent(login, "login");
-        tela.show();
+    //     tela.setContent(login, "login");
+    //     tela.show();
 
-    }
+    // }
 
     public void abrirInterface(ClinicaVeterinaria sistemaClinica){
 
