@@ -4,12 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import model.service.ClinicaVeterinaria;
-import model.view.PopUpOperacao.PopUpOperacaoIncluir_animal;
 import model.view.PopUpOperacao.PopUpOperacaoIncluir_funcionario;
-import model.view.PopUpOperacao.PopUpOperacaoIncluir_tutor;
 import model.view.PopUpOperacao.PopUpOperacaoListar_Funcionario;
-import model.view.PopUpOperacao.PopUpOperacaoListar_animal;
-import model.view.PopUpOperacao.PopUpOperacaoListar_tutor;
 import model.view.abstract_class.PopUpModel;
 
 public class TelaFuncionario extends PopUpModel{

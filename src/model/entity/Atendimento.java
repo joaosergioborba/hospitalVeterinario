@@ -12,6 +12,7 @@ public class Atendimento {
   private Funcionario veterinario;
   private Date data;
   private String observacoes;
+  private String diagnostico; //atualizar uml
   private StatusAtendimento status;
   protected List<RegistroClinico> procedimentos; //precisamos atualizar o uml
 
@@ -101,5 +102,5 @@ public class Atendimento {
     public void setStatus(StatusAtendimento status) {
         this.status = status;
     }
-    
+
 }
