@@ -50,7 +50,7 @@ public class carregarDadosIniciais {
 
     Tutor tutor10 = new Tutor("25103948066", "LYRA MOONWHISPER", LocalDate.of(2024, 2, 28), "AV TENENTE CORONEL DUARTE, CUIABA");
     clinicaVeterinaria.adicionarTutorService(tutor10);
-    clinicaVeterinaria.adicionarTutorService(tutor10);
+    
 
 
     // Animais
