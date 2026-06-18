@@ -5,7 +5,7 @@ import java.net.URL;
 import javax.swing.*;
 
 import model.service.ClinicaVeterinaria;
-import model.view.abstract_class.PopUpModel;
+import model.view.manual.TelaManual;
 import model.view.recepcao.TelaRecepcao;
 
 
@@ -74,15 +74,21 @@ public class TelaHome extends JPanel {
   }
 
   private void abrirManualSistema(){
+
+     JFrame janelaPai = (JFrame) SwingUtilities.getWindowAncestor(this);
+    TelaManual telaRecepcao = new TelaManual(janelaPai, "Tela Manual - PatasCloud", clinicaVeterinaria);
+    telaRecepcao.show();
     
   }
 
   private void abrirCentroDiagnostico(){
+    telaEmDesenvolvimento();
   }
 
 
 
   private void abrirConsultorio(){
+    telaEmDesenvolvimento();
     
   }
 
@@ -111,6 +117,12 @@ public class TelaHome extends JPanel {
 
       TelaRecepcao telaRecepcao = new TelaRecepcao(Pai, "Tela Recepção - PatasCloud", clinicaVeterinaria);
       telaRecepcao.show();
+    }
+
+    public void telaEmDesenvolvimento(){
+
+      JOptionPane.showMessageDialog(null, "Quase lá! Esta funcionalidade está recebendo os últimos ajustes para entregar a melhor experiência para você...");
+
     }
   
 

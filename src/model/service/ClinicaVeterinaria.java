@@ -340,7 +340,9 @@ public class ClinicaVeterinaria {
 
     }
 
-   
+    public List<Atendimento> listarProximosAtendimentos(){
+      return filaAtendimento.stream().toList();
+    }
 
     public void adicionarExameService(Exame data){
 
