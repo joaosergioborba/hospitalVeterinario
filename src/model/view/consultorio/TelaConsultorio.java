@@ -5,10 +5,9 @@ import java.awt.BorderLayout;
 import javax.swing.*;
 
 import model.service.ClinicaVeterinaria;
+import model.view.abstract_class.PopUpModel;
+import model.view.consultorio.popUpOperacao.PopUpOperacaoListar;
 import model.view.conteudoPopUps.PopUpEmDesenvolvimento;
-import model.view.recepcao.telasBase.TelaAnimal;
-import model.view.recepcao.telasBase.TelaAtendimento;
-import model.view.recepcao.telasBase.TelaCheckIn;
 import model.view.recepcao.telasBase.TelaFuncionario;
 import model.view.recepcao.telasBase.TelaTutor;
 
@@ -23,9 +22,6 @@ public class TelaConsultorio {
   public  TelaConsultorio(JFrame janelaPai, String tituloPagina, ClinicaVeterinaria clinicaVeterinaria){
     this.janelaPai = janelaPai;
     this.clinicaVeterinaria = clinicaVeterinaria;
-
-   
-
     jDialog = new JDialog(janelaPai, tituloPagina, false);
     jDialog.setSize(1400, 600);
     jDialog.setLocationRelativeTo(janelaPai);
@@ -47,25 +43,26 @@ public class TelaConsultorio {
     
 
     visualizarProximosButton.addActionListener(e->{
-      gerenciarFuncionarioButtonClicked(Pai);
+      visualizarProximosButtonClicked(Pai);
     });
 
     iniciarAtendimentoButton.addActionListener(e->{
-     gerenciarTutorButtonClicked(Pai);
+    // gerenciarTutorButtonClicked(Pai);
     });
    
 
-
+    panel.add(visualizarProximosButton);
+    panel.add(iniciarAtendimentoButton);
     return panel;
    
 
   }
 
-  private void gerenciarTutorButtonClicked(JFrame Pai){
-    TelaTutor telaGerenciarTutores = new TelaTutor(Pai, "Gerenciar tutores - PatasCloud", clinicaVeterinaria);
-    PopUpEmDesenvolvimento popUp = new PopUpEmDesenvolvimento();
-    telaGerenciarTutores.setContent(popUp);
-    telaGerenciarTutores.show();
+  private void visualizarProximosButtonClicked(JFrame Pai){
+    PopUpOperacaoListar tela = new PopUpOperacaoListar(Pai, "Gerenciar tutores - PatasCloud", clinicaVeterinaria, clinicaVeterinaria.listarProximosAtendimentos());
+    //PopUpEmDesenvolvimento popUp = new PopUpEmDesenvolvimento();
+    tela.show();
+    
   }
   private void gerenciarFuncionarioButtonClicked(JFrame Pai){
     TelaFuncionario telaGerenciarFuncionario = new TelaFuncionario(Pai, "Gerenciar Funcionarios - PatasCloud", clinicaVeterinaria);

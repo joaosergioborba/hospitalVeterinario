@@ -11,7 +11,6 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import model.service.ClinicaVeterinaria;
 
@@ -40,10 +39,17 @@ public class PopUpModel extends JPanel{
     painelBase = new JPanel(new BorderLayout());
 
     JPanel CabecalhoPanel = cabecalhoPadrao();
-    painelBase.add(CabecalhoPanel, BorderLayout.NORTH);
+
+    if(cabecalhoPadrao() != null){
+      painelBase.add(CabecalhoPanel, BorderLayout.NORTH);
+    }
 
     JPanel rodapePanel = rodapePadrao();
-    painelBase.add(rodapePanel, BorderLayout.SOUTH);
+
+    if(rodapePadrao() != null){
+      painelBase.add(rodapePanel, BorderLayout.SOUTH);
+    }
+    
 
     jDialog.setContentPane(painelBase);
 

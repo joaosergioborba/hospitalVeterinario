@@ -5,6 +5,7 @@ import java.net.URL;
 import javax.swing.*;
 
 import model.service.ClinicaVeterinaria;
+import model.view.consultorio.TelaConsultorio;
 import model.view.manual.TelaManual;
 import model.view.recepcao.TelaRecepcao;
 
@@ -88,7 +89,7 @@ public class TelaHome extends JPanel {
 
 
   private void abrirConsultorio(){
-    telaEmDesenvolvimento();
+    loginConsultorio(clinicaVeterinaria);
     
   }
 
@@ -112,11 +113,27 @@ public class TelaHome extends JPanel {
 
     }
 
+  public void loginConsultorio (ClinicaVeterinaria sistemaClinica){
+    JFrame janelaPai = (JFrame) SwingUtilities.getWindowAncestor(this);
+    TelaLogin login = new TelaLogin(janelaPai, "Login - PatasCloud",sistemaClinica, () ->{
+        abrirTelaConsultorio(janelaPai, "tela teste", clinicaVeterinaria);
+    });
+    
+    login.show();
+
+    }
+
 
     public void abrirTelaRecepcao(JFrame Pai, String tituloPagina, ClinicaVeterinaria clinicaVeterinaria){
 
-      TelaRecepcao telaRecepcao = new TelaRecepcao(Pai, "Tela Recepção - PatasCloud", clinicaVeterinaria);
-      telaRecepcao.show();
+      TelaRecepcao tela = new TelaRecepcao(Pai, "Tela Recepção - PatasCloud", clinicaVeterinaria);
+      tela.show();
+    }
+
+    public void abrirTelaConsultorio(JFrame Pai, String tituloPagina, ClinicaVeterinaria clinicaVeterinaria){
+
+      TelaConsultorio tela = new TelaConsultorio(Pai, "Tela Consultorio - PatasCloud", clinicaVeterinaria);
+      tela.show();
     }
 
     public void telaEmDesenvolvimento(){

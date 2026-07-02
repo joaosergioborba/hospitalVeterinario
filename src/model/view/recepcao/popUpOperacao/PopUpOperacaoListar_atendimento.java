@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 
 import model.entity.Atendimento;
 import model.entity.Funcionario;
-import model.entity.Tutor;
 import model.service.ClinicaVeterinaria;
 import model.view.abstract_class.PopUpOperacaoIncluir;
 

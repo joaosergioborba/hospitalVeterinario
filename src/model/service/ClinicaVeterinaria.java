@@ -236,6 +236,7 @@ public class ClinicaVeterinaria {
      public List<Atendimento> listarAtendimentosCadastrados(Boolean entidadeAtiva){
 
       List<Atendimento> lista = atendimentos.stream().toList();
+      
       return lista;
 
     }
@@ -305,6 +306,7 @@ public class ClinicaVeterinaria {
 
       atendimento.checkInParaAtendimento();
       filaAtendimento.add(atendimento);
+  
 
     }
 
@@ -370,7 +372,6 @@ public class ClinicaVeterinaria {
     public Boolean login(String cpf, String senha){
 
       Funcionario resultado = funcionarios.stream().filter(funcionarioAtual-> funcionarioAtual.getCpf().equals(cpf)).findFirst().orElse(null);
-
 
       if(resultado == null){
         return false;
