@@ -35,15 +35,31 @@ public class ClinicaVeterinaria {
 
     }
 
-    public boolean isCpfCadastrado(String cpf){
+
+    //validar cpf
+
+
+    public boolean isCpfTutorCadastrado(String cpf){
       for (Tutor tutor : tutores) {
         String cpfRegistro = tutor.getCpf();
         if (cpfRegistro.equals(cpf)){
+          System.out.println("tutor" + cpf);
           return true;
         }
       }
       return false;
     }
+    public boolean isCpfFuncionarioCadastrado(String cpf){
+      for (Funcionario funcionario : funcionarios) {
+        String cpfRegistro = funcionario.getCpf();
+        if (cpfRegistro.equals(cpf)){
+           System.out.println("Funcionario" + cpf);
+          return true;
+        }
+      }
+      return false;
+    }
+    
 
     // animais services
 
@@ -118,7 +134,7 @@ public class ClinicaVeterinaria {
     }
     
     public int adicionarFuncionarioService(Funcionario data){
-      if(isCpfCadastrado(data.getCpf())){
+      if(isCpfFuncionarioCadastrado(data.getCpf())){
 
         System.out.println("Não foi possível adicionar esse Usuário. CPF já cadastrado no banco de dados");
         return -1;
@@ -179,7 +195,7 @@ public class ClinicaVeterinaria {
 
     public int adicionarTutorService(Tutor data){
 
-      if(isCpfCadastrado(data.getCpf())){
+      if(isCpfTutorCadastrado(data.getCpf())){
 
         System.out.println("Não foi possível adicionar esse Usuário. CPF já cadastrado no banco de dados");
         return -1;
@@ -220,6 +236,7 @@ public class ClinicaVeterinaria {
      public List<Atendimento> listarAtendimentosCadastrados(Boolean entidadeAtiva){
 
       List<Atendimento> lista = atendimentos.stream().toList();
+      
       return lista;
 
     }
@@ -289,6 +306,7 @@ public class ClinicaVeterinaria {
 
       atendimento.checkInParaAtendimento();
       filaAtendimento.add(atendimento);
+  
 
     }
 
@@ -324,6 +342,10 @@ public class ClinicaVeterinaria {
 
     }
 
+    public List<Atendimento> listarProximosAtendimentos(){
+      return filaAtendimento.stream().toList();
+    }
+
     public void adicionarExameService(Exame data){
 
       this.exames.add(data);
@@ -350,7 +372,6 @@ public class ClinicaVeterinaria {
     public Boolean login(String cpf, String senha){
 
       Funcionario resultado = funcionarios.stream().filter(funcionarioAtual-> funcionarioAtual.getCpf().equals(cpf)).findFirst().orElse(null);
-
 
       if(resultado == null){
         return false;
