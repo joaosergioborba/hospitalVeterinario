@@ -44,7 +44,7 @@ O PatasCloud busca auxiliar no gerenciamento de atendimentos veterinários, prop
 
 Para facilitar a avaliação do projeto, utilize a seguinte senha para acessar o sistema:
 
-**Senha:**
+**Usuario e senha:**
 
 ```text
 123456
