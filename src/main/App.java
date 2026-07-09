@@ -20,6 +20,7 @@ import model.view.recepcao.TelaRecepcao;
 import javax.swing.*;
 import java.awt.*;
 
+import com.formdev.flatlaf.FlatLightLaf;
 
 
 
@@ -27,13 +28,11 @@ public class App {
 
     private ClinicaVeterinaria clinica;
 
-     public App(ClinicaVeterinaria clinica) {
-         this.clinica = clinica; 
-     }
+    public App(ClinicaVeterinaria clinica) {
+        this.clinica = clinica;
+    }
 
-    
-
-    // public void login(ClinicaVeterinaria sistemaClinica){
+     // public void login(ClinicaVeterinaria sistemaClinica){
 
 
     //     Screen tela = new Screen("Tela login - PatasCloud", 400, 300);
@@ -52,28 +51,37 @@ public class App {
 
     // }
 
-    public void abrirInterface(ClinicaVeterinaria sistemaClinica){
+    public void abrirInterface(ClinicaVeterinaria sistemaClinica) {
 
-        Screen tela = new Screen("Screen", 1500, 700);
+      Screen tela = new Screen("PatasCloud - Hospital Veterinário", 1500, 700);
         TelaHome home = new TelaHome(sistemaClinica);
 
         tela.setContent(home, "Home - PatasCloud");
-        tela.show();    
+        tela.show();
     }
 
-    
+
     public static void main(String[] args) throws Exception {
 
-        
+        // Inicializa o FlatLaf antes de criar as telas
+        try {
+           FlatLightLaf.setup();    
+        } catch (Exception ex) {
+            System.err.println("Falha ao iniciar o FlatLaf.");
+        }
 
-        
+
         ClinicaVeterinaria sistemaClinica = new ClinicaVeterinaria();
+
         App app = new App(sistemaClinica);
-        carregarDadosIniciais inicar = new carregarDadosIniciais(sistemaClinica);
+
+        carregarDadosIniciais iniciar = new carregarDadosIniciais(sistemaClinica);
+
 
         app.abrirInterface(sistemaClinica);
-
-       
+    }
 
 }
-}
+    
+
+   
