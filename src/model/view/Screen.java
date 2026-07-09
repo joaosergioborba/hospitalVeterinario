@@ -2,8 +2,15 @@ package model.view;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.event.WindowEvent;
+
+import java.awt.event.WindowAdapter;
+
 
 import javax.swing.*;
+
+import model.persistencia.Persistencia;
+import model.service.ClinicaVeterinaria;
 
 
 public class Screen{
@@ -53,6 +60,16 @@ public class Screen{
       frame.setSize(1500, 700);
       frame.setLocationRelativeTo(null);
 
+    }
+
+    public void configurarPersistencia(ClinicaVeterinaria clinica) {
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                Persistencia.salvar(clinica);
+                System.out.println("Dados salvos!");
+            }
+        });
     }
 
 

@@ -119,10 +119,10 @@ public class PopUpModel extends JPanel{
 
     panel.add(pesquisarButton);
     panel.add(incluirButton);
-    panel.add(editarButton);
-    panel.add(carregarButton);
-    panel.add(baixarButton);
-    panel.add(AvisoLabel);
+    //panel.add(editarButton);
+    //panel.add(carregarButton);
+    //panel.add(baixarButton);
+    //panel.add(AvisoLabel);
     
 
     return panel;

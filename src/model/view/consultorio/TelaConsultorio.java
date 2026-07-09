@@ -7,6 +7,7 @@ import javax.swing.*;
 import model.service.ClinicaVeterinaria;
 import model.view.abstract_class.PopUpModel;
 import model.view.consultorio.popUpOperacao.PopUpOperacaoListar;
+import model.view.consultorio.popUpOperacao.PopUpProximoAtendimento;
 import model.view.conteudoPopUps.PopUpEmDesenvolvimento;
 import model.view.recepcao.telasBase.TelaFuncionario;
 import model.view.recepcao.telasBase.TelaTutor;
@@ -47,7 +48,7 @@ public class TelaConsultorio {
     });
 
     iniciarAtendimentoButton.addActionListener(e->{
-    // gerenciarTutorButtonClicked(Pai);
+     atenderClicked(Pai);
     });
    
 
@@ -59,16 +60,15 @@ public class TelaConsultorio {
   }
 
   private void visualizarProximosButtonClicked(JFrame Pai){
-    PopUpOperacaoListar tela = new PopUpOperacaoListar(Pai, "Gerenciar tutores - PatasCloud", clinicaVeterinaria, clinicaVeterinaria.listarProximosAtendimentos());
+    PopUpOperacaoListar tela = new PopUpOperacaoListar(Pai, "Atendimentos pendentes - PatasCloud", clinicaVeterinaria, clinicaVeterinaria.listarProximosAtendimentos());
     //PopUpEmDesenvolvimento popUp = new PopUpEmDesenvolvimento();
     tela.show();
     
   }
-  private void gerenciarFuncionarioButtonClicked(JFrame Pai){
-    TelaFuncionario telaGerenciarFuncionario = new TelaFuncionario(Pai, "Gerenciar Funcionarios - PatasCloud", clinicaVeterinaria);
-    PopUpEmDesenvolvimento popUp = new PopUpEmDesenvolvimento();
-    telaGerenciarFuncionario.setContent(popUp);
-    telaGerenciarFuncionario.show();
+  private void atenderClicked(JFrame Pai){
+    PopUpProximoAtendimento tela = new PopUpProximoAtendimento(Pai, "Atendimento - PatasCloud", clinicaVeterinaria);
+    //PopUpEmDesenvolvimento popUp = new PopUpEmDesenvolvimento();
+    tela.show();
   }
   
 

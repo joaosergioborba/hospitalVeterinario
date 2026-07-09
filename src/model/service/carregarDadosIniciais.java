@@ -133,13 +133,6 @@ public class carregarDadosIniciais {
     Funcionario funcionario1 = new Funcionario("1234567", "Bruninho Carvalho", LocalDate.of(1989, 2, 28), "Rodovia Principal, Km 5", Funcao.LIMPEZA,"Silvestres", 1800.00, "123456");
   clinicaVeterinaria.adicionarFuncionarioService(funcionario1);
     
-
-  
-
-
-
-    
-
   }
   
 }
