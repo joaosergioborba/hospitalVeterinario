@@ -39,6 +39,8 @@ public class PopUpOperacaoCheckIn_animal extends PopUpOperacaoIncluir{
   public PopUpOperacaoCheckIn_animal(JFrame janelaPai, String tituloPagina, ClinicaVeterinaria clinicaVeterinaria){
     super(janelaPai, tituloPagina, clinicaVeterinaria);
 
+
+
     panel = new JPanel();
 
     JLabel procurarAtendimento = new JLabel("------------------------- Procurar Atendimento -------------------------");

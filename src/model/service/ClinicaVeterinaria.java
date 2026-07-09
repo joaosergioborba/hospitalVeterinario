@@ -323,6 +323,19 @@ public class ClinicaVeterinaria implements Serializable {
       return filaAtendimento.peek();
 
     }
+    public Atendimento AtenderProximo(){
+
+      if(filaAtendimento.isEmpty()){
+
+        return null;
+
+      }
+
+      Atendimento atendimento = filaAtendimento.remove();
+      atendimento.finalizarAtendimento();
+      return atendimento;
+
+    }
 
     public Atendimento iniciarAtendimento(){
 

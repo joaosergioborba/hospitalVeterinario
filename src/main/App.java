@@ -8,12 +8,6 @@ import model.persistencia.Persistencia;
 import model.service.ClinicaVeterinaria;
 import model.view.Screen;
 import model.view.TelaHome;
-import model.view.TelaLogin;
-import model.view.recepcao.TelaRecepcao;
-
-import javax.swing.*;
-import java.awt.*;
-
 import com.formdev.flatlaf.FlatLightLaf;
 
 
@@ -44,9 +38,6 @@ public class App {
         ClinicaVeterinaria sistemaClinica = Persistencia.carregar();
         App app = new App(sistemaClinica);
        // carregarDadosIniciais inicar = new carregarDadosIniciais(sistemaClinica);
-
-        app.abrirInterface(sistemaClinica);
-
         // Inicializa o FlatLaf antes de criar as telas
         try {
            FlatLightLaf.setup();    

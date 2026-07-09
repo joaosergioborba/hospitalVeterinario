@@ -1,6 +1,5 @@
 package model.entity;
 
-import java.io.Serializable;
 import java.sql.Date;
 import model.enums.StatusExame;
 //coloquei a explicacao desse extends e do super em outras classes :)
