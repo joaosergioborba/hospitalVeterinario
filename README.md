@@ -1,18 +1,47 @@
-## Projeto POO - Hospital veterinário 
+# 🐾 PatasCloud
 
-Estamos desenvolvendo um sistema de gestão para um hospital veterinario
+Sistema desenvolvido para a disciplina de Engenharia de Software com o objetivo de simular o funcionamento de um hospital veterinário.
 
-## Folder Structure
+## Objetivo
 
-The workspace contains two folders by default, where:
+O PatasCloud busca auxiliar no gerenciamento de atendimentos veterinários, proporcionando uma interface simples e intuitiva para recepcionistas e veterinários.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Funcionalidades
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- Login de usuários
+- Cadastro de clientes
+- Cadastro de animais
+- Agendamento de consultas
+- Atendimento em consultório
+- Manual do sistema
+- Centro de diagnósticos (em desenvolvimento)
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Tecnologias utilizadas
 
-## Dependency Management
+- Java 17
+- Java Swing
+- FlatLaf
+- Docker
+- PostgreSQL
+- Git e GitHub
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Estrutura do projeto
+
+- `model` – entidades e regras de negócio.
+- `service` – serviços e lógica do sistema.
+- `view` – interfaces gráficas.
+- `db` – scripts do banco de dados.
+
+## Como executar
+
+1. Clone o repositório.
+2. Inicie o banco de dados utilizando o Docker Compose.
+3. Execute o script `init.sql`.
+4. Abra o projeto no VS Code.
+5. Execute a classe `App.java`.
+
+## Desenvolvido por
+
+- João Sergio Borba
+- Eloisa Franco de Souza
+  
