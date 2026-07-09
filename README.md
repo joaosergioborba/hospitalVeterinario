@@ -1,6 +1,6 @@
 # 🐾 PatasCloud
 
-  Sistema desenvolvido para a disciplina de Programação Orientada a Objetos com o objetivo de simular o funcionamento de um hospital veterinário.
+Sistema desenvolvido para a disciplina de Engenharia de Software com o objetivo de simular o funcionamento de um hospital veterinário.
 
 ## Objetivo
 
