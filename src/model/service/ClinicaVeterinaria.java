@@ -1,5 +1,6 @@
 package model.service;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,8 +18,9 @@ import model.entity.Vacina;
 import model.enums.StatusAtendimento;
 
 
-public class ClinicaVeterinaria {
+public class ClinicaVeterinaria implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     private List<Animal> animais = new ArrayList<>();
     private List<Funcionario> funcionarios = new ArrayList<>();
     private List<Tutor> tutores = new ArrayList<>();

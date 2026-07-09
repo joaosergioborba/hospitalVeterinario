@@ -1,11 +1,14 @@
 package model.entity;
 
 
+import java.io.Serializable;
+
 import model.enums.PorteAnimal;
 import model.enums.Sexo;
 import model.enums.TamanhoPelo;
 
-public class Animal {
+public class Animal implements Serializable{
+private static final long serialVersionUID = 1L;
   private int id;
   private String nome;
   private int idade;

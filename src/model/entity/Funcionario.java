@@ -1,5 +1,6 @@
 package model.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import model.enums.Funcao;

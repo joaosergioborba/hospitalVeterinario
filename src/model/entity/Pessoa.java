@@ -1,9 +1,11 @@
 package model.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class Pessoa {
+public class Pessoa implements Serializable {
+  private static final long serialVersionUID = 1L;
   private int id;
   private String cpf;
   private String nome;

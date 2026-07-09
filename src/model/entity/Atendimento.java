@@ -1,5 +1,6 @@
 package model.entity;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -7,7 +8,8 @@ import java.util.List;
 
 import model.enums.StatusAtendimento;
 
-public class Atendimento {
+public class Atendimento implements Serializable{
+  private static final long serialVersionUID = 1L;
   private int id;
   private Animal animal;
   private Funcionario veterinario;

@@ -116,13 +116,13 @@ public class TelaRecepcao {
     telaGerenciarFuncionario.show();
   }
   private void gerenciarAtendimentoButtonClicked(JFrame Pai){
-    TelaAtendimento telaGerenciarAtendimento = new TelaAtendimento(Pai, "Gerenciar Funcionarios - PatasCloud", clinicaVeterinaria);
+    TelaAtendimento telaGerenciarAtendimento = new TelaAtendimento(Pai, "Gerenciar Atendimentos - PatasCloud", clinicaVeterinaria);
     PopUpEmDesenvolvimento popUp = new PopUpEmDesenvolvimento();
     telaGerenciarAtendimento.setContent(popUp);
     telaGerenciarAtendimento.show();
   }
   private void checkInButtonClicked(JFrame Pai){
-    TelaCheckIn tela = new TelaCheckIn(Pai, "Gerenciar Funcionarios - PatasCloud", clinicaVeterinaria);
+    TelaCheckIn tela = new TelaCheckIn(Pai, "Gerenciar Check-IN - PatasCloud", clinicaVeterinaria);
     PopUpEmDesenvolvimento popUp = new PopUpEmDesenvolvimento();
     tela.setContent(popUp);
     tela.show();

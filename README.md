@@ -1,17 +1,7 @@
-## Projeto POO - Hospital veterinário 
+## Projeto POO - Hospital veterinário
 
-Estamos desenvolvendo um sistema de gestão para um hospital veterinario
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+usuario - 123456
+senha - 123456
 
 ## Dependency Management
 

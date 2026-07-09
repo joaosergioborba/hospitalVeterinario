@@ -1,9 +1,10 @@
 package model.entity;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class RegistroClinico {
-
+public class RegistroClinico implements Serializable {
+  private static final long serialVersionUID = 1L;
   private int id;
   private Funcionario veterinario;
   private Animal animal;

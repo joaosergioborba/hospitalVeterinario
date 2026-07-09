@@ -1,9 +1,12 @@
 package model.entity;
 
+import java.io.Serializable;
+
 import model.enums.TipoProduto;
 
-public class Produto {
+public class Produto implements Serializable{
   private int id;
+  private static final long serialVersionUID = 1L;
   private String descricao;
   private float valor;
   private TipoProduto tipoProduto;
