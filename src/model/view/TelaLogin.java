@@ -30,7 +30,7 @@ public class TelaLogin {
     this.clinicaVeterinaria = clinicaVeterinaria;
     this.acaoAoLogar = acao;
     jDialog = new JDialog(janelaPai, tituloPagina, false);
-    jDialog.setSize(400, 310);
+    jDialog.setSize(420, 330);
     jDialog.setLocationRelativeTo(janelaPai);
     jDialog.setResizable(false);
     jDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -44,12 +44,14 @@ public class TelaLogin {
 
   public JPanel conteudoPagina(JFrame pai, ClinicaVeterinaria clinicaVeterinaria, Runnable acaoAoLogar){
 
-    JPanel panel = new JPanel();
+    JPanel panel = new JPanel(new GridLayout(7, 1, 8, 8));
+    panel.setBackground(Color.WHITE);
+    panel.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 35, 15, 35));
     
-    JLabel labelBemVindo = new JLabel("Bem-vindo ao PatasCloud");
+    JLabel labelBemVindo = new JLabel("Bem-vindo ao PatasCloud", JLabel.CENTER);
     URL imageURL = getClass().getResource("/assets/logo_sem_fundo.png");
-    ImageIcon logo = new ImageIcon(((new ImageIcon(imageURL)).getImage()).getScaledInstance(180, 180, Image.SCALE_SMOOTH));
-    JLabel imagem = new JLabel(logo);
+    ImageIcon logo = new ImageIcon(((new ImageIcon(imageURL)).getImage()).getScaledInstance(130, 80, Image.SCALE_SMOOTH));
+    JLabel imagem = new JLabel(logo, JLabel.CENTER);
 
     
     JLabel labelUsuario = new JLabel("Usuário:");
@@ -61,6 +63,7 @@ public class TelaLogin {
 
 
     JButton loginButton = new JButton("Entrar");
+  
 
     loginButton.addActionListener(e -> {
       String usuarioDigitado = campoUsuario.getText();
@@ -88,6 +91,7 @@ public class TelaLogin {
     });
 
     panel.add(imagem);
+
     panel.add(labelBemVindo);
 
     panel.add(labelUsuario);
@@ -96,7 +100,7 @@ public class TelaLogin {
     panel.add(labelSenha);
     panel.add(campoSenha);
 
-    panel.add(loginButton);
+  panel.add(loginButton);
     return panel;
   }
 

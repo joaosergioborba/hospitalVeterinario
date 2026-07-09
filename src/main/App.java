@@ -8,6 +8,13 @@ import model.persistencia.Persistencia;
 import model.service.ClinicaVeterinaria;
 import model.view.Screen;
 import model.view.TelaHome;
+import model.view.TelaLogin;
+import model.view.recepcao.TelaRecepcao;
+
+import javax.swing.*;
+import java.awt.*;
+
+import com.formdev.flatlaf.FlatLightLaf;
 
 
 
@@ -15,9 +22,9 @@ public class App {
 
     private ClinicaVeterinaria clinica;
 
-     public App(ClinicaVeterinaria clinica) {
-         this.clinica = clinica; 
-     }
+    public App(ClinicaVeterinaria clinica) {
+        this.clinica = clinica;
+    }
 
     public void abrirInterface(ClinicaVeterinaria sistemaClinica){
 
@@ -27,7 +34,7 @@ public class App {
         TelaHome home = new TelaHome(sistemaClinica);
 
         tela.setContent(home, "Home - PatasCloud");
-        tela.show();    
+        tela.show();
     }
 
 
@@ -40,5 +47,21 @@ public class App {
 
         app.abrirInterface(sistemaClinica);
 
+        // Inicializa o FlatLaf antes de criar as telas
+        try {
+           FlatLightLaf.setup();    
+        } catch (Exception ex) {
+            System.err.println("Falha ao iniciar o FlatLaf.");
+        }
+
+
+
+
+
+        app.abrirInterface(sistemaClinica);
+    }
+
 }
-}
+    
+
+   
