@@ -40,6 +40,18 @@ O PatasCloud busca auxiliar no gerenciamento de atendimentos veterinários, prop
 4. Abra o projeto no VS Code.
 5. Execute a classe `App.java`.
 
+## Credenciais de Acesso
+
+Para facilitar a avaliação do projeto, utilize a seguinte senha para acessar o sistema:
+
+**Senha:**
+
+```text
+123456
+```
+
+> Esta senha foi definida exclusivamente para fins de demonstração e avaliação acadêmica.
+
 ## Desenvolvido por
 
 - João Sergio Borba
